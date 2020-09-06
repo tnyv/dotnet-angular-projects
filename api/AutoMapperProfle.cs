@@ -1,6 +1,6 @@
+using Api.Apps.Portfolio;
+using Api.Apps.Portfolio.Models;
 using AutoMapper;
-using Api.DTOs.MessageDTOs;
-using Api.Models;
 
 namespace LMS
 {

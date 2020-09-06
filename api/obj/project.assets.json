@@ -5944,11 +5944,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\BOSS\\Desktop\\DEV\\portfolio\\api\\Api.csproj",
+      "projectUniqueName": "C:\\Users\\BOSS\\Desktop\\DEV\\home\\api\\Api.csproj",
       "projectName": "Api",
-      "projectPath": "C:\\Users\\BOSS\\Desktop\\DEV\\portfolio\\api\\Api.csproj",
+      "projectPath": "C:\\Users\\BOSS\\Desktop\\DEV\\home\\api\\Api.csproj",
       "packagesPath": "C:\\Users\\BOSS\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\BOSS\\Desktop\\DEV\\portfolio\\api\\obj\\",
+      "outputPath": "C:\\Users\\BOSS\\Desktop\\DEV\\home\\api\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\"

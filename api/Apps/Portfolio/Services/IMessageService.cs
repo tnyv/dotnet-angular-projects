@@ -1,8 +1,7 @@
 using System.Threading.Tasks;
-using Api.DTOs.MessageDTOs;
-using Api.Models;
+using Api.Apps.Portfolio.Models;
 
-namespace Api.Services.MessageService
+namespace Api.Apps.Portfolio.Services
 {
     public interface IMessageService
     {

@@ -1,13 +1,12 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
-import { Observable } from "rxjs";
 
 @Injectable({
   providedIn: "root",
 })
 export class EmailService {
   // PRODUCTION LINK: private baseUrl = 'https://tonyvu.dev';
-  // DEBUG LINK: private baseUrl = "http://localhost:4200";
+  // DEBUG LINK: private baseUrl = "https://localhost:44370/message";
   private baseUrl = "https://tonyvu.dev/message";
 
   constructor(private http: HttpClient) {}

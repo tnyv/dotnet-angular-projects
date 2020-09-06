@@ -1,14 +1,8 @@
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Claims;
 using System.Threading.Tasks;
-using Api.DTOs.MessageDTOs;
-using Api.Models;
-using Api.Services.MessageService;
-using Microsoft.AspNetCore.Authorization;
+using Api.Apps.Portfolio.Services;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Api.Controllers
+namespace Api.Apps.Portfolio.Controllers
 {
     [ApiController]
     [Route("[controller]")]

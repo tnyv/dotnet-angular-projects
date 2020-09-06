@@ -1,6 +1,4 @@
-using System.Collections.Generic;
-
-namespace Api.Models
+namespace Api.Apps.Portfolio.Models
 {
     public class Message
     {

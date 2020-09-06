@@ -1,5 +1,4 @@
-
-namespace Api.DTOs.MessageDTOs
+namespace Api.Apps.Portfolio
 {
     public class SendMessageDTO
     {
