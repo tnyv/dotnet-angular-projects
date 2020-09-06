@@ -1,9 +1,9 @@
+// Home / Portfolio
 import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
 import { FormsModule } from "@angular/forms";
 import { HttpModule } from "@angular/http";
 import { HttpClientModule } from '@angular/common/http';
-
 import { MatButtonModule } from "@angular/material/button";
 import { MatSidenavModule } from "@angular/material/sidenav";
 import { MatMenuModule } from "@angular/material/menu";
@@ -15,7 +15,6 @@ import { MatInputModule } from "@angular/material/input";
 import { MatCardModule } from "@angular/material/card";
 import { MatSelectModule } from "@angular/material/select";
 import { ReactiveFormsModule } from "@angular/forms";
-
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
@@ -31,8 +30,22 @@ import { ContactComponent } from "./portfolio/contact/contact.component";
 import { Globals } from "./globals";
 import { ResumeComponent } from "./portfolio/resume/resume.component";
 
+// POS
+import { ToastrModule } from "ngx-toastr";
+import { NavbarComponent } from "./pos/components/navbar/navbar.component";
+import { SalesUIComponent } from "./pos/components/sales-ui/sales-ui.component";
+import { AdminUIComponent } from "./pos/components/admin-ui/admin-ui.component";
+import { PosGlobals } from "./pos/pos-globals";
+import { ItemsDisplayComponent } from "./pos/components/sales-ui/items-display/items-display.component";
+import { RegisterComponent } from "./pos/components/sales-ui/register/register.component";
+import { MenuBtnsComponent } from "./pos/components/sales-ui/menu-btns/menu-btns.component";
+import { RegisterService } from "./pos/services/register.service";
+import { MatSortModule } from "@angular/material/sort";
+import {MatTableModule} from '@angular/material/table';
+
 @NgModule({
   declarations: [
+    // Home / Portfolio
     AppComponent,
     HomeComponent,
     PortfolioNavComponent,
@@ -40,6 +53,13 @@ import { ResumeComponent } from "./portfolio/resume/resume.component";
     ProjectsComponent,
     ContactComponent,
     ResumeComponent,
+    // Pos
+    NavbarComponent,
+    SalesUIComponent,
+    AdminUIComponent,
+    ItemsDisplayComponent,
+    RegisterComponent,
+    MenuBtnsComponent
   ],
   imports: [
     BrowserModule,
@@ -62,9 +82,15 @@ import { ResumeComponent } from "./portfolio/resume/resume.component";
     MatCardModule,
     MatSelectModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    ToastrModule.forRoot({
+      timeOut: 3000,
+      preventDuplicates: true,
+    }),
+    MatSortModule,
+    MatTableModule
   ],
-  providers: [Globals],
+  providers: [Globals, PosGlobals, RegisterService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

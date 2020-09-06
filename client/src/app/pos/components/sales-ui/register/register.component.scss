@@ -1,0 +1,79 @@
+.display-container {
+    position: absolute;
+    top: 5vh;
+    right: 0;
+    height: 95vh;
+    width: 30vw;
+    background-color: rgb(236, 236, 236);
+}
+
+.totals {
+    position: absolute;
+    right: 0;
+    height: 47.5vh;
+    width: 30vw;
+}
+
+.subtotal-wrapper, .discount-wrapper, .tax-wrapper, .total-wrapper, .input-wrapper, .change-wrapper {
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    width: 100%;
+    height: 7.92vh;
+    color: white;
+    background: #343a40;
+    border-bottom: .01vh rgb(97, 97, 97) solid;
+}
+
+.subtotal-label, .discount-label, .tax-label, .total-label, .change-label {
+    line-height: 7.92vh;
+    font-size: 1.25vw;
+}
+
+.subtotal-data, .discount-data, .tax-data, .input-data {
+    line-height: 7.92vh;
+    font-size: 1vw;
+    position: absolute;
+    right: 1.5vw;
+} 
+
+.total-data, .input-data, .change-data {
+    line-height: 7.92vh;
+    font-size: 2vw;
+    position: absolute;
+    right: 1.3vw;
+}
+
+.payment-btns {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 7.92vh;
+    background: #343a40;
+
+    button {
+        border-radius: 0;
+        width: 15vw;
+        font-size: 1.25vw;
+    }
+}
+
+.cash-btn {
+    border-right: .01vh rgb(143, 143, 143) solid;
+}
+
+.numpad {
+    position: absolute;
+    top: 47.5vh;
+    right: 0;
+    height: 47.5vh;
+    width: 30vw;
+}
+
+.numpad-btn {
+    width: 7vw;
+    height: 9vh;
+    margin-top: 2.3vh;
+    margin-left: 2.3vw;
+    font-size: 1.5vw;
+}
