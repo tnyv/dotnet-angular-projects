@@ -38,7 +38,7 @@ namespace Api
                 options.AddPolicy(name: MyAllowSpecificOrigins,
                                   builder =>
                                   {
-                                      builder.WithOrigins("http://tonyvu.dev")
+                                      builder.WithOrigins("https://tonyvu.dev")
                                       .AllowAnyHeader()
                                       .AllowAnyMethod()
                                       .AllowAnyOrigin();

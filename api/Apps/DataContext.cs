@@ -7,12 +7,10 @@ namespace Api.Apps
     // this backend .NET server.
     public class DataContext : DbContext
     {
-        public DataContext(DbContextOptions<DataContext> options) : base(options) { 
-            this.Database.Migrate();
-        }
+        public DataContext(DbContextOptions<DataContext> options) : base(options) => this.Database.Migrate();
 
         // Pos
-        public DbSet<SaleEntry> SaleEntries { get; set;}
+        public DbSet<SaleEntry> SaleEntries { get; set; }
 
         // LMS
         // public DbSet<Course> Courses { get; set;}

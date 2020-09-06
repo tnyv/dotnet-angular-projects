@@ -32,17 +32,17 @@ export class RegisterComponent implements OnInit {
           this.registerService.inputNum - this.registerService.total;
 
         // Create sale from service
-        // this.salesService
-        //   .createSale(
-        //     this.registerService.total,
-        //     "Cash",
-        //     this.registerService.inputNum,
-        //     this.registerService.change
-        //   )
-        //   .subscribe(
-        //     data => console.log(data),
-        //     error => console.log(error)
-        //   );
+        this.salesService
+          .createSale(
+            this.registerService.total,
+            "Cash",
+            this.registerService.inputNum,
+            this.registerService.change
+          )
+          .subscribe(
+            data => console.log(data),
+            error => console.log(error)
+          );
         this.registerService.inProgress = false;
         this.toastr.success("Purchase completed.", "SUCCESS");
       }
@@ -57,17 +57,17 @@ export class RegisterComponent implements OnInit {
       this.registerService.inputNum = 0;
 
       // Create sale from service
-      // this.salesService
-      //   .createSale(
-      //     this.registerService.total,
-      //     "Credit",
-      //     this.registerService.inputNum,
-      //     this.registerService.change
-      //   )
-      //   .subscribe(
-      //     data => console.log(data),
-      //     error => console.log(error)
-      //   );
+      this.salesService
+        .createSale(
+          this.registerService.total,
+          "Credit",
+          this.registerService.inputNum,
+          this.registerService.change
+        )
+        .subscribe(
+          data => console.log(data),
+          error => console.log(error)
+        );
       this.registerService.inProgress = false;
       this.toastr.success("Purchase completed.", "SUCCESS");
     }
