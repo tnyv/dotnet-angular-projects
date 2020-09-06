@@ -9,11 +9,11 @@ import { map, shareReplay } from "rxjs/operators";
 import { Globals } from "../../globals";
 
 @Component({
-  selector: "app-nav",
-  templateUrl: "./nav.component.html",
-  styleUrls: ["./nav.component.scss"],
+  selector: "app-portfolio-nav",
+  templateUrl: "./portfolio-nav.component.html",
+  styleUrls: ["./portfolio-nav.component.scss"],
 })
-export class NavComponent {
+export class PortfolioNavComponent {
   globals: Globals;
   handSetState: boolean;
 
@@ -45,6 +45,6 @@ export class NavComponent {
 
   scroll(id: string) {
     let el = document.getElementById(id);
-    el.scrollIntoView({ behavior: 'smooth' });
+    el.scrollIntoView({ behavior: "smooth" });
   }
 }

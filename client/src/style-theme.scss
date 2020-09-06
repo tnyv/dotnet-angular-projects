@@ -13,17 +13,4 @@ $style-theme: mat-light-theme(
   $style-theme-warn
 );
 
-.mat-drawer-inner-container {
-  background-color: #fafafa;
-}
-
-.mat-menu-content {
-  width: 200px;
-}
-
-.mat-drawer-inner-container {
-  background: #eee;
-}
-
-
 @include angular-material-theme($style-theme);

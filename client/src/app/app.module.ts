@@ -20,7 +20,7 @@ import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { HomeComponent } from "./portfolio/home/home.component";
-import { NavComponent } from "./portfolio/nav/nav.component";
+import { PortfolioNavComponent } from "./portfolio/portfolio-nav/portfolio-nav.component";
 import { LayoutModule } from "@angular/cdk/layout";
 import { MatToolbarModule } from "@angular/material/toolbar";
 import { MatIconModule } from "@angular/material/icon";
@@ -35,7 +35,7 @@ import { ResumeComponent } from "./portfolio/resume/resume.component";
   declarations: [
     AppComponent,
     HomeComponent,
-    NavComponent,
+    PortfolioNavComponent,
     CodeComponent,
     ProjectsComponent,
     ContactComponent,
