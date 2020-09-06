@@ -2,7 +2,9 @@
 api/Apps/Portfolio/Services/MessageService.cs
 api/appsettings.json
 api/wwwroot/
-wwwroot/
+api/bin/
+api/obj/
+
 
 
 
