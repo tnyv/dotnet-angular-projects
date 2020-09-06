@@ -1,6 +1,6 @@
 .console {
   background-color: rgb(30, 30, 30);
-  height: 37rem;
+  height: 25rem;
   padding: 2rem 3rem 0.5rem 3rem;
   margin-bottom: 1rem;
 }
@@ -52,6 +52,13 @@
 .mainHeader {
   margin: auto;
   text-align: center;
+  font-size: 60px;
+}
+
+.subHeader {
+  margin: auto;
+  text-align: center;
+  font-size: 30px;
 }
 
 .home-container {
