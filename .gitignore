@@ -1,3 +1,9 @@
 .vscode
 api/Apps/Portfolio/Services/MessageService.cs
 api/appsettings.json
+api/wwwroot/
+wwwroot/
+
+
+
+

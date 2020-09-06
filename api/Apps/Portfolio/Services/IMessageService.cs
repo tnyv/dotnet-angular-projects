@@ -1,5 +1,4 @@
 using System.Threading.Tasks;
-using Api.Apps.Portfolio.Models;
 
 namespace Api.Apps.Portfolio.Services
 {
