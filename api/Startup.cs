@@ -6,6 +6,8 @@ using Microsoft.Extensions.Hosting;
 using AutoMapper;
 using System.IO;
 using Api.Apps.Portfolio.Services;
+using Api.Apps;
+using Microsoft.EntityFrameworkCore;
 
 namespace Api
 {
@@ -25,6 +27,7 @@ namespace Api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddDbContext<DataContext>(context => context.UseNpgsql(Configuration.GetConnectionString("DefaultConnection")));
             services.AddControllersWithViews();
             services.AddControllers();
             services.AddAutoMapper(typeof(Startup));
