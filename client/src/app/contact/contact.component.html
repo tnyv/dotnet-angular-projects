@@ -1,0 +1,81 @@
+<div
+  class="jumbotron"
+  [ngStyle]="{
+    width: '93%',
+    margin: 'auto',
+    padding: '5rem',
+    marginTop: '5rem'
+  }"
+>
+  <h1
+    [ngStyle]="{
+      textAlign: 'center'
+    }"
+  >
+    CONTACT
+  </h1>
+  <hr class="my-4" />
+
+  <ng-template [ngIf]="messageSent" [ngIfElse]="contact">
+    <div class="sent-container">
+      <h1 class="vertical-center">Thanks for your message!</h1>
+    </div>
+  </ng-template>
+
+  <ng-template #contact>
+    <div class="row justify-content-center contact-form">
+      <mat-form-field appearance="legacy" class="col-md-5">
+        <mat-label>Name</mat-label>
+        <input matInput [(ngModel)]="name" />
+      </mat-form-field>
+    </div>
+    <div class="row justify-content-center contact-form">
+      <mat-form-field appearance="legacy" class="col-md-5">
+        <mat-label>Email</mat-label>
+        <input matInput [(ngModel)]="email" />
+      </mat-form-field>
+    </div>
+    <div class="row justify-content-center contact-form">
+      <mat-form-field appearance="legacy" class="col-md-5">
+        <mat-label>Subject</mat-label>
+        <input matInput [(ngModel)]="subject" />
+      </mat-form-field>
+    </div>
+    <div class="row justify-content-center contact-form">
+      <mat-form-field appearance="legacy" class="col-md-5">
+        <mat-label>Message</mat-label>
+        <textarea
+          matInput
+          class="contact-form-text"
+          [(ngModel)]="messageBody"
+        ></textarea>
+      </mat-form-field>
+    </div>
+    <div class="row justify-content-center contact-form">
+      <button
+        mat-raised-button
+        color="primary"
+        class="col-md-2"
+        (click)="sendEmail()"
+      >
+        SEND
+      </button>
+    </div>
+
+    <ng-template [ngIf]="!formValid" [ngIfElse]="default">
+      <div class="row justify-content-center contact-form">
+        <br />
+        <p class="warning">Error: inputs cannot be blank</p>
+      </div>
+    </ng-template>
+
+    <ng-template [ngIf]="!emailValid" [ngIfElse]="default">
+      <div class="row justify-content-center contact-form">
+        <br />
+        <p class="warning">Error: email is invalid</p>
+      </div>
+    </ng-template>
+  </ng-template>
+</div>
+
+<ng-template #default></ng-template>

@@ -1,0 +1,131 @@
+<div class="jumbotron container">
+  <h1
+    [ngStyle]="{
+      textAlign: 'center'
+    }"
+  >
+    PROJECTS
+  </h1>
+  <hr class="my-4" />
+
+  <div class="row projects-row">
+    <div class="jumbotron">
+      <h1 class="display-4">Learning Management System</h1>
+      <p class="lead">
+        Technologies: C# (.NET Core 3.1) &#8226; JavaScript (React + Redux)
+        &#8226; SQL Server &#8226; Bootstrap
+      </p>
+      <hr class="my-4" />
+      <p>
+        This is my most current programming project and it is also the most
+        complex project I have created. It is a light-weight learning management
+        system. Users will be able to create an account, login, register to
+        courses, view lectures, take tests, and earn points with a certificate
+        each time they complete a course. In addition, role based JWT
+        authorization will be utilized so that Admin roles can delete/edit users
+        and add/edit courses on the system. User roles will only be able to
+        perform bare minimum actions on the system.
+      </p>
+      <button
+        mat-raised-button
+        color="primary"
+        onClick="window.open('//github.com/tonyvu1/LMS')"
+      >
+        CODE
+      </button>
+    </div>
+
+    <div class="jumbotron">
+      <h1 class="display-4">POS System</h1>
+      <p class="lead">
+        Technologies: C# (.NET Core 3.1) &#8226; TypeScript (Angular) &#8226;
+        SQL Server
+      </p>
+      <hr class="my-4" />
+      <p>
+        This is a full stack online POS system for a fictional icecream shop.
+        The backend is built on .NET Core 3.1 and deployed with Microsoft Azure.
+        Sales records are posted and retrieved from a SQL Server database, which
+        was maintained utilizing SQL Server Management Studio. The front end is
+        built with Angular 8 and Bootstrap.
+      </p>
+      <button
+        mat-raised-button
+        color="primary"
+        onClick="window.open('//github.com/tonyvu1/pos')"
+        [ngStyle]="{
+          marginRight: '10px'
+        }"
+      >
+        CODE
+      </button>
+      <button
+        mat-raised-button
+        color="accent"
+        onClick="window.open('//icecreampos.azurewebsites.net/')"
+      >
+        DEMO
+      </button>
+    </div>
+
+    <div class="jumbotron">
+      <h1 class="display-4">First Portfolio Website</h1>
+      <p class="lead">
+        Technologies: JavaScript &#8226; HTML &#8226; SASS &#8226; PHP
+      </p>
+      <hr class="my-4" />
+      <p>
+        This was my first portfolio website that I developed with vanilla
+        JavaScript, HTML, SASS, and a hint of PHP. I included it in my list of
+        projects because it taught me a lot of fundamental lessons about web
+        development, such as why it's a good idea to use styling frameworks such
+        as Bootstrap to save time on responsive UI implementations, basic JS DOM
+        element manipulation for UX, and handling form submissions with PHP.
+      </p>
+      <button
+        mat-raised-button
+        color="primary"
+        onClick="window.open('//github.com/tonyvu1/old-portfolio')"
+        [ngStyle]="{
+          marginRight: '10px'
+        }"
+      >
+        CODE
+      </button>
+      <button
+        mat-raised-button
+        color="accent"
+        onClick="window.open('//old-portfolio.000webhostapp.com')"
+      >
+        DEMO
+      </button>
+    </div>
+
+    <div class="jumbotron">
+      <h1 class="display-4">Video Chat Website</h1>
+      <p class="lead">
+        Technologies: JavaScript &#8226; Express.js &#8226; MongoDB &#8226;
+        Bootstrap &#8226; EJS Templating
+      </p>
+      <hr class="my-4" />
+      <p>
+        This is an online video/chat website I made with ExpressJS, EJS
+        templating system, and Bootstrap 4. I used MongoDB for my backend
+        database to store user account information, PassportJS middleware for
+        login authentication and protected routes, and Heruoku CLI for
+        deployment. Due to the cost of utilizing web socket services, this
+        project is not deployed for public testing.
+      </p>
+      <button
+        mat-raised-button
+        color="primary"
+        onClick="window.open('//github.com/tonyvu1/meetingspace')"
+        [ngStyle]="{
+          marginRight: '10px'
+        }"
+      >
+        CODE
+      </button>
+    </div>
+  </div>
+</div>

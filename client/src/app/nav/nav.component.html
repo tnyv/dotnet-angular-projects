@@ -1,0 +1,98 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav
+    #drawer
+    class="sidenav"
+    fixedInViewport="false"
+    [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+    [mode]="(isHandset$ | async) ? 'over' : 'side'"
+    [opened]="(isHandset$ | async) === false"
+  >
+    <mat-nav-list class="nav-list">
+      <a href="">
+        <mat-toolbar
+          [ngStyle]="{
+            justifyContent: 'center',
+            height: '10rem',
+            marginTop: '1rem'
+          }"
+          ><img class="header-image"
+        /></mat-toolbar>
+
+
+      </a>
+      <a
+        mat-list-item
+        href="#"
+        (click)="scroll('top')"
+        (click)="handSetState && drawer.close()"
+        class="nav-text"
+      >
+        Home</a
+      >
+      <a
+        mat-list-item
+        href="#"
+        (click)="scroll('projects')"
+        (click)="handSetState && drawer.close()"
+        class="nav-text"
+      >
+        Projects</a
+      >
+      <a
+        mat-list-item
+        href="#"
+        (click)="scroll('resume')"
+        (click)="handSetState && drawer.close()"
+        class="nav-text"
+      >
+        R&eacute;sum&eacute;</a
+      >
+      <a
+        mat-list-item
+        href="#"
+        (click)="scroll('contact')"
+        (click)="handSetState && drawer.close()"
+        class="nav-text"
+      >
+        Contact</a
+      >
+
+      <a
+        mat-list-item
+        href="#"
+        onClick="window.open('//github.com/tonyvu1')"
+        (click)="handSetState && drawer.close()"
+        class="nav-text"
+      >
+        Github</a
+      >
+      <a
+        mat-list-item
+        href="#"
+        onClick="window.open('//linkedin.com/in/tonyvu1/')"
+        (click)="handSetState && drawer.close()"
+        class="nav-text"
+      >
+        LinkedIn
+      </a>
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <mat-toolbar class="toolBar1">
+      <button
+        class="burger"
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        (click)="drawer.toggle()"
+        *ngIf="isHandset$ | async"
+      >
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <mat-toolbar class="toolBar1"> </mat-toolbar>
+    </mat-toolbar>
+
+    <ng-content></ng-content>
+  </mat-sidenav-content>
+</mat-sidenav-container>
