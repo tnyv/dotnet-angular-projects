@@ -7,7 +7,7 @@ import { SalesService } from "../../services/sales.service";
   templateUrl: "./admin-ui.component.html",
   styleUrls: ["./admin-ui.component.scss"]
 })
-export class AdminUIComponent implements OnInit {
+export class PosAdminUIComponent implements OnInit {
 
 
   ngOnInit() {

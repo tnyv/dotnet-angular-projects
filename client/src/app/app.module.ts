@@ -32,9 +32,9 @@ import { ResumeComponent } from "./portfolio/resume/resume.component";
 
 // POS
 import { ToastrModule } from "ngx-toastr";
-import { NavbarComponent } from "./pos/components/navbar/navbar.component";
-import { SalesUIComponent } from "./pos/components/sales-ui/sales-ui.component";
-import { AdminUIComponent } from "./pos/components/admin-ui/admin-ui.component";
+import { PosNavComponent } from "./pos/components/pos-nav/pos-nav.component";
+import { PosSalesUIComponent } from "./pos/components/sales-ui/sales-ui.component";
+import { PosAdminUIComponent } from "./pos/components/admin-ui/admin-ui.component";
 import { PosGlobals } from "./pos/pos-globals";
 import { ItemsDisplayComponent } from "./pos/components/sales-ui/items-display/items-display.component";
 import { RegisterComponent } from "./pos/components/sales-ui/register/register.component";
@@ -54,9 +54,9 @@ import {MatTableModule} from '@angular/material/table';
     ContactComponent,
     ResumeComponent,
     // Pos
-    NavbarComponent,
-    SalesUIComponent,
-    AdminUIComponent,
+    PosNavComponent,
+    PosSalesUIComponent,
+    PosAdminUIComponent,
     ItemsDisplayComponent,
     RegisterComponent,
     MenuBtnsComponent

@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SalesUIComponent } from './sales-ui.component';
+import { PosSalesUIComponent } from './sales-ui.component';
 
-describe('SalesUIComponent', () => {
-  let component: SalesUIComponent;
-  let fixture: ComponentFixture<SalesUIComponent>;
+describe('PosSalesUIComponent', () => {
+  let component: PosSalesUIComponent;
+  let fixture: ComponentFixture<PosSalesUIComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SalesUIComponent ]
+      declarations: [ PosSalesUIComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(SalesUIComponent);
+    fixture = TestBed.createComponent(PosSalesUIComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

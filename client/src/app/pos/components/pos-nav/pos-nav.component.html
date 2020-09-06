@@ -1,0 +1,15 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="collapse navbar-collapse row">
+    <a class="nav-link disabled brand text-left" href="#">Ice Cream Parlor</a>
+    <ul class="navbar-nav nav-group">
+      <li class="nav-item pos text-center">
+        <a class="nav-link" routerLink="/pos" [ngClass]="setSales()">POS</a>
+      </li>
+      <li class="nav-item admin-li text-center">
+        <a class="nav-link" routerLink="/pos-admin" [ngClass]="setAdmin()"
+          >Admin</a
+        >
+      </li>
+    </ul>
+  </div>
+</nav>

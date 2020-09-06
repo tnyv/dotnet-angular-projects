@@ -6,7 +6,7 @@ import { PosGlobals } from "./../../pos-globals"
   templateUrl: "./sales-ui.component.html",
   styleUrls: ["./sales-ui.component.scss"]
 })
-export class SalesUIComponent implements OnInit {
+export class PosSalesUIComponent implements OnInit {
   constructor(globals: PosGlobals) {
     globals.page = "sales";
     console.log(globals.page);
