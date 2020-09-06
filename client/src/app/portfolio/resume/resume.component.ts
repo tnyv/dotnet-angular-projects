@@ -1,7 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { trigger, transition, animate, style } from "@angular/animations";
 import { Router, NavigationEnd } from "@angular/router";
-import { Globals } from '../globals';
+import { Globals } from '../../globals';
 
 @Component({
   selector: 'app-resume',

@@ -6,7 +6,7 @@ import {
 } from "@angular/cdk/layout";
 import { Observable } from "rxjs";
 import { map, shareReplay } from "rxjs/operators";
-import { Globals } from "../globals";
+import { Globals } from "../../globals";
 
 @Component({
   selector: "app-nav",
