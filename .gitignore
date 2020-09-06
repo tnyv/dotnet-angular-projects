@@ -4,8 +4,7 @@ api/appsettings.json
 api/wwwroot/
 api/bin/
 api/obj/
-
-
+api/.vs/
 
 
 
