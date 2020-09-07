@@ -8,6 +8,13 @@ using System.IO;
 using Api.Apps.Portfolio.Services;
 using Api.Apps;
 using Microsoft.EntityFrameworkCore;
+using Lms.Services.UserService;
+using Lms.Services.CourseService;
+using Lms.Services.RegistrationService;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
+using Microsoft.AspNetCore.Http;
 
 namespace Api
 {
@@ -32,6 +39,29 @@ namespace Api
             services.AddControllers();
             services.AddAutoMapper(typeof(Startup));
             services.AddScoped<IMessageService, MessageService>();
+            services.AddScoped<IUserService, UserService>();
+            services.AddScoped<ICourseService, CourseService>();
+            services.AddScoped<IRegistrationService, RegistrationService>();
+            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+            .AddJwtBearer(options =>
+            {
+                options.TokenValidationParameters = new Microsoft.IdentityModel.Tokens.TokenValidationParameters
+                {
+                    ValidateIssuerSigningKey = true,
+                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(Configuration["signingKey"])),
+                    ValidateIssuer = false,
+                    ValidateAudience = false
+                };
+            });
+
+            // IHttpContextAccessor service lets us utilize JWT claims to associated specific data with user, such as user and registrations.
+            // One instance is used in Registrations service currently. 
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+
+            // This is used to avoid "possible object cycle was detected which is not supported" error message when creating new
+            // registrations between user and registration relations.
+            services.AddControllersWithViews().AddNewtonsoftJson(options =>
+                options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
 
             services.AddCors(options =>
             {

@@ -1,4 +1,6 @@
 using Api.Apps.Pos.Models;
+using Lms.Models.Courses;
+using Lms.Models.Users;
 using Microsoft.EntityFrameworkCore;
 
 namespace Api.Apps
@@ -13,7 +15,8 @@ namespace Api.Apps
         public DbSet<SaleEntry> SaleEntries { get; set; }
 
         // LMS
-        // public DbSet<Course> Courses { get; set;}
-        // public DbSet<Registration> Registrations { get; set;}
+        public DbSet<User> Users { get; set; }
+        public DbSet<Course> Courses { get; set; }
+        public DbSet<Registration> Registrations { get; set; }
     }
 }
