@@ -11,15 +11,12 @@
   <div class="row projects-row">
     <div class="jumbotron">
       <h1 class="display-4">Learning Management System</h1>
-      <p
-        class="lead"
-      >
-        Technologies: C# (.NET Core 3.1) &#8226; JavaScript (React + Redux)
-        &#8226; PostgreSQL &#8226; Bootstrap
+      <p class="lead">
+        Technologies: C# (.NET Core 3.1) &#8226; TypeScript (Angular) &#8226;
+        PostgreSQL &#8226; Bootstrap
       </p>
       <hr class="my-4" />
-      <p
-      >
+      <p>
         This is my most current programming project and it is also the most
         complex project I have created. It is a light-weight learning management
         system. Users will be able to create an account, login, register to
@@ -32,33 +29,39 @@
       <button
         mat-raised-button
         color="primary"
-        onClick="window.open('//github.com/tonyvu1/LMS')"
+        onClick="window.open('//github.com/tonyvu1/home')"
+        [ngStyle]="{
+          marginRight: '10px'
+        }"
       >
         CODE
+      </button>
+      <button
+        mat-raised-button
+        color="accent"
+        routerLink="/lms"
+      >
+        DEMO
       </button>
     </div>
 
     <div class="jumbotron">
       <h1 class="display-4">POS System</h1>
-      <p
-        class="lead"
-      >
+      <p class="lead">
         Technologies: C# (.NET Core 3.1) &#8226; TypeScript (Angular) &#8226;
         PostgreSQL
       </p>
       <hr class="my-4" />
-      <p
-      >
+      <p>
         This is a full stack online POS system for a fictional icecream shop.
         The backend is built on .NET Core 3.1 and deployed with Microsoft Azure.
-        Sales records are posted and retrieved from a SQL Server database, which
-        was maintained utilizing SQL Server Management Studio. The front end is
-        built with Angular 8 and Bootstrap.
+        Sales records are posted and retrieved from a PostgreSQL database. The
+        front end is built with Angular 8 and Bootstrap.
       </p>
       <button
         mat-raised-button
         color="primary"
-        onClick="window.open('//github.com/tonyvu1/pos')"
+        onClick="window.open('//github.com/tonyvu1/home')"
         [ngStyle]="{
           marginRight: '10px'
         }"
@@ -70,14 +73,11 @@
 
     <div class="jumbotron">
       <h1 class="display-4">First Portfolio Website</h1>
-      <p
-        class="lead"
-      >
+      <p class="lead">
         Technologies: JavaScript &#8226; HTML &#8226; SASS &#8226; PHP
       </p>
       <hr class="my-4" />
-      <p
-      >
+      <p>
         This was my first portfolio website that I developed with vanilla
         JavaScript, HTML, SASS, and a hint of PHP. I included it in my list of
         projects because it taught me a lot of fundamental lessons about web
@@ -106,9 +106,7 @@
 
     <div class="jumbotron">
       <h1 class="display-4">Video Chat Website</h1>
-      <p
-        class="lead"
-      >
+      <p class="lead">
         Technologies: JavaScript &#8226; Express.js &#8226; MongoDB &#8226;
         Bootstrap &#8226; EJS Templating
       </p>
