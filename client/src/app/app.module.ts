@@ -3,7 +3,7 @@ import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
 import { FormsModule } from "@angular/forms";
 import { HttpModule } from "@angular/http";
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule } from "@angular/common/http";
 import { MatButtonModule } from "@angular/material/button";
 import { MatSidenavModule } from "@angular/material/sidenav";
 import { MatMenuModule } from "@angular/material/menu";
@@ -29,7 +29,7 @@ import { ProjectsComponent } from "./portfolio/projects/projects.component";
 import { ContactComponent } from "./portfolio/contact/contact.component";
 import { Globals } from "./globals";
 import { ResumeComponent } from "./portfolio/resume/resume.component";
-import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { MatProgressSpinnerModule } from "@angular/material/progress-spinner";
 
 // POS
 import { ToastrModule } from "ngx-toastr";
@@ -42,7 +42,15 @@ import { RegisterComponent } from "./pos/components/sales-ui/register/register.c
 import { MenuBtnsComponent } from "./pos/components/sales-ui/menu-btns/menu-btns.component";
 import { RegisterService } from "./pos/services/register.service";
 import { MatSortModule } from "@angular/material/sort";
-import {MatTableModule} from '@angular/material/table';
+import { MatTableModule } from "@angular/material/table";
+
+// LMS
+import { LmsHomeComponent } from "./lms/screens/lms-home/lms-home.component";
+import { LmsNavComponent} from "./lms/components/lms-nav/lms-nav.component";
+import { LoginComponent } from "./lms/screens/login/login.component";
+import { ProfileComponent } from "./lms/screens/profile/profile.component";
+import { RegisterUserComponent } from "./lms/screens/register-user/register-user.component";
+
 
 @NgModule({
   declarations: [
@@ -60,7 +68,13 @@ import {MatTableModule} from '@angular/material/table';
     PosAdminUIComponent,
     ItemsDisplayComponent,
     RegisterComponent,
-    MenuBtnsComponent
+    MenuBtnsComponent,
+    // LMS
+    LmsHomeComponent,
+    LmsNavComponent,
+    LoginComponent,
+    ProfileComponent,
+    RegisterUserComponent
   ],
   imports: [
     BrowserModule,
@@ -90,7 +104,7 @@ import {MatTableModule} from '@angular/material/table';
     }),
     MatSortModule,
     MatTableModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
   ],
   providers: [Globals, PosGlobals, RegisterService],
   bootstrap: [AppComponent],
