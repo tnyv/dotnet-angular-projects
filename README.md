@@ -1,7 +1,7 @@
 # Table of Contents
 1. Home / Portfolio
 2. Learning Management System
-3. POS__
+3. POS
 ___
 # 1. Home / Portfolio
 #### Summary
