@@ -29,6 +29,7 @@ import { ProjectsComponent } from "./portfolio/projects/projects.component";
 import { ContactComponent } from "./portfolio/contact/contact.component";
 import { Globals } from "./globals";
 import { ResumeComponent } from "./portfolio/resume/resume.component";
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 // POS
 import { ToastrModule } from "ngx-toastr";
@@ -88,7 +89,8 @@ import {MatTableModule} from '@angular/material/table';
       preventDuplicates: true,
     }),
     MatSortModule,
-    MatTableModule
+    MatTableModule,
+    MatProgressSpinnerModule
   ],
   providers: [Globals, PosGlobals, RegisterService],
   bootstrap: [AppComponent],

@@ -17,6 +17,7 @@ export class ContactComponent implements OnInit {
   formValid: boolean = true;
   emailValid: boolean = true;
   messageSent: boolean = false;
+  loading: boolean = false;
 
   isValid(): boolean {
     this.formValid = true;
@@ -50,6 +51,7 @@ export class ContactComponent implements OnInit {
   ngOnInit() {}
 
   sendEmail() {
+    this.loading = true;
     if (this.isValid()) {
       this.emailService
         .sendEmail(this.name, this.email, this.subject, this.messageBody)
@@ -61,10 +63,13 @@ export class ContactComponent implements OnInit {
             console.log("Something went wrong");
           }
         );
+    } else {
+      this.loading = false;
     }
   }
 
   respond() {
+    this.loading = false;
     this.messageSent = true;
   }
 }

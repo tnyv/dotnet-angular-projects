@@ -49,5 +49,11 @@
   left: 50%;
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
-  font-size: 50px;
+  font-size: 25px;
+}
+
+.loading {
+  margin: auto;
+  text-align: center;
+  margin-top: 10%;
 }
