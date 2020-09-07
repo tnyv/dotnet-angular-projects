@@ -5,7 +5,3 @@ api/wwwroot/
 api/bin/
 api/obj/
 api/.vs/
-
-
-
-api/Properties/launchSettings.json
