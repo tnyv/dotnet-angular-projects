@@ -5,7 +5,7 @@ import { HttpClient } from "@angular/common/http";
   providedIn: "root",
 })
 export class EmailService {
-  // PRODUCTION LINK: private baseUrl = 'https://tonyvu.dev';
+  // PRODUCTION LINK: private baseUrl = 'https://tonyvu.dev/message';
   // DEBUG LINK: private baseUrl = "https://localhost:44370/message";
   private baseUrl = "https://tonyvu.dev/message";
 
