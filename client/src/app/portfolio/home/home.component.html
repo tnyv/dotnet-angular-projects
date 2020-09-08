@@ -14,8 +14,10 @@
       <h2 class="subHeader">software developer</h2>
       <h3></h3>
       <hr class="my-4" />
-      <div class="row">
-        <div class="col-md-6">
+      <div class="row d-flex justify-content-center">
+        <div class="col-md-5"  [ngStyle]="{
+          padding: '0'
+        }">
           <app-code></app-code>
 
           <ng-template [ngIf]="running === true" [ngIfElse]="off">
@@ -69,7 +71,9 @@
           </ng-template>
         </div>
 
-        <div class="col-md-6 console">
+        <div class="space"></div>
+
+        <div class="col-md-5 console">
           <div *ngIf="visible" [@slideInOut]>
             <span class="blink">HELLO</span><br /><br /><span
               class="str"
