@@ -11,7 +11,7 @@ namespace Lms.Controllers
 {
     [Authorize]
     [ApiController]
-    [Route("lms/course/[controller]")]
+    [Route("api/lms/[controller]")]
     public class RegistrationController : ControllerBase
     {
         private readonly IRegistrationService _registrationService;

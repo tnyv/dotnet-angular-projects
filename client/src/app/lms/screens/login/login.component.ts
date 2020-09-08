@@ -9,54 +9,61 @@ import { UserService } from "../../services/user/user.service";
 export class LoginComponent implements OnInit {
   constructor(public httpUser: UserService) {}
 
-  ngOnInit() {} // Does this thing make sure that everything is G unit
+  ngOnInit() {}
 
   email: string = "";
   password: string = "";
 
+  emailValid: boolean = true;
+  pwValid: boolean = true;
   loginValid: boolean = true;
 
   private onSubmit(event: Event) {
     event.preventDefault();
 
-    // Using Promise in httpLogin.getUsers() so that api call finishes before executing next method
-    this.httpUser.login(this.email, this.password).then(
-      () => {
-        return this.respond();
-      },
-      (reject) => {
-        // this.emailValid = false;
-        // this.emailWarning = "Email address already exists.";
-      }
-    );
-
-    console.log(this.isValid());
+    if (this.isValid()) {
+      // Using Promise in httpLogin.getUsers() so that api call finishes before executing next method
+      this.httpUser.login(this.email, this.password).then(
+        () => {
+          return this.success();
+        },
+        (reject) => {
+          this.loginValid = false;
+        }
+      );
+    }
   }
 
-  respond() {
-    console.log("PRINTING");
+  success() {
+    console.log("Successfully logged in");
   }
 
   isValid() {
-    this.loginValid = true;
+    this.refresh();
     var isValid = true;
 
     let EMAIL_REGEXP = /^[a-z0-9!#$%&'*+\/=?^_`{|}~.-]+@[a-z0-9]([a-z0-9-]*[a-z0-9])?(\.[a-z0-9]([a-z0-9-]*[a-z0-9])?)*$/i;
     if (!EMAIL_REGEXP.test(this.email)) {
-      this.loginValid = false;
+      this.emailValid = false;
       isValid = false;
     }
 
     if (this.email == "") {
-      this.loginValid = false;
+      this.emailValid = false;
       isValid = false;
     }
 
     if (this.password == "") {
-      this.loginValid = false;
+      this.pwValid = false;
       isValid = false;
     }
 
     return isValid;
+  }
+
+  refresh() {
+    this.loginValid = true;
+    this.emailValid = true;
+    this.pwValid = true;
   }
 }

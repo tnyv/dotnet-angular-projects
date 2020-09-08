@@ -8,11 +8,10 @@ import { User } from "../../models/user";
 export class UserService {
   constructor(private http: HttpClient) {}
 
-  // PRODUCTION LINK: private baseUrl = '';
-  // DEBUG LINK: private baseUrl = "https://localhost:5001/user";
-  private baseUrl = "https://localhost:5001/user";
+  // PRODUCTION LINK: private baseUrl = 'https://tonyvu.dev/api/lms/user';
+  // DEBUG LINK: private baseUrl = "https://localhost:5001/api/lms/user";
+  private baseUrl = "https://localhost:5001/api/lms/user";
 
-  // Use for getUsers() method below. Only Admin & Instructor roles are allowed to utilize this.
   users: User[];
 
   login(email: string, password: string) {
@@ -23,7 +22,6 @@ export class UserService {
       this.http
         .post<any>(this.baseUrl + "/login", body, { headers })
         .subscribe((res: Response) => {
-          console.log(res);
 
           // Converting returned JSON into parsable object
           var response = JSON.parse(JSON.stringify(res));

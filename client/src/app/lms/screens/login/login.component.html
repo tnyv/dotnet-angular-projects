@@ -14,6 +14,14 @@
         name="email"
         id="emailInput"
       />
+      
+      <ng-template [ngIf]="!emailValid" [ngIfElse]="emailDefault">
+        <div id="warning">Email not valid<br/></div>
+      </ng-template>
+
+      <ng-template #emailDefault>
+        <div><br/></div>
+      </ng-template>
 
     <label>Password</label>
       <input
@@ -25,12 +33,21 @@
 
       <div class="row" id="invalid-forgot">
         <ng-template [ngIf]="!loginValid">
-          <small id="warning" class="form-text">Invalid email and password combintation</small>
+          <div id="warning" class="form-text">Invalid email and password combintation</div>
         </ng-template>
         <small id="pwhelp" class="form-text ml-auto"
           ><a routerLink="">Forgot password?</a></small
         >
       </div>
+
+      <ng-template [ngIf]="!pwValid" [ngIfElse]="pwDefault">
+        <div id="warning">Password cannot be empty<br/></div>
+      </ng-template>
+
+      <ng-template #pwDefault>
+        <div><br/></div>
+      </ng-template>
+
     </div>
     <button type="submit" class="btn btn-primary col-md-12" id="submit-btn">
       Sign in

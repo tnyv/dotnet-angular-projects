@@ -13,7 +13,7 @@ namespace Lms.Controllers
 {
     [Authorize]
     [ApiController]
-    [Route("lms/[controller]")]
+    [Route("api/lms/[controller]")]
     public class UserController : ControllerBase
     {
         private readonly IUserService _userService;

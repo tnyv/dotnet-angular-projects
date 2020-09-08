@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace Lms.Controllers
 {
     [ApiController]
-    [Route("lms/[controller]")]
+    [Route("api/lms/[controller]")]
     public class CourseController : ControllerBase
     {
         private readonly ICourseService _courseService;
