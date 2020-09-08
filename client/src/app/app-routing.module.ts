@@ -16,7 +16,7 @@ const routes: Routes = [
   // LMS
   { path: "lms", component: LmsHomeComponent },
   { path: "lms/login", component: LoginComponent },
-  { path: "lms/register/user", component: RegisterUserComponent },
+  { path: "lms/register", component: RegisterUserComponent },
   { path: "lms/profile", component: ProfileComponent },
 ];
 
