@@ -1,16 +1,21 @@
 import { Injectable } from "@angular/core";
 import { HttpClient, HttpHeaders, HttpParams } from "@angular/common/http";
 import { User } from "../../models/user";
+import { environment } from "src/environments/environment";
 
 @Injectable({
   providedIn: "root",
 })
 export class UserService {
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) {
+    if (environment.production) {
+      this.baseUrl = "https://tonyvu.dev/api/lms/user";
+    } else {
+      this.baseUrl = "http://localhost:58471/api/lms/user";
+    }
+  }
 
-  // PRODUCTION LINK: private baseUrl = 'https://tonyvu.dev/api/lms/user';
-  // DEBUG LINK: private baseUrl = "https://localhost:58471/api/lms/user";
-  private baseUrl = "https://tonyvu.dev/api/lms/user";
+  private baseUrl: string;
 
   users: User[];
 
@@ -21,19 +26,20 @@ export class UserService {
     return new Promise((resolve, reject) => {
       this.http
         .post<any>(this.baseUrl + "/login", body, { headers })
-        .subscribe((res: Response) => {
+        .subscribe(
+          (res: Response) => {
+            // Converting returned JSON into parsable object
+            var response = JSON.parse(JSON.stringify(res));
 
-          // Converting returned JSON into parsable object
-          var response = JSON.parse(JSON.stringify(res));
+            // Storing jwt in browser's localstorage
+            localStorage.setItem("jwt", response.data);
 
-          // Storing jwt in browser's localstorage
-          localStorage.setItem("jwt", response.data);
-
-          resolve();
-        },
-        (error) => {
-          reject();
-        });
+            resolve();
+          },
+          (error) => {
+            reject();
+          }
+        );
     });
   }
 

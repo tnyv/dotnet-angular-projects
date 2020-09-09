@@ -77,7 +77,13 @@
       </div>
     </div>
     <button type="submit" class="btn btn-primary col-md-12" id="submit-btn">
-      Create account
+      <ng-template [ngIf]="loading" [ngIfElse]="createBtn">
+        <div class="spinner-border" role="status"></div>
+      </ng-template>
+
+      <ng-template #createBtn>
+        <div>Create account</div>
+      </ng-template>
     </button>
   </form>
 </div>

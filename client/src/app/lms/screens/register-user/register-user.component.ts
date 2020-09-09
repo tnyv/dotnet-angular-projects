@@ -27,10 +27,13 @@ export class RegisterUserComponent implements OnInit {
   pwLengthValid: boolean = true;
   pwMatch: boolean = true;
 
+  loading: boolean = false;
+
   onSubmit($event) {
     $event.preventDefault();
 
     if (this.isValid()) {
+      this.loading = true;
       this.httpUser
         .register(
           this.email,
@@ -41,19 +44,19 @@ export class RegisterUserComponent implements OnInit {
         )
         .then(
           () => {
-            return this.respond();
+            return this.success();
           },
           (reject) => {
+            this.loading = false;
             this.emailValid = false;
-            this.emailWarning = "Email address already exists.";
+            this.emailWarning = "Server offline or email address already exists.";
           }
         );
     }
   }
 
-  respond() {
-    var responseMessage = localStorage.getItem("registrationResponse");
-    console.log(responseMessage);
+  success() {
+    this.loading = false;
   }
 
   isValid(): boolean {
