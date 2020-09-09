@@ -9,9 +9,9 @@ import { Sales } from "../models/sales.model";
 export class SalesService {
   salesList: Sales[];
 
-  // PRODUCTION LINK: private baseUrl = 'https://tonyvu.dev/api/Sales';
+  // PRODUCTION LINK: private baseUrl = 'https://tonyvu.dev/api/pos/Sales';
   // DEBUG LINK: private baseUrl = "https://localhost:32770/api/Sales";
-  private baseUrl = "https://tonyvu.dev/api/Sales";
+  private baseUrl = "https://tonyvu.dev/api/pos/Sales";
 
   constructor(private http: HttpClient) {}
 

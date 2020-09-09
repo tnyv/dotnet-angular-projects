@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Api.Apps.Pos.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/pos/[controller]")]
     [ApiController]
     public class SalesController : ControllerBase
     {

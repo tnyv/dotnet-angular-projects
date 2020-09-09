@@ -10,7 +10,7 @@ export class UserService {
 
   // PRODUCTION LINK: private baseUrl = 'https://tonyvu.dev/api/lms/user';
   // DEBUG LINK: private baseUrl = "https://localhost:58471/api/lms/user";
-  private baseUrl = "http://localhost:58471/api/lms/user";
+  private baseUrl = "https://tonyvu.dev/api/lms/user";
 
   users: User[];
 
