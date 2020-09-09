@@ -55,7 +55,13 @@
       </ng-template>
     </div>
     <button type="submit" class="btn btn-primary col-md-12" id="submit-btn">
-      Sign in
+      <ng-template [ngIf]="loading" [ngIfElse]="signIn">
+        <div class="spinner-border" role="status"></div>
+      </ng-template>
+
+      <ng-template #signIn>
+        <div>Sign in</div>
+      </ng-template>
     </button>
     <label
       id="create"

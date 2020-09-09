@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { UserService } from "../../services/user/user.service";
+import { Router } from "@angular/router";
 
 @Component({
   selector: "app-login",
@@ -7,7 +8,7 @@ import { UserService } from "../../services/user/user.service";
   styleUrls: ["./login.component.scss"],
 })
 export class LoginComponent implements OnInit {
-  constructor(public httpUser: UserService) {}
+  constructor(public httpUser: UserService, private router: Router) {}
 
   ngOnInit() {}
 
@@ -17,17 +18,20 @@ export class LoginComponent implements OnInit {
   emailValid: boolean = true;
   pwValid: boolean = true;
   loginValid: boolean = true;
+  loading: boolean = false;
 
   private onSubmit(event: Event) {
     event.preventDefault();
 
     if (this.isValid()) {
+      this.loading = true;
       // Using Promise in httpLogin.getUsers() so that api call finishes before executing next method
       this.httpUser.login(this.email, this.password).then(
         () => {
           return this.success();
         },
         (reject) => {
+          this.loading = false;
           this.loginValid = false;
         }
       );
@@ -35,7 +39,8 @@ export class LoginComponent implements OnInit {
   }
 
   success() {
-    console.log("Successfully logged in");
+    this.loading = false;
+    this.router.navigate(["/lms"]);
   }
 
   isValid() {
