@@ -1,9 +1,13 @@
 <app-lms-nav></app-lms-nav>
 
-
 <div class="container d-flex justify-content-center">
   <form class="col-md-5" (ngSubmit)="onSubmit($event)">
-    <label class="welcome">Welcome back!</label>
+    <label class="welcome"
+      >Use these credentials to login if you're just testing the site:
+    </label>
+    <label class="credentials"
+      ><b>Email: demo@tonyvu.dev<br />Password: mypass</b>
+    </label>
     <div class="form-group">
       <label>Email</label>
       <input
@@ -14,16 +18,16 @@
         name="email"
         id="emailInput"
       />
-      
+
       <ng-template [ngIf]="!emailValid" [ngIfElse]="emailDefault">
-        <div id="warning">Email not valid<br/></div>
+        <div id="warning">Email not valid<br /></div>
       </ng-template>
 
       <ng-template #emailDefault>
-        <div><br/></div>
+        <div><br /></div>
       </ng-template>
 
-    <label>Password</label>
+      <label>Password</label>
       <input
         type="password"
         class="form-control"
@@ -33,7 +37,9 @@
 
       <div class="row" id="invalid-forgot">
         <ng-template [ngIf]="!loginValid">
-          <div id="warning" class="form-text">Invalid email and password combintation</div>
+          <div id="warning" class="form-text">
+            Invalid email and password combintation
+          </div>
         </ng-template>
         <small id="pwhelp" class="form-text ml-auto"
           ><a routerLink="">Forgot password?</a></small
@@ -41,18 +47,20 @@
       </div>
 
       <ng-template [ngIf]="!pwValid" [ngIfElse]="pwDefault">
-        <div id="warning">Password cannot be empty<br/></div>
+        <div id="warning">Password cannot be empty<br /></div>
       </ng-template>
 
       <ng-template #pwDefault>
-        <div><br/></div>
+        <div><br /></div>
       </ng-template>
-
     </div>
     <button type="submit" class="btn btn-primary col-md-12" id="submit-btn">
       Sign in
     </button>
-    <label id="create" class="form-text d-flex justify-content-center" routerLink="register"
+    <label
+      id="create"
+      class="form-text d-flex justify-content-center"
+      routerLink="register"
       ><a href="#" routerLink="/lms/register">Create an account</a></label
     >
   </form>
