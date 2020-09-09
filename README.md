@@ -1,11 +1,14 @@
+### This repo contains all of my projects that are built on top of the .NET Core 3.1, Angular, and PostgreSQL stack. The three current projects within this repo are: 1. Portfolio, 2. Learning Management System, and 3. POS. Each individual project will be separated within their own directories and I have provided a directory map to navigate to each project. 
+
 # Table of Contents
-1. Home / Portfolio
+1. Portfolio
 2. Learning Management System
 3. POS
+
 ___
-# 1. Home / Portfolio
+# 1. Portfolio
 #### Summary
-This entire “Home” project will host all of my personal projects that are built with Angular and .NET stack. Each individual project will be separated within their own directories and I have provided a directory map to navigate to each project. 
+This is my website portfolio, which utilizes Material UI styling components. The website can be viewed here: https://tonyvu.dev/
 
 #### Directory
 Backend: /api/Apps/Portfolio
@@ -30,11 +33,14 @@ Frontend /client/src/portfolio
 - Utilizing Docker and containers to deploy a project
 - Utilizing Angular Material for styling and components
 ___
+
 # 2. Learning Management System
 #### Summary 
 This is my most current programming project and it is also the most complex project I have created. It is a light-weight learning management system. Users will be able to create an account, login, register courses, view lectures, take tests, and earn points with a certificate each time they complete a course. In addition, role based JWT authorization will be utilized so that Admin roles can delete/edit users and add/edit courses on the system. User roles will only be able to perform bare minimum actions on the system. 
 
 I originally initialized this project on a separate Github repo before I merged it here. If you'd like to view the commits from the beginning, you can view them here: https://github.com/tonyvu1/LMS
+
+The demo can be viewed here: https://tonyvu.dev/lms
 
 #### Directory
 Backend: /api/Apps/Lms
@@ -60,11 +66,14 @@ Frontend /client/src/lms
 - Utilizing data transfer objects (DTOs) for encapsulating data to send from one subsystem to another, i.e. data from http body request to backend
 - Utilizing Generics to encapsulate data travelling across application layers
 ___
+
 # 3. POS
 #### Summary 
 This is one of my first personal programming projects that was built with an Angular + .NET stack. It is a simple POS system for an ice cream shop. 
 
 I originally initialized this project on a separate Github repo before I merged it here. If you'd like to view the commits from the beginning, you can view them here: https://github.com/tonyvu1/pos
+
+The demo can be viewed here: https://tonyvu.dev/pos
 
 #### Directory
 Backend: /api/Apps/Pos
