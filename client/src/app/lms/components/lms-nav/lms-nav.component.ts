@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from "@angular/router";
 
 @Component({
   selector: 'app-lms-nav',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LmsNavComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
+    this.isLogged = localStorage.getItem("isLogged") == "true" ? true : false; 
   }
 
+  isLogged: boolean;
+
+  signOut() {
+    localStorage.clear();
+    this.router.navigate(["/lms/login"]);
+  }
 }

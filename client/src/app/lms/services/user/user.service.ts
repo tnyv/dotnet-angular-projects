@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import { HttpClient, HttpHeaders, HttpParams } from "@angular/common/http";
+import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { User } from "../../models/user";
 import { environment } from "src/environments/environment";
 
@@ -31,8 +31,10 @@ export class UserService {
             // Converting returned JSON into parsable object
             var response = JSON.parse(JSON.stringify(res));
 
-            // Get and store user data upon successful login
-            this.getUserData(email, response.data);
+            // Store jwt first so that it can be used in getUserData(email, jwt)
+            localStorage.setItem("jwt", response.data);
+            localStorage.setItem("isLogged", "true");
+
             resolve();
           },
           (error) => {
@@ -42,27 +44,33 @@ export class UserService {
     });
   }
 
-  getUserData(email: string, jwt: string) {
+  // Get and store user data upon successful login
+  getUserData(email: string) {
     const headers = {
       "Content-Type": "application/json",
-      Authorization: "Bearer " + jwt,
+      Authorization: "Bearer " + localStorage.getItem("jwt"),
     };
+    return new Promise((resolve, reject) => {
+      this.http
+        .get(this.baseUrl + "/" + email, { headers })
+        .toPromise()
+        .then(
+          (res) => {
+            //Converting returned JSON into parsable object
+            var response = JSON.parse(JSON.stringify(res));
 
-    this.http
-      .get(this.baseUrl + "/" + email, { headers })
-      .toPromise()
-      .then((res) => {
-        //Converting returned JSON into parsable object
-        var response = JSON.parse(JSON.stringify(res));
-
-        // Save user data in local storage
-        localStorage.setItem("jwt", jwt);
-        localStorage.setItem("isLogged", "true");
-        localStorage.setItem("email", response.data.email);
-        localStorage.setItem("firstName", response.data.firstName);
-        localStorage.setItem("lastName", response.data.lastName);
-        localStorage.setItem("organization", response.data.organization);
-      });
+            // Save user data in local storage
+            localStorage.setItem("email", response.data.email);
+            localStorage.setItem("firstName", response.data.firstName);
+            localStorage.setItem("lastName", response.data.lastName);
+            localStorage.setItem("organization", response.data.organization);
+            resolve();
+          },
+          (error) => {
+            reject();
+          }
+        );
+    });
   }
 
   register(

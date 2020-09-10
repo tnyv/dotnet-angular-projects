@@ -28,7 +28,7 @@ export class LoginComponent implements OnInit {
       // Using Promise in httpLogin.getUsers() so that api call finishes before executing next method
       this.httpUser.login(this.email, this.password).then(
         () => {
-          return this.success();
+          return this.getUserData();
         },
         (reject) => {
           this.loading = false;
@@ -36,6 +36,17 @@ export class LoginComponent implements OnInit {
         }
       );
     }
+  }
+
+  getUserData() {
+    this.httpUser.getUserData(this.email).then(
+      () => {
+        return this.success();
+      },
+      (reject) => {
+        console.log("Server error")
+      }
+    );
   }
 
   success() {

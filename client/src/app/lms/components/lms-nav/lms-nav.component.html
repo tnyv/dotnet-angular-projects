@@ -15,11 +15,30 @@
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Account
         </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item" routerLink="/lms/login">Sign in</a>
-          <a class="dropdown-item" routerLink="/lms/register">Create an account</a>
-        </div>
+
+
+
+        <ng-template [ngIf]="isLogged" [ngIfElse]="notLogged">
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" (click)="signOut()">Sign out</a>
+          </div>
+        </ng-template>
+
+
+        <ng-template #notLogged>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" routerLink="/lms/login">Sign in</a>
+            <a class="dropdown-item" routerLink="/lms/register">Create an account</a>
+          </div>
+
+        </ng-template>
+
+        
+
+
+
       </li>
     </ul>
   </div>
 </nav>
+
