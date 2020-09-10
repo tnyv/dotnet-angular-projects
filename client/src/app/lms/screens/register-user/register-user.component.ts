@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { UserService } from "../../services/user/user.service";
+import { Router } from "@angular/router";
 
 @Component({
   selector: "app-register-user",
@@ -7,7 +8,7 @@ import { UserService } from "../../services/user/user.service";
   styleUrls: ["./register-user.component.scss"],
 })
 export class RegisterUserComponent implements OnInit {
-  constructor(public httpUser: UserService) {}
+  constructor(public httpUser: UserService, private router: Router) {}
 
   ngOnInit() {}
 
@@ -57,6 +58,7 @@ export class RegisterUserComponent implements OnInit {
 
   success() {
     this.loading = false;
+    this.router.navigate(["/lms"]);
   }
 
   isValid(): boolean {

@@ -31,9 +31,8 @@ export class UserService {
             // Converting returned JSON into parsable object
             var response = JSON.parse(JSON.stringify(res));
 
-            // Storing jwt in browser's localstorage
-            localStorage.setItem("jwt", response.data);
-
+            // Get and store user data upon successful login
+            this.getUserData(email, response.data);
             resolve();
           },
           (error) => {
@@ -41,6 +40,29 @@ export class UserService {
           }
         );
     });
+  }
+
+  getUserData(email: string, jwt: string) {
+    const headers = {
+      "Content-Type": "application/json",
+      Authorization: "Bearer " + jwt,
+    };
+
+    this.http
+      .get(this.baseUrl + "/" + email, { headers })
+      .toPromise()
+      .then((res) => {
+        //Converting returned JSON into parsable object
+        var response = JSON.parse(JSON.stringify(res));
+
+        // Save user data in local storage
+        localStorage.setItem("jwt", jwt);
+        localStorage.setItem("isLogged", "true");
+        localStorage.setItem("email", response.data.email);
+        localStorage.setItem("firstName", response.data.firstName);
+        localStorage.setItem("lastName", response.data.lastName);
+        localStorage.setItem("organization", response.data.organization);
+      });
   }
 
   register(
