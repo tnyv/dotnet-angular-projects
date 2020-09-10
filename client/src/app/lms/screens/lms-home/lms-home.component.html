@@ -1,19 +1,47 @@
 <app-lms-nav></app-lms-nav>
-<div class="container">
-  <h1 class="vertical-center">
-    <p>
-      The Learning Management System's frontend is currently in development.
-    </p>
-    Please check back soon for updates! <br />
-    <button
-      mat-raised-button
-      color="primary"
-      routerLink="/"
-      [ngStyle]="{
-        marginTop: '20px'
-      }"
-    >
-      Back to portfolio
-    </button>
-  </h1>
-</div>
+
+<ng-template [ngIf]="!isLogged" [ngIfElse]="logged">
+  <div class="container">
+    <div class="jumbotron">
+      <h1 class="display-4">Welcome to LMS Lite!</h1>
+      <p class="lead">
+        This is a light-weight learning management system. You'll need to create
+        an account or sign in before you can start taking courses and earning
+        certificates.
+      </p>
+      <hr class="my-4" />
+      <a
+        class="btn btn-primary btn-lg"
+        routerLink="/lms/login"
+        role="button"
+        id="signInBtn"
+        >Sign in</a
+      >
+      <a
+        class="btn btn-primary btn-lg"
+        routerLink="/lms/register"
+        role="button"
+        id="createBtn"
+        >Create</a
+      >
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #logged>
+  <div class="container">
+    <div class="jumbotron">
+      <h1 class="display-4">Welcome back, {{ firstName }}!</h1>
+      <p class="lead">
+        Quote of the day: <br />
+        “Persistence is very important. You should not give up unless you are
+        forced to give up.”<br />-Elon Musk
+      </p>
+      <hr class="my-4" />
+      <h1 class="display-4">Certificates</h1>
+
+      <hr class="my-4" />
+      <h1 class="display-4">Registrations</h1>
+    </div>
+  </div>
+</ng-template>

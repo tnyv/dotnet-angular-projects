@@ -18,6 +18,6 @@ export class LmsNavComponent implements OnInit {
 
   signOut() {
     localStorage.clear();
-    this.router.navigate(["/lms/login"]);
+    this.router.navigate(["/lms"]);
   }
 }

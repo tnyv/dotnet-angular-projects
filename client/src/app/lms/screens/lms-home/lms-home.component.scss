@@ -1,16 +1,12 @@
 .container {
-  height: 100%;
-  width: 100%;
-  position: relative;
-  justify-content: center;
+  margin-top: 25px;
 }
 
-.vertical-center {
-  margin: 0;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -ms-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
-  font-size: 25px;
+#signInBtn {
+  width: 150px;
+  margin-right: 25px;
+}
+
+#createBtn {
+  width: 150px;
 }
