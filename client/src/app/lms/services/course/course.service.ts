@@ -1,6 +1,5 @@
 import { Injectable } from "@angular/core";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
-import { Observable } from "rxjs";
 import { Course } from "../../models/course";
 import { environment } from "src/environments/environment";
 
@@ -24,11 +23,19 @@ export class CourseService {
       "Content-Type": "application/json",
     };
 
-    this.http
-      .get(this.baseUrl + "/getall" + { headers })
-      .toPromise()
-      .then((res) => {
-        console.log(res);
-      });
+    return new Promise((resolve, reject) => {
+      this.http
+        .get(this.baseUrl + "/getall", { headers })
+        .toPromise()
+        .then((res) => {
+          //Converting returned JSON into parsable object
+          var response = JSON.parse(JSON.stringify(res));
+          this.allCourses = response.data as Course[];
+          resolve();
+        }),
+        (error) => {
+          reject();
+        };
+    });
   }
 }
