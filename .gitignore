@@ -3,3 +3,4 @@ api/wwwroot/
 api/bin/
 api/obj/
 api/.vs/
+api/deploy
