@@ -1,21 +1,16 @@
 import { Injectable } from "@angular/core";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { User } from "../../models/user";
-import { environment } from "src/environments/environment";
 
 @Injectable({
   providedIn: "root",
 })
 export class UserService {
-  constructor(private http: HttpClient) {
-    if (environment.production) {
-      this.baseUrl = "https://tonyvu.dev/api/lms/user";
-    } else {
-      this.baseUrl = "http://localhost:58471/api/lms/user";
-    }
-  }
+  constructor(private http: HttpClient) {}
 
-  private baseUrl: string;
+  // Production vs development server
+  // private baseUrl = "http://localhost:58471/api/lms/user;
+  private baseUrl = "https://tonyvu.dev/api/lms/user";
 
   users: User[];
 
