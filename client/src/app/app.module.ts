@@ -52,6 +52,7 @@ import { ProfileComponent } from "./lms/screens/profile/profile.component";
 import { RegisterUserComponent } from "./lms/screens/register-user/register-user.component";
 import { CoursesComponent } from './lms/screens/courses/courses.component';
 import { AdminPanelComponent } from './lms/components/admin-panel/admin-panel.component';
+import { RegistrationsComponent } from './lms/components/registrations/registrations.component';
 
 
 @NgModule({
@@ -78,7 +79,8 @@ import { AdminPanelComponent } from './lms/components/admin-panel/admin-panel.co
     ProfileComponent,
     RegisterUserComponent,
     CoursesComponent,
-    AdminPanelComponent
+    AdminPanelComponent,
+    RegistrationsComponent
   ],
   imports: [
     BrowserModule,
