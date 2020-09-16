@@ -9,8 +9,8 @@ export class UserService {
   constructor(private http: HttpClient) {}
 
   // Production vs development server
-  // private baseUrl = "http://localhost:58471/api/lms/user;
-  private baseUrl = "https://tonyvu.dev/api/lms/user";
+  private baseUrl = "http://localhost:58471/api/lms/user";
+  // private baseUrl = "https://tonyvu.dev/api/lms/user";
 
   users: User[];
 

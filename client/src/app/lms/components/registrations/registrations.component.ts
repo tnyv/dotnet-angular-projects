@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { RegistrationsService } from "../../services/registrations/registrations.service";
+import { CourseService } from "../../services/course/course.service";
 
 @Component({
   selector: "app-registrations",
@@ -7,21 +8,31 @@ import { RegistrationsService } from "../../services/registrations/registrations
   styleUrls: ["./registrations.component.scss"],
 })
 export class RegistrationsComponent implements OnInit {
-  constructor(private httpRegistrations: RegistrationsService) {}
+  constructor(
+    private httpRegistrations: RegistrationsService,
+    private httpCourse: CourseService
+  ) {}
 
   ngOnInit() {
+    this.httpCourse.getAllCourses().then(
+      () => {
+        return this.getRegistrations();
+      },
+      (reject) => {
+        console.log("Server error");
+      }
+    );
+  }
+
+  getRegistrations() {
     if (localStorage.getItem("isLogged") == "true")
       this.httpRegistrations.getRegistrations(localStorage.getItem("jwt")).then(
         () => {
-          return this.success();
+          return;
         },
         (reject) => {
           console.log("Server error");
         }
       );
-  }
-
-  success() {
-    console.log(this.httpRegistrations.registrations);
   }
 }

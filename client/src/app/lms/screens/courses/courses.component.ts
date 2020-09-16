@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { CourseService } from "../../services/course/course.service";
+import { RegistrationsService } from "../../services/registrations/registrations.service";
 
 @Component({
   selector: "app-courses",
@@ -7,7 +8,10 @@ import { CourseService } from "../../services/course/course.service";
   styleUrls: ["./courses.component.scss"],
 })
 export class CoursesComponent implements OnInit {
-  constructor(private httpCourse: CourseService) {}
+  constructor(
+    private httpCourse: CourseService,
+    private httpRegistrations: RegistrationsService
+  ) {}
 
   ngOnInit() {
     this.httpCourse.getAllCourses().then(
@@ -23,6 +27,10 @@ export class CoursesComponent implements OnInit {
   enroll(courseId) {
     if (localStorage.getItem("isLogged") == "true") {
       console.log("enroll");
+      this.httpRegistrations.registerCourse(
+        courseId,
+        localStorage.getItem("jwt")
+      );
     } else {
       alert("You need to sign in first to enroll in a course.");
     }
