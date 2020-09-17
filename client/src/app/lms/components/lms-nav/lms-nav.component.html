@@ -20,7 +20,7 @@
 
         <ng-template [ngIf]="isLogged" [ngIfElse]="notLogged">
           <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <a class="dropdown-item" (click)="signOut()">Sign out</a>
+            <a class="dropdown-item" (click)="httpUser.signOut()">Sign out</a>
           </div>
         </ng-template>
 

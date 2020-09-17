@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
+import { UserService } from "../../services/user/user.service";
 
 @Component({
   selector: "app-lms-nav",
@@ -7,17 +8,11 @@ import { Router } from "@angular/router";
   styleUrls: ["./lms-nav.component.scss"],
 })
 export class LmsNavComponent implements OnInit {
-  constructor(private router: Router) {}
+  constructor(private router: Router, private httpUser: UserService) {}
 
   ngOnInit() {
     this.isLogged = localStorage.getItem("isLogged") == "true" ? true : false;
   }
 
   isLogged: boolean;
-
-  signOut() {
-    localStorage.clear();
-    location.reload();
-    this.router.navigate(["/lms"]);
-  }
 }

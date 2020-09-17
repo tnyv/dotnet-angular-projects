@@ -16,22 +16,18 @@ export class RegistrationsComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-
-    this.httpUser.ping(localStorage.getItem('jwt')).then(
+    this.httpUser.ping(localStorage.getItem("jwt")).then(
       () => {
-        return this.getRegistrations();
+        return this.getAllCourses();
       },
       (reject) => {
-        console.log("jwt expired");
+        // User jwt expired. Sign user out
+        this.httpUser.signOut();
       }
     );
-    
   }
 
-
-
-
-  getAllCourses(){
+  getAllCourses() {
     this.httpCourse.getAllCourses().then(
       () => {
         return this.getRegistrations();

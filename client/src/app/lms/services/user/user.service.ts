@@ -1,12 +1,13 @@
 import { Injectable } from "@angular/core";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { User } from "../../models/user";
+import { Router } from "@angular/router";
 
 @Injectable({
   providedIn: "root",
 })
 export class UserService {
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private router: Router) {}
 
   // Production vs development server
   private baseUrl = "http://localhost:58471/api/lms/user";
@@ -57,6 +58,12 @@ export class UserService {
           }
         );
     });
+  }
+
+  signOut() {
+    localStorage.clear();
+    location.reload();
+    this.router.navigate(["/lms"]);
   }
 
   // Get and store user data upon successful login
