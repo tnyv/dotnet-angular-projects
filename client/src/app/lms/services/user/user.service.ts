@@ -86,6 +86,7 @@ export class UserService {
             localStorage.setItem("firstName", response.data.firstName);
             localStorage.setItem("lastName", response.data.lastName);
             localStorage.setItem("organization", response.data.organization);
+            localStorage.setItem("role", response.data.role);
             resolve();
           },
           (error) => {

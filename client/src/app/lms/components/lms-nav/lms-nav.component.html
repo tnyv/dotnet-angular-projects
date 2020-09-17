@@ -18,20 +18,28 @@
 
 
 
-        <ng-template [ngIf]="isLogged" [ngIfElse]="notLogged">
+        <ng-template [ngIf]="isLogged && role == 'Admin'">
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" routerLink="/lms/admin">Admin Panel</a>
+            <a class="dropdown-item" (click)="httpUser.signOut()">Sign out</a>
+          </div>
+        </ng-template>
+
+        <ng-template [ngIf]="isLogged && role == 'User'">
           <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
             <a class="dropdown-item" (click)="httpUser.signOut()">Sign out</a>
           </div>
         </ng-template>
 
 
-        <ng-template #notLogged>
+        <ng-template [ngIf]="isLogged == ''">
           <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
             <a class="dropdown-item" routerLink="/lms/login">Sign in</a>
             <a class="dropdown-item" routerLink="/lms/register">Create an account</a>
           </div>
 
         </ng-template>
+        
 
         
 

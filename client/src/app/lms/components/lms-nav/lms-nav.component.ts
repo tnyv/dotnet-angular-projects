@@ -12,7 +12,9 @@ export class LmsNavComponent implements OnInit {
 
   ngOnInit() {
     this.isLogged = localStorage.getItem("isLogged") == "true" ? true : false;
+    this.role = localStorage.getItem("role");
   }
 
   isLogged: boolean;
+  role: string;
 }
