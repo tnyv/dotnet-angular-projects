@@ -83,6 +83,14 @@ namespace Lms.Controllers
             return Ok(response);
         }
 
+        [Authorize]
+        [HttpGet("ping")]
+        public IActionResult Ping()
+        {
+            ServiceResponse<string> response = null;
+            return Ok(response);
+        }
+
         [AllowAnonymous]
         [HttpPost("Login")]
         public async Task<IActionResult> Login(LoginDTO request)
