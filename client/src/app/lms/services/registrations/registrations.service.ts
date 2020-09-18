@@ -10,8 +10,8 @@ export class RegistrationsService {
   constructor(private http: HttpClient, private httpCourse: CourseService) {}
 
   // Production vs development server
-  private baseUrl = "http://localhost:58471/api/lms/registration";
-  // private baseUrl = "https://tonyvu.dev/api/lms/registration";
+  // private baseUrl = "http://localhost:58471/api/lms/registration";
+  private baseUrl = "https://tonyvu.dev/api/lms/registration";
 
   registrations: number[] = [];
   registeredCourses: Course[] = [];
