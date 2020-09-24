@@ -14,7 +14,7 @@
           <td class="td-display">{{ registeredCourse.name }}</td>
           <td class="td-display">{{ registeredCourse.summary }}</td>
           <td class="td-display">
-            <button class="btn btn-primary">
+            <button class="btn btn-primary" (click)="navigateToSession(registeredCourse.id)">
               Enter
             </button>
           </td>

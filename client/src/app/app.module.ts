@@ -47,6 +47,7 @@ import { RegisterUserComponent } from "./lms/screens/register-user/register-user
 import { CoursesComponent } from './lms/screens/courses/courses.component';
 import { AdminPanelComponent } from './lms/components/admin-panel/admin-panel.component';
 import { RegistrationsComponent } from './lms/components/registrations/registrations.component';
+import { SessionComponent } from './lms/screens/session/session.component';
 
 
 @NgModule({
@@ -74,7 +75,8 @@ import { RegistrationsComponent } from './lms/components/registrations/registrat
     RegisterUserComponent,
     CoursesComponent,
     AdminPanelComponent,
-    RegistrationsComponent
+    RegistrationsComponent,
+    SessionComponent
   ],
   imports: [
     BrowserModule,

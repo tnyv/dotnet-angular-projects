@@ -9,8 +9,8 @@ export class CourseService {
   constructor(private http: HttpClient) {}
 
   // Production vs development server
-  //private baseUrl = "http://localhost:58471/api/lms/course";
-  private baseUrl = "https://tonyvu.dev/api/lms/course";
+  private baseUrl = "http://localhost:58471/api/lms/course";
+  //private baseUrl = "https://tonyvu.dev/api/lms/course";
 
   allCourses: Course[];
 

@@ -2,6 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { RegistrationsService } from "../../services/registrations/registrations.service";
 import { CourseService } from "../../services/course/course.service";
 import { UserService } from "../../services/user/user.service";
+import { Router } from "@angular/router";
 
 @Component({
   selector: "app-registrations",
@@ -12,7 +13,8 @@ export class RegistrationsComponent implements OnInit {
   constructor(
     public httpRegistrations: RegistrationsService,
     public httpCourse: CourseService,
-    public httpUser: UserService
+    public httpUser: UserService,
+    private router: Router
   ) {}
 
   ngOnInit() {
@@ -48,5 +50,10 @@ export class RegistrationsComponent implements OnInit {
           console.log("Server error");
         }
       );
+  }
+
+  navigateToSession(courseId: string) {
+
+    this.router.navigate(['/lms/session'], { state: { courseId: courseId } });
   }
 }
