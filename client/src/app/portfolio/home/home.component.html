@@ -1,8 +1,6 @@
 <app-portfolio-nav>
   <div class="home-container" id="top">
     <div
-      *ngIf="slideIn"
-      [@slideSide]
       class="jumbotron"
       [ngStyle]="{
         width: '93%',
@@ -15,9 +13,12 @@
       <h3></h3>
       <hr class="my-4" />
       <div class="row d-flex justify-content-center">
-        <div class="col-md-5"  [ngStyle]="{
-          padding: '0'
-        }">
+        <div
+          class="col-md-5"
+          [ngStyle]="{
+            padding: '0'
+          }"
+        >
           <app-code></app-code>
 
           <ng-template [ngIf]="running === true" [ngIfElse]="off">

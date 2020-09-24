@@ -6,7 +6,6 @@ import {
 } from "@angular/cdk/layout";
 import { Observable } from "rxjs";
 import { map, shareReplay } from "rxjs/operators";
-import { Globals } from "../../globals";
 
 @Component({
   selector: "app-portfolio-nav",
@@ -14,7 +13,6 @@ import { Globals } from "../../globals";
   styleUrls: ["./portfolio-nav.component.scss"],
 })
 export class PortfolioNavComponent {
-  globals: Globals;
   handSetState: boolean;
 
   isHandset$: Observable<boolean> = this.breakpointObserver
@@ -36,12 +34,7 @@ export class PortfolioNavComponent {
       });
   }
 
-  constructor(
-    private breakpointObserver: BreakpointObserver,
-    globals: Globals
-  ) {
-    this.globals = globals;
-  }
+  constructor(private breakpointObserver: BreakpointObserver) {}
 
   scroll(id: string) {
     let el = document.getElementById(id);
