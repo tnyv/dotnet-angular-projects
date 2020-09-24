@@ -20,7 +20,7 @@ export class LoginComponent implements OnInit {
   loginValid: boolean = true;
   loading: boolean = false;
 
-  private onSubmit(event: Event) {
+  public onSubmit(event: Event) {
     event.preventDefault();
 
     if (this.isValid()) {

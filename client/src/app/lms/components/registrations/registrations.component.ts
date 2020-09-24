@@ -10,9 +10,9 @@ import { UserService } from "../../services/user/user.service";
 })
 export class RegistrationsComponent implements OnInit {
   constructor(
-    private httpRegistrations: RegistrationsService,
-    private httpCourse: CourseService,
-    private httpUser: UserService
+    public httpRegistrations: RegistrationsService,
+    public httpCourse: CourseService,
+    public httpUser: UserService
   ) {}
 
   ngOnInit() {

@@ -8,7 +8,7 @@ import { UserService } from "../../services/user/user.service";
   styleUrls: ["./lms-nav.component.scss"],
 })
 export class LmsNavComponent implements OnInit {
-  constructor(private router: Router, private httpUser: UserService) {}
+  constructor(private router: Router, public httpUser: UserService) {}
 
   ngOnInit() {
     this.isLogged = localStorage.getItem("isLogged") == "true" ? true : false;

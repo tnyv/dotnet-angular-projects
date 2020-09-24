@@ -9,8 +9,8 @@ import { RegistrationsService } from "../../services/registrations/registrations
 })
 export class CoursesComponent implements OnInit {
   constructor(
-    private httpCourse: CourseService,
-    private httpRegistrations: RegistrationsService
+    public httpCourse: CourseService,
+    public httpRegistrations: RegistrationsService
   ) {}
 
   ngOnInit() {
