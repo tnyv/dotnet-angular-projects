@@ -18,6 +18,7 @@ export class RegistrationsComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+    // Ping server to make sure jwt is still valid before getting registered courses
     this.httpUser.ping(localStorage.getItem("jwt")).then(
       () => {
         return this.getAllCourses();
@@ -53,7 +54,6 @@ export class RegistrationsComponent implements OnInit {
   }
 
   navigateToSession(courseId: string) {
-
     this.router.navigate(['/lms/session'], { state: { courseId: courseId } });
   }
 }

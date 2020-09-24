@@ -13,6 +13,8 @@ export class RegistrationsService {
   private baseUrl = "http://localhost:58471/api/lms/registration";
   //private baseUrl = "https://tonyvu.dev/api/lms/registration";
 
+  // registrations array only stores courseId's
+  // registeredCourses stores entire courses based on what is inside of registrations array
   registrations: number[] = [];
   registeredCourses: Course[] = [];
 
@@ -42,17 +44,18 @@ export class RegistrationsService {
             if (!this.registrations.includes(response.data[i].courseId)) {
               this.registrations.push(response.data[i].courseId);
             }
-            
-            // Cross check all course Id's and registration Id's, then add course
-            // to registeredCourses if there's a match. 
-            for (var j = 0; j < this.httpCourse.allCourses.length; j++) {
-              if (
-                !this.registrations.includes(this.httpCourse.allCourses[j].id)
-              ) {
-                this.registeredCourses.push(this.httpCourse.allCourses[j]);
-              }
+          }
+
+          // Cross check all course Id's and registration Id's, then add course
+          // to registeredCourses if there's a match.
+          for (var j = 0; j < this.httpCourse.allCourses.length; j++) {
+            if (
+              this.registrations.includes(this.httpCourse.allCourses[j].id)
+            ) {
+              this.registeredCourses.push(this.httpCourse.allCourses[j]);
             }
           }
+
           resolve();
         }),
         (error) => {
@@ -61,7 +64,6 @@ export class RegistrationsService {
     });
   }
 
-  
   registerCourse(courseId: number, jwt: string) {
     const headers = {
       "Content-Type": "application/json",
