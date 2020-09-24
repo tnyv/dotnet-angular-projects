@@ -8,6 +8,7 @@ import { LoginComponent } from "./lms/screens/login/login.component";
 import { ProfileComponent } from "./lms/screens/profile/profile.component";
 import { RegisterUserComponent } from "./lms/screens/register-user/register-user.component";
 import { CoursesComponent } from "./lms/screens/courses/courses.component";
+import { ResumeComponent } from "./portfolio/resume/resume.component";
 
 const routes: Routes = [
   { path: "", component: HomeComponent },
@@ -20,6 +21,8 @@ const routes: Routes = [
   { path: "lms/register", component: RegisterUserComponent },
   { path: "lms/profile", component: ProfileComponent },
   { path: "lms/courses", component: CoursesComponent },
+
+  { path: "resume", component: ResumeComponent },
 ];
 
 @NgModule({
