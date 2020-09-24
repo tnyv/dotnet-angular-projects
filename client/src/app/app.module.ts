@@ -7,7 +7,6 @@ import { HttpClientModule } from "@angular/common/http";
 import { MatButtonModule } from "@angular/material/button";
 import { MatSidenavModule } from "@angular/material/sidenav";
 import { MatFormFieldModule } from "@angular/material/form-field";
-import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 import { MatProgressBarModule } from "@angular/material/progress-bar";
 import { MatInputModule } from "@angular/material/input";
 import { ReactiveFormsModule } from "@angular/forms";
@@ -90,7 +89,6 @@ import { RegistrationsComponent } from './lms/components/registrations/registrat
     MatIconModule,
     MatListModule,
     MatFormFieldModule,
-    NgbModule,
     MatProgressBarModule,
     MatInputModule,
     ReactiveFormsModule,
