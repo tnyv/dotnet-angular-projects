@@ -8,7 +8,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "heroku-postbuild": "ng build --prod"
+    "postbuild": "gulp compress"
   },
   "private": true,
   "dependencies": {
@@ -54,6 +54,8 @@
     "@types/node": "~8.9.4",
     "codelyzer": "^5.0.0",
     "enhanced-resolve": "^3.3.0",
+    "gulp": "^4.0.2",
+    "gulp-gzip": "^1.4.2",
     "jasmine-core": "~3.4.0",
     "jasmine-spec-reporter": "~4.2.1",
     "karma": "~4.1.0",
