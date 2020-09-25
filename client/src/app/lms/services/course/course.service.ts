@@ -9,8 +9,8 @@ export class CourseService {
   constructor(private http: HttpClient) {}
 
   // Production vs development server
-  private baseUrl = "http://localhost:58471/api/lms/";
-  //private baseUrl = "https://tonyvu.dev/api/lms/";
+  // private baseUrl = "http://localhost:58471/api/lms/";
+  private baseUrl = "https://tonyvu.dev/api/lms/";
 
   // registrations array only stores courseId's
   // registeredCourses stores entire courses based on what is inside of registrations array
