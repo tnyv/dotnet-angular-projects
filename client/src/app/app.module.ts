@@ -24,6 +24,7 @@ import { ProjectsComponent } from "./portfolio/projects/projects.component";
 import { ContactComponent } from "./portfolio/contact/contact.component";
 import { ResumeComponent } from "./portfolio/resume/resume.component";
 import { MatProgressSpinnerModule } from "@angular/material/progress-spinner";
+import { ParticlesModule } from 'angular-particle';
 
 // POS
 import { ToastrModule } from "ngx-toastr";
@@ -102,6 +103,7 @@ import { SessionComponent } from './lms/screens/session/session.component';
     MatSortModule,
     MatTableModule,
     MatProgressSpinnerModule,
+    ParticlesModule
   ],
   providers: [PosGlobals, RegisterService],
   bootstrap: [AppComponent],
