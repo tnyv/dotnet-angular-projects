@@ -40,4 +40,8 @@ export class PortfolioNavComponent {
     let el = document.getElementById(id);
     el.scrollIntoView({ behavior: "smooth" });
   }
+
+  scrollToTop() {
+    window.scroll(0,0);
+  }
 }
