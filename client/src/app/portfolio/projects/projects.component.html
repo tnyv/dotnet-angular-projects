@@ -1,7 +1,7 @@
 <div
-  class="jumbotron wrapper"
+  class="wrapper"
   [ngStyle]="{
-    width: '93%',
+    width: '100%',
     margin: 'auto',
     padding: '5rem',
     marginTop: '5rem'
@@ -11,13 +11,14 @@
     [ngStyle]="{
       textAlign: 'center'
     }"
+    class="display-3"
   >
     PROJECTS
   </h1>
   <hr class="my-4" />
 
-  <div class="row projects-row">
-    <div class="jumbotron">
+  <div class="row projects-row justify-content-center justify-content-around">
+    <div class="jumbotron col-md-5 shadow">
       <h1 class="display-4">LMS</h1>
       <p class="lead">
         Technologies: C# (.NET Core 3.1) &#8226; TypeScript (Angular) &#8226;
@@ -47,7 +48,7 @@
       <button mat-raised-button color="accent" routerLink="/lms">DEMO</button>
     </div>
 
-    <div class="jumbotron">
+    <div class="jumbotron col-md-5 shadow">
       <h1 class="display-4">POS System</h1>
       <p class="lead">
         Technologies: C# (.NET Core 3.1) &#8226; TypeScript (Angular) &#8226;
@@ -73,7 +74,7 @@
       <button mat-raised-button color="accent" routerLink="/pos">DEMO</button>
     </div>
 
-    <div class="jumbotron">
+    <div class="jumbotron col-md-5 shadow">
       <h1 class="display-4">First Portfolio Website</h1>
       <p class="lead">
         Technologies: JavaScript &#8226; HTML &#8226; SASS &#8226; PHP
@@ -106,7 +107,7 @@
       </button>
     </div>
 
-    <div class="jumbotron">
+    <div class="jumbotron col-md-5 shadow">
       <h1 class="display-4">Video Chat Website</h1>
       <p class="lead">
         Technologies: JavaScript &#8226; Express.js &#8226; MongoDB &#8226;
