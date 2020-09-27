@@ -6,9 +6,6 @@ import { HttpModule } from "@angular/http";
 import { HttpClientModule } from "@angular/common/http";
 import { MatButtonModule } from "@angular/material/button";
 import { MatSidenavModule } from "@angular/material/sidenav";
-import { MatFormFieldModule } from "@angular/material/form-field";
-import { MatProgressBarModule } from "@angular/material/progress-bar";
-import { MatInputModule } from "@angular/material/input";
 import { ReactiveFormsModule } from "@angular/forms";
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
@@ -22,7 +19,6 @@ import { HeaderComponent } from "./portfolio/header/header.component";
 import { ProjectsComponent } from "./portfolio/projects/projects.component";
 import { ContactComponent } from "./portfolio/contact/contact.component";
 import { ResumeComponent } from "./portfolio/resume/resume.component";
-import { MatProgressSpinnerModule } from "@angular/material/progress-spinner";
 import { ParticlesModule } from "angular-particle";
 
 // POS
@@ -86,16 +82,12 @@ import { SessionComponent } from "./lms/screens/session/session.component";
     MatToolbarModule,
     MatIconModule,
     MatListModule,
-    MatFormFieldModule,
-    MatProgressBarModule,
-    MatInputModule,
     ReactiveFormsModule,
     HttpClientModule,
     ToastrModule.forRoot({
       timeOut: 3000,
       preventDuplicates: true,
     }),
-    MatProgressSpinnerModule,
     ParticlesModule,
   ],
   providers: [PosGlobals, RegisterService],

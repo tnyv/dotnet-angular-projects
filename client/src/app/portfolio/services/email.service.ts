@@ -5,8 +5,8 @@ import { HttpClient } from "@angular/common/http";
   providedIn: "root",
 })
 export class EmailService {
-  private baseUrl = "http://localhost:58471/message";
-  // private baseUrl = "https://tonyvu.dev/message";
+  // private baseUrl = "http://localhost:58471/message";
+  private baseUrl = "https://vutony.com/message";
 
   constructor(private http: HttpClient) {}
 
