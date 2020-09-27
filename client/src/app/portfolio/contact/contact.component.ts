@@ -50,7 +50,8 @@ export class ContactComponent implements OnInit {
 
   ngOnInit() {}
 
-  sendEmail() {
+  onSubmit($event) {
+    $event.preventDefault();
     this.loading = true;
     if (this.isValid()) {
       this.emailService

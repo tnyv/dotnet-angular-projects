@@ -1,89 +1,67 @@
-<div
-  class="jumbotron"
-  [ngStyle]="{
-    width: '93%',
-    margin: 'auto',
-    padding: '5rem',
-    marginTop: '5rem'
-  }"
->
-  <h1
-    [ngStyle]="{
-      textAlign: 'center'
-    }"
-  >
-    CONTACT
-  </h1>
-  <hr class="my-4" />
+<div class="contact-container">
+  <div class="d-flex justify-content-center form-container">
+    <form class="col-md-5" (ngSubmit)="onSubmit($event)">
+      <div class="form-group">
+        <b><label class="form-label">Name</label></b>
+        <input
+          type="text"
+          class="form-control form-input"
+          [(ngModel)]="name"
+          name="name"
+        />
 
-  <ng-template [ngIf]="messageSent">
-    <div class="sent-container">
-      <h1 class="vertical-center">Thanks for your message. I'll get back to you as soon as I can!</h1>
-    </div>
-  </ng-template>
+        <b><label class="form-label">Email</label></b>
+        <input
+          type="text"
+          class="form-control form-input"
+          [(ngModel)]="email"
+          name="email"
+        />
 
-  <ng-template [ngIf]="loading">
-    <div>
-      <div class="sent-container">
-        <mat-spinner class="loading"></mat-spinner>
-      </div>
-    </div>
-  </ng-template>
+        <b><label class="form-label">Subject</label></b>
+        <input
+          type="text"
+          class="form-control form-input"
+          [(ngModel)]="subject"
+          name="subject"
+        />
 
-  <ng-template [ngIf]="!loading && !messageSent">
-    <div class="row justify-content-center contact-form">
-      <mat-form-field appearance="legacy" class="col-md-5">
-        <mat-label>Name</mat-label>
-        <input matInput [(ngModel)]="name" />
-      </mat-form-field>
-    </div>
-    <div class="row justify-content-center contact-form">
-      <mat-form-field appearance="legacy" class="col-md-5">
-        <mat-label>Email</mat-label>
-        <input matInput [(ngModel)]="email" />
-      </mat-form-field>
-    </div>
-    <div class="row justify-content-center contact-form">
-      <mat-form-field appearance="legacy" class="col-md-5">
-        <mat-label>Subject</mat-label>
-        <input matInput [(ngModel)]="subject" />
-      </mat-form-field>
-    </div>
-    <div class="row justify-content-center contact-form">
-      <mat-form-field appearance="legacy" class="col-md-5">
-        <mat-label>Message</mat-label>
+        <b><label class="form-label">Message</label></b>
         <textarea
-          matInput
-          class="contact-form-text"
+          class="contact-form-text form-control form-input"
           [(ngModel)]="messageBody"
+          name="messageBody"
         ></textarea>
-      </mat-form-field>
-    </div>
-    <div class="row justify-content-center contact-form">
-      <button
-        mat-raised-button
-        color="primary"
-        class="col-md-2"
-        (click)="sendEmail()"
-      >
-        SEND
+      </div>
+
+      <button type="submit" class="col-md-4 submit-btn">
+        <ng-template [ngIf]="loading" [ngIfElse]="sendBtn">
+          <div class="spinner-border" role="status"></div>
+        </ng-template>
+
+        <ng-template #sendBtn>
+          <div class="submit-txt">SUBMIT</div>
+        </ng-template>
       </button>
-    </div>
 
-    <ng-template [ngIf]="!formValid" [ngIfElse]="default">
-      <div class="row justify-content-center contact-form">
-        <br />
-        <p class="warning">Error: inputs cannot be blank</p>
-      </div>
-    </ng-template>
+      <ng-template [ngIf]="!formValid" [ngIfElse]="default">
+        <div class="col-md-12">
+          <p class="warning">Error: inputs cannot be blank</p>
+        </div>
+      </ng-template>
 
-    <ng-template [ngIf]="!emailValid" [ngIfElse]="default">
-      <div class="row justify-content-center contact-form">
-        <br />
-        <p class="warning">Error: email is invalid</p>
-      </div>
-    </ng-template>
-  </ng-template>
+      <ng-template [ngIf]="!emailValid" [ngIfElse]="default">
+        <div class="col-md-12">
+          <p class="warning">Error: email is invalid</p>
+        </div>
+      </ng-template>
+
+      <ng-template [ngIf]="messageSent" [ngIfElse]="default">
+        <div class="col-md-12">
+          <p class="message-sent">Your message has been sent, thank you!</p>
+        </div>
+      </ng-template>
+    </form>
+  </div>
 </div>
-
 <ng-template #default></ng-template>
