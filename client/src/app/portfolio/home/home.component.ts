@@ -9,14 +9,12 @@ export class HomeComponent implements OnInit {
   constructor() {}
 
   ngOnInit() {
-    // Redirect to https
-    if (localStorage.getItem("https") !== "true") {
-      localStorage.setItem("https", "true");
+    // Redirect to https if http
+    this.currentURL = window.location.href;
+    if (this.currentURL.charAt(4) == ":") {
       window.location.href = "https://vutony.com";
     }
   }
 
-  ngOnDestroy() {
-    localStorage.setItem("https", "");
-  }
+  currentURL: string = "";
 }
