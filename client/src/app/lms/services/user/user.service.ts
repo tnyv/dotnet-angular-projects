@@ -11,7 +11,7 @@ export class UserService {
 
   // Production vs development server
   //private baseUrl = "http://localhost:58471/api/lms/user";
-  private baseUrl = "https://tonyvu.dev/api/lms/user";
+  private baseUrl = "https://vutony.com/api/lms/user";
 
   users: User[];
 

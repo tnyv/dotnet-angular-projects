@@ -90,7 +90,7 @@ import { SessionComponent } from "./lms/screens/session/session.component";
     }),
     ParticlesModule,
   ],
-  providers: [PosGlobals, RegisterService],
+  providers: [PosGlobals, RegisterService, ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
