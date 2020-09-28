@@ -10,9 +10,13 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     // Redirect to https
-    if(localStorage.getItem("https") !== "true") {
+    if (localStorage.getItem("https") !== "true") {
       localStorage.setItem("https", "true");
       window.location.href = "https://vutony.com";
     }
+  }
+
+  ngOnDestroy() {
+    localStorage.setItem("https", "");
   }
 }
