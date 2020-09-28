@@ -1,17 +1,16 @@
 <div class="contact-container">
   <h1
-  [ngStyle]="{
-    textAlign: 'center',
-    color: 'white',
-    marginBottom: '50px'
-  }"
-  class="display-3"
->
-  CONTACT
-</h1>
+    [ngStyle]="{
+      textAlign: 'center',
+      color: 'white',
+      marginBottom: '50px'
+    }"
+    class="display-3"
+  >
+    CONTACT
+  </h1>
 
   <div class="d-flex justify-content-center form-container">
-   
     <form class="col-md-5" (ngSubmit)="onSubmit($event)">
       <div class="form-group">
         <b><label class="form-label">Name</label></b>
@@ -46,6 +45,12 @@
         ></textarea>
       </div>
 
+      <ng-template [ngIf]="messageSent" [ngIfElse]="default">
+        <div class="col-md-12">
+          <p class="message-sent">Your message has been sent, thank you!</p>
+        </div>
+      </ng-template>
+
       <button type="submit" class="col-md-4 submit-btn">
         <ng-template [ngIf]="loading" [ngIfElse]="sendBtn">
           <div class="spinner-border" role="status"></div>
@@ -65,12 +70,6 @@
       <ng-template [ngIf]="!emailValid" [ngIfElse]="default">
         <div class="col-md-12">
           <p class="warning">Error: email is invalid</p>
-        </div>
-      </ng-template>
-
-      <ng-template [ngIf]="messageSent" [ngIfElse]="default">
-        <div class="col-md-12">
-          <p class="message-sent">Your message has been sent, thank you!</p>
         </div>
       </ng-template>
     </form>
