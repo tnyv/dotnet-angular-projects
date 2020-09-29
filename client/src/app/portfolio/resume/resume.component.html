@@ -1,22 +1,7 @@
-<div
-  class="wrapper"
-  [ngStyle]="{
-    width: '100%',
-    margin: 'auto',
-    padding: '5rem'
-  }"
->
-  <h1
-    class="display-3 header"
-  >
-    R&Eacute;SUM&Eacute;
-  </h1>
+<div class="resume-container">
+  <h1 class="display-3 header">R&Eacute;SUM&Eacute;</h1>
   <div class="row justify-content-center">
-    <a
-      mat-raised-button
-      color="primary"
-      href="/assets/portfolio/resume.pdf"
-      class="dlBtn"
+    <a mat-raised-button color="primary" href="/assets/portfolio/resume.pdf"
       >DOWNLOAD</a
     >
   </div>
@@ -25,10 +10,12 @@
 
   <div class="row justify-content-center">
     <div class="jumbotron col-md-11 shadow">
-      <h1 class="display-4 job-header">Work Experience</h1>
-      <h1 class="display-5 job-header">Novation Education Opportunities | Eagan, MN</h1>
-      <p class="lead">Systems Analyst | March 2018 - present</p>
+      <h1 class="display-4 header">Work Experience</h1>
       <hr class="my-4" />
+      <h1 class="display-5 job-header">
+        Novation Education Opportunities | Eagan, MN
+      </h1>
+      <p class="lead">Systems Analyst | March 2018 - present</p>
       <p>
         • Developed a script utilizing C# and Selenium to automate MCA data
         extraction
@@ -44,8 +31,9 @@
       </p>
 
       <p>
-        • Contributed to 20 charter schools’ success by analyzing and reporting
-        on student performance data to the MN Department of Education
+        • Contributed to 20 charter schools’ success by analyzing/reporting on
+        student performance to the MN Department of Education via data
+        visualizations
       </p>
 
       <p>
@@ -56,13 +44,12 @@
       <h1
         class="display-5 job-header"
         [ngStyle]="{
-          marginTop: '5rem'
+          marginTop: '80px'
         }"
       >
         3Sach Food | Hi Chi Minh City, Vietnam
       </h1>
       <p class="lead">Web Developer | June 2016 - December 2016</p>
-      <hr class="my-4" />
       <p>• Implemented product photos on store website with HTML and CSS</p>
       <p>• Designed and implemented responsive layout with CSS3 transitions</p>
     </div>
@@ -71,6 +58,7 @@
   <div class="row justify-content-center justify-content-around">
     <div class="jumbotron col-md-5 shadow">
       <h1 class="display-4 header">Skills</h1>
+      <hr class="my-4" />
       <p class="lead">Languages</p>
 
       <p>C# • Java • Python • TypeScript</p>
@@ -85,6 +73,7 @@
     </div>
     <div class="jumbotron col-md-5 shadow">
       <h1 class="display-4 header">Education</h1>
+      <hr class="my-4" />
       <p class="lead">Metropolitan State University | St. Paul, MN</p>
 
       <p>B.S. Computer Science</p>

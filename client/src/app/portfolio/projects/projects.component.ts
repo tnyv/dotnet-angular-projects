@@ -1,5 +1,4 @@
 import { Component, OnInit } from "@angular/core";
-import { Router, NavigationEnd } from "@angular/router";
 
 @Component({
   selector: "app-projects",
@@ -7,19 +6,7 @@ import { Router, NavigationEnd } from "@angular/router";
   styleUrls: ["./projects.component.scss"],
 })
 export class ProjectsComponent implements OnInit {
-  slideIn: boolean = false;
-
-  constructor(private router: Router) {
-    this.router.events.subscribe((ev) => {
-      if (ev instanceof NavigationEnd) {
-        this.slideInProjects();
-      }
-    });
-  }
+  constructor() {}
 
   ngOnInit() {}
-
-  slideInProjects() {
-    this.slideIn = !this.slideIn;
-  }
 }

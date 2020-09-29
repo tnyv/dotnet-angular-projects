@@ -12,8 +12,8 @@
         <mat-toolbar
           [ngStyle]="{
             justifyContent: 'center',
-            height: '10rem',
-            marginTop: '1rem'
+            height: '160px',
+            marginTop: '16px'
           }"
           ><img class="header-image"
         /></mat-toolbar>
@@ -21,8 +21,7 @@
       <a
         mat-list-item
         href="#"
-        (click)="scroll('headerTop')"
-        (click)="handSetState && drawer.close()"
+        (click)="scroll('headerTop'); handSetState && drawer.close()"
         class="nav-text"
       >
         Home</a
@@ -30,8 +29,7 @@
       <a
         mat-list-item
         href="#"
-        (click)="scroll('projects')"
-        (click)="handSetState && drawer.close()"
+        (click)="scroll('projects'); handSetState && drawer.close()"
         class="nav-text"
       >
         Projects</a
@@ -39,8 +37,7 @@
       <a
         mat-list-item
         href="#"
-        (click)="scroll('resume')"
-        (click)="handSetState && drawer.close()"
+        (click)="scroll('resume'); handSetState && drawer.close()"
         class="nav-text"
       >
         R&eacute;sum&eacute;</a
@@ -48,8 +45,7 @@
       <a
         mat-list-item
         href="#"
-        (click)="scroll('contact')"
-        (click)="handSetState && drawer.close()"
+        (click)="scroll('contact'); handSetState && drawer.close()"
         class="nav-text"
       >
         Contact</a
