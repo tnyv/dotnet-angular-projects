@@ -9,11 +9,9 @@ import { ProfileComponent } from "./lms/screens/profile/profile.component";
 import { RegisterUserComponent } from "./lms/screens/register-user/register-user.component";
 import { CoursesComponent } from "./lms/screens/courses/courses.component";
 import { SessionComponent } from "./lms/screens/session/session.component";
-import { ResumeComponent } from "./portfolio/resume/resume.component";
 
 const routes: Routes = [
   { path: "", component: HomeComponent },
-  { path: "resume", component: ResumeComponent },
   // Pos
   { path: "pos", component: PosSalesUIComponent },
   { path: "pos-admin", component: PosAdminUIComponent },
