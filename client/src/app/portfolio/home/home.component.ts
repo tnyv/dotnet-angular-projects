@@ -17,7 +17,6 @@ export class HomeComponent implements OnInit {
         window.location.href = "https://vutony.com";
       }
     }
-    console.log("In production: " + environment.production)
   }
 
   currentURL: string = "";
