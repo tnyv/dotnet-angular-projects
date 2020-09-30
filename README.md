@@ -11,8 +11,8 @@ ___
 This is my website portfolio, which utilizes Material UI styling components. The website can be viewed here: https://vutony.com/
 
 #### Directory
-Backend: /Apps/Portfolio <br />
-Frontend /Client/src/portfolio
+Backend: /api/Apps/Portfolio <br />
+Frontend /client/src/portfolio
 
 #### Key Technologies
 - Angular
@@ -43,8 +43,8 @@ I originally initialized this project on a separate Github repo before I merged 
 The demo can be viewed here: https://vutony.com/lms
 
 #### Directory
-Backend: /Apps/Lms <br />
-Frontend /Client/src/lms
+Backend: /api/Apps/Lms <br />
+Frontend /client/src/lms
 
 #### Key Technologies:
 - Angular
@@ -76,8 +76,8 @@ I originally initialized this project on a separate Github repo before I merged 
 The demo can be viewed here: https://vutony.com/pos
 
 #### Directory
-Backend: /Apps/Pos <br />
-Frontend /Client/src/pos
+Backend: /api/Apps/Pos <br />
+Frontend /client/src/pos
 
 #### Key Technologies:
 - Angular

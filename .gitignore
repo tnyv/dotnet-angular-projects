@@ -1,7 +1,6 @@
 .vscode
-wwwroot/
-bin/
-obj/
-vs/
-deploy
-Client/node_modules
+api/wwwroot/
+api/bin/
+api/obj/
+api/deploy
+client/node_modules
