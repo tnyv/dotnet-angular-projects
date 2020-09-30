@@ -1,6 +1,7 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { Course } from "../../models/course";
+import { environment } from "src/environments/environment";
 
 @Injectable({
   providedIn: "root",
@@ -8,9 +9,9 @@ import { Course } from "../../models/course";
 export class CourseService {
   constructor(private http: HttpClient) {}
 
-  // Production vs development server
-  // private baseUrl = "http://localhost:58471/api/lms/";
-  private baseUrl = "https://vutony.com/api/lms/";
+  private baseUrl = environment.production
+    ? "https://vutony.com/api/lms/"
+    : "http://localhost:58471/api/lms/";
 
   // registrations array only stores courseId's
   // registeredCourses stores entire courses based on what is inside of registrations array

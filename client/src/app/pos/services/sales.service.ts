@@ -1,7 +1,8 @@
 import { Injectable } from "@angular/core";
-import { HttpClient, HttpHeaders } from "@angular/common/http";
+import { HttpClient } from "@angular/common/http";
 import { Observable } from "rxjs";
 import { Sales } from "../models/sales.model";
+import { environment } from "src/environments/environment";
 
 @Injectable({
   providedIn: "root",
@@ -9,9 +10,9 @@ import { Sales } from "../models/sales.model";
 export class SalesService {
   salesList: Sales[];
 
-  // PRODUCTION LINK: private baseUrl = 'https://vutony.com/api/pos/Sales';
-  // DEBUG LINK: private baseUrl = "https://localhost:32770/api/Sales";
-  private baseUrl = "https://vutony.com/api/pos/Sales";
+  private baseUrl = environment.production
+    ? "https://vutony.com/api/pos/Sales"
+    : "http://localhost:58471/api/Sales";
 
   constructor(private http: HttpClient) {}
 

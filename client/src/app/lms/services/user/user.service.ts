@@ -2,6 +2,7 @@ import { Injectable } from "@angular/core";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { User } from "../../models/user";
 import { Router } from "@angular/router";
+import { environment } from "src/environments/environment";
 
 @Injectable({
   providedIn: "root",
@@ -9,9 +10,9 @@ import { Router } from "@angular/router";
 export class UserService {
   constructor(private http: HttpClient, private router: Router) {}
 
-  // Production vs development server
-  //private baseUrl = "http://localhost:58471/api/lms/user";
-  private baseUrl = "https://vutony.com/api/lms/user";
+  private baseUrl = environment.production
+    ? "https://vutony.com/api/lms/user"
+    : "http://localhost:58471/api/lms/user";
 
   users: User[];
 
