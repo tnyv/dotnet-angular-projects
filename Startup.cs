@@ -17,6 +17,7 @@ using System.Text;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.ResponseCompression;
 using System.IO.Compression;
+using Microsoft.AspNetCore.SpaServices.AngularCli;
 
 namespace Api
 {
@@ -42,6 +43,11 @@ namespace Api
             {
                 options.Providers.Add<GzipCompressionProvider>();
                 options.EnableForHttps = true;
+            });
+
+            services.AddSpaStaticFiles(configuration =>
+            {
+                configuration.RootPath = "wwwroot";
             });
 
             services.AddDbContext<DataContext>(context => context.UseNpgsql(Configuration["dbString"]));
@@ -103,16 +109,32 @@ namespace Api
                 app.UseHsts();
             }
 
-            app.Use(async (context, next) =>
+            if (env.IsDevelopment())
             {
-                await next();
-
-                if (context.Response.StatusCode == 404 && !Path.HasExtension(context.Request.Path.Value))
+                app.UseSpa(spa =>
                 {
-                    context.Request.Path = "/index.html";
+                    spa.Options.SourcePath = "Client";
+
+                    if (env.IsDevelopment())
+                    {
+                        spa.UseAngularCliServer(npmScript: "start");
+                    }
+                });
+            }
+            else
+            {
+                app.Use(async (context, next) =>
+                {
                     await next();
-                }
-            });
+
+                    if (context.Response.StatusCode == 404 && !Path.HasExtension(context.Request.Path.Value))
+                    {
+                        context.Request.Path = "/index.html";
+                        await next();
+                    }
+                });
+            }
+
 
             app.UseDefaultFiles();
             app.UseStaticFiles();

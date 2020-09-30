@@ -11,8 +11,8 @@ ___
 This is my website portfolio, which utilizes Material UI styling components. The website can be viewed here: https://tonyvu.dev/
 
 #### Directory
-Backend: /api/Apps/Portfolio <br />
-Frontend /client/src/portfolio
+Backend: /Apps/Portfolio <br />
+Frontend /Client/src/portfolio
 
 #### Key Technologies
 - Angular
@@ -43,8 +43,8 @@ I originally initialized this project on a separate Github repo before I merged 
 The demo can be viewed here: https://tonyvu.dev/lms
 
 #### Directory
-Backend: /api/Apps/Lms <br />
-Frontend /client/src/lms
+Backend: /Apps/Lms <br />
+Frontend /Client/src/lms
 
 #### Key Technologies:
 - Angular
@@ -76,8 +76,8 @@ I originally initialized this project on a separate Github repo before I merged 
 The demo can be viewed here: https://tonyvu.dev/pos
 
 #### Directory
-Backend: /api/Apps/Pos <br />
-Frontend /client/src/pos
+Backend: /Apps/Pos <br />
+Frontend /Client/src/pos
 
 #### Key Technologies:
 - Angular
