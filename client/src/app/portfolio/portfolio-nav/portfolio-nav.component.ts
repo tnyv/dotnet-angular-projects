@@ -1,4 +1,4 @@
-import { Component } from "@angular/core";
+import { Component, ViewChild } from "@angular/core";
 import {
   BreakpointObserver,
   Breakpoints,
@@ -6,6 +6,7 @@ import {
 } from "@angular/cdk/layout";
 import { Observable } from "rxjs";
 import { map, shareReplay } from "rxjs/operators";
+import { MatSidenav } from "@angular/material";
 
 @Component({
   selector: "app-portfolio-nav",
@@ -13,6 +14,7 @@ import { map, shareReplay } from "rxjs/operators";
   styleUrls: ["./portfolio-nav.component.scss"],
 })
 export class PortfolioNavComponent {
+  @ViewChild("drawer", { static: true }) drawer: MatSidenav;
   handSetState: boolean;
 
   isHandset$: Observable<boolean> = this.breakpointObserver
@@ -37,11 +39,16 @@ export class PortfolioNavComponent {
   constructor(private breakpointObserver: BreakpointObserver) {}
 
   scroll(id: string) {
-    let el = document.getElementById(id);
-    el.scrollIntoView({ behavior: "smooth" });
-  }
-
-  scrollToTop() {
-    window.scroll(0,0);
+    if (this.handSetState) {
+      this.drawer.close();
+      setTimeout(function () {
+        let el = document.getElementById(id);
+        el.scrollIntoView({ behavior: "smooth" });
+      }, 1);
+    }
+    setTimeout(function () {
+        let el = document.getElementById(id);
+        el.scrollIntoView({ behavior: "smooth" });
+      }, 1);
   }
 }
