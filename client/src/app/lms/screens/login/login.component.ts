@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { UserService } from "../../services/user/user.service";
 import { Router } from "@angular/router";
+import { HttpsService } from "../../../https.service";
 
 @Component({
   selector: "app-login",
@@ -8,9 +9,15 @@ import { Router } from "@angular/router";
   styleUrls: ["./login.component.scss"],
 })
 export class LoginComponent implements OnInit {
-  constructor(public httpUser: UserService, private router: Router) {}
+  constructor(
+    public httpUser: UserService,
+    private router: Router,
+    private https: HttpsService
+  ) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.https.enforce();
+  }
 
   email: string = "";
   password: string = "";
@@ -44,7 +51,7 @@ export class LoginComponent implements OnInit {
         return this.success();
       },
       (reject) => {
-        console.log("Server error")
+        console.log("Server error");
       }
     );
   }

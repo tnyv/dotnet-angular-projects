@@ -34,7 +34,6 @@ import { RegisterService } from "./pos/services/register.service";
 import { LmsHomeComponent } from "./lms/screens/lms-home/lms-home.component";
 import { LmsNavComponent } from "./lms/components/lms-nav/lms-nav.component";
 import { LoginComponent } from "./lms/screens/login/login.component";
-import { ProfileComponent } from "./lms/screens/profile/profile.component";
 import { RegisterUserComponent } from "./lms/screens/register-user/register-user.component";
 import { CoursesComponent } from "./lms/screens/courses/courses.component";
 import { AdminPanelComponent } from "./lms/components/admin-panel/admin-panel.component";
@@ -62,7 +61,6 @@ import { SessionComponent } from "./lms/screens/session/session.component";
     LmsHomeComponent,
     LmsNavComponent,
     LoginComponent,
-    ProfileComponent,
     RegisterUserComponent,
     CoursesComponent,
     AdminPanelComponent,

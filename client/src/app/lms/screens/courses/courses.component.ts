@@ -2,6 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { CourseService } from "../../services/course/course.service";
 import { UserService } from "../../services/user/user.service";
 import { Router } from "@angular/router";
+import { HttpsService } from "../../../https.service";
 
 @Component({
   selector: "app-courses",
@@ -14,10 +15,12 @@ export class CoursesComponent implements OnInit {
   constructor(
     private router: Router,
     public httpCourse: CourseService,
-    public httpUser: UserService
+    public httpUser: UserService,
+    private https: HttpsService
   ) {}
 
   ngOnInit() {
+    this.https.enforce();
     if (localStorage.getItem("isLogged")) {
       this.httpCourse.getUserCourses();
     } else {

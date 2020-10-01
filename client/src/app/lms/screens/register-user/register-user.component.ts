@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { UserService } from "../../services/user/user.service";
 import { Router } from "@angular/router";
+import { HttpsService } from "../../../https.service";
 
 @Component({
   selector: "app-register-user",
@@ -8,9 +9,15 @@ import { Router } from "@angular/router";
   styleUrls: ["./register-user.component.scss"],
 })
 export class RegisterUserComponent implements OnInit {
-  constructor(public httpUser: UserService, private router: Router) {}
+  constructor(
+    public httpUser: UserService,
+    private router: Router,
+    private https: HttpsService
+  ) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.https.enforce();
+  }
 
   firstName: string = "";
   lastName: string = "";
@@ -50,7 +57,8 @@ export class RegisterUserComponent implements OnInit {
           (reject) => {
             this.loading = false;
             this.emailValid = false;
-            this.emailWarning = "Server offline or email address already exists.";
+            this.emailWarning =
+              "Server offline or email address already exists.";
           }
         );
     }

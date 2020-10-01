@@ -1,4 +1,5 @@
 import { Component, OnInit } from "@angular/core";
+import { HttpsService } from "../../../https.service";
 
 @Component({
   selector: "app-lms-home",
@@ -6,9 +7,10 @@ import { Component, OnInit } from "@angular/core";
   styleUrls: ["./lms-home.component.scss"],
 })
 export class LmsHomeComponent implements OnInit {
-  constructor() {}
+  constructor(private https: HttpsService) {}
 
   ngOnInit() {
+    this.https.enforce();
     this.isLogged = localStorage.getItem("isLogged") == "true" ? true : false;
     if (this.isLogged) {
       this.firstName = localStorage.getItem("firstName");
