@@ -12,6 +12,7 @@ export class RegistrationsComponent implements OnInit {
   isUnenroll: boolean = false;
   unenrollCourse: string;
   unenrollId: number;
+  loading: boolean = false;
 
   constructor(public httpCourse: CourseService, private router: Router) {}
 
@@ -24,6 +25,7 @@ export class RegistrationsComponent implements OnInit {
   }
 
   unenrollClicked(unenrollId) {
+    this.loading = true;
     this.isUnenroll = true;
     this.unenrollId = unenrollId;
 
@@ -38,16 +40,29 @@ export class RegistrationsComponent implements OnInit {
     if (confirmed) {
       for (var i = 0; i < this.httpCourse.registrations.length; i++) {
         if (this.httpCourse.userRegistrations[i].courseId == this.unenrollId) {
-          await this.httpCourse.unenroll(this.httpCourse.userRegistrations[i].id);
-          await this.httpCourse.getUserCourses();
-          location.reload();
-          break;
+          this.httpCourse
+            .unenroll(this.httpCourse.userRegistrations[i].id)
+            .then(
+              () => {
+                return this.unenrollSuccess();
+              },
+              (reject) => {
+                console.log("Server error");
+              }
+            );
         }
       }
-      this.isUnenroll = false;
     } else {
       this.isUnenroll = false;
+      this.loading = false;
     }
+  }
+
+  unenrollSuccess() {
+    console.log("what the");
+    this.isUnenroll = false;
+    this.loading = false;
+    this.ngOnInit();
   }
 
   unenrollStyle() {

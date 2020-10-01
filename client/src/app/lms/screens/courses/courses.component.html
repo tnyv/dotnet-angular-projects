@@ -22,9 +22,19 @@
             <td class="td-display">{{ course.name }}</td>
             <td class="td-display">{{ course.summary }}</td>
             <td class="td-display">
-              <button class="btn btn-primary" (click)="enroll(course.id)">
-                Enroll
-              </button>
+              <ng-template [ngIf]="loading" [ngIfElse]="enrollDefault">
+                <button class="btn btn-primary enrollBtn" disabled>
+                  Enroll
+                </button>
+              </ng-template>
+              <ng-template #enrollDefault>
+                <button
+                  class="btn btn-primary enrollBtn"
+                  (click)="enroll(course.id)"
+                >
+                  Enroll
+                </button>
+              </ng-template>
             </td>
           </tr>
         </tbody>

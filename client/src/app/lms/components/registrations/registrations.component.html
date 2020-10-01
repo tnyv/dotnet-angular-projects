@@ -20,12 +20,20 @@
             >
               Enter
             </button>
-            <button
-              class="btn btn-danger btns"
-              (click)="unenrollClicked(registeredCourse.id)"
-            >
-              Unenroll
-            </button>
+
+            <ng-template [ngIf]="loading" [ngIfElse]="enrollDefault">
+              <button class="btn btn-danger btns" disabled>
+                Unenroll
+              </button>
+            </ng-template>
+            <ng-template #enrollDefault>
+              <button
+                class="btn btn-danger btns"
+                (click)="unenrollClicked(registeredCourse.id)"
+              >
+                Unenroll
+              </button>
+            </ng-template>
           </td>
         </tr>
       </tbody>
@@ -39,6 +47,8 @@
     <button class="btn btn-primary enterBtn" (click)="unenrollConfirm(true)">
       YES
     </button>
-    <button class="btn btn-primary btns" (click)="unenrollConfirm(false)">NO</button>
+    <button class="btn btn-primary btns" (click)="unenrollConfirm(false)">
+      NO
+    </button>
   </div>
 </div>

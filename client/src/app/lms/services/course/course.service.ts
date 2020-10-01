@@ -99,26 +99,34 @@ export class CourseService {
     };
     const body = { courseId: courseId };
 
-    return await this.http
-      .post(this.baseUrl + "registration", body, { headers })
-      .subscribe(async (res: Response) => {
-        var response = JSON.parse(JSON.stringify(res));
-        console.log(response);
-        await this.getUserCourses();
-      });
+    return new Promise((resolve, reject) => {
+      this.http
+        .post(this.baseUrl + "registration", body, { headers })
+        .subscribe(async (res: Response) => {
+          var response = JSON.parse(JSON.stringify(res));
+          console.log(response);
+          await this.getUserCourses();
+          resolve();
+        });
+    });
   }
 
   async unenroll(registrationId: number) {
+    console.log("being unenrolled ID: " + registrationId);
     const headers = {
       "Content-Type": "application/json",
       Authorization: "Bearer " + localStorage.getItem("jwt"),
     };
 
-    return this.http
-      .delete(this.baseUrl + "registration/" + registrationId, { headers })
-      .subscribe((res: Response) => {
-        var response = JSON.parse(JSON.stringify(res));
-        console.log(response);
-      });
+    return new Promise((resolve, reject) => {
+      this.http
+        .delete(this.baseUrl + "registration/" + registrationId, { headers })
+        .subscribe(async (res: Response) => {
+          var response = JSON.parse(JSON.stringify(res));
+          console.log(response);
+          await this.getUserCourses();
+          resolve();
+        });
+    });
   }
 }
