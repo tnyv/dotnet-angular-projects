@@ -121,10 +121,7 @@ namespace Api
 
             app.UseRouting();
 
-            if (env.IsDevelopment())
-            {
-                app.UseCors(MyAllowSpecificOrigins);
-            }
+            app.UseCors(MyAllowSpecificOrigins);
 
             app.UseAuthentication();
 
