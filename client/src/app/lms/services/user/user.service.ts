@@ -16,26 +16,6 @@ export class UserService {
 
   users: User[];
 
-  ping(jwt: string) {
-    const headers = {
-      "Content-Type": "application/json",
-      Authorization: "Bearer " + localStorage.getItem("jwt"),
-    };
-    return new Promise((resolve, reject) => {
-      this.http
-        .get(this.baseUrl + "/ping", { headers })
-        .toPromise()
-        .then(
-          (res) => {
-            resolve();
-          },
-          (error) => {
-            reject();
-          }
-        );
-    });
-  }
-
   login(email: string, password: string) {
     const headers = { "Content-Type": "application/json" };
     const body = { email: email, password: password };

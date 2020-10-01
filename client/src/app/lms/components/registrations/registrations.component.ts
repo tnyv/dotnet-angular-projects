@@ -16,16 +16,7 @@ export class RegistrationsComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    // Ping server to make sure jwt is still valid before getting registered courses
-    this.httpUser.ping(localStorage.getItem("jwt")).then(
-      () => {
-        return this.httpCourse.getUserCourses(localStorage.getItem("jwt"));
-      },
-      (reject) => {
-        // User jwt expired. Sign user out
-        this.httpUser.signOut();
-      }
-    );
+    this.httpCourse.getUserCourses(localStorage.getItem("jwt"));
   }
 
   navigateToSession(courseId: string) {

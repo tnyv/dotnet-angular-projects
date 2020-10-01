@@ -26,7 +26,7 @@ export class CourseService {
       "Content-Type": "application/json",
     };
 
-    this.http
+    return this.http
       .get(this.baseUrl + "course/getall", { headers })
       .toPromise()
       .then((res) => {
@@ -39,9 +39,9 @@ export class CourseService {
   // registrations associated with the current user (via their jwt) and stores
   // all courseIds (ints) in the registrations [] array. This will be used to
   // display user's enrolled courses and for taking a course on the activecourse screen.
-  getUserCourses(jwt: string) {
-    this.getAllCourses();
-
+  async getUserCourses(jwt: string) {
+    await this.getAllCourses();
+    
     const headers = {
       "Content-Type": "application/json",
       Authorization: "Bearer " + localStorage.getItem("jwt"),
@@ -67,7 +67,7 @@ export class CourseService {
         // Cross check all course Id's and registration Id's, then add course
         // to registeredCourses if there's a match.
         for (var j = 0; j < this.allCourses.length; j++) {
-          if (this.registrations.includes(this.allCourses[j].id)) {
+          if (!this.registrations.includes(this.allCourses[j].id)) {
             this.registeredCourses.push(this.allCourses[j]);
           }
         }
