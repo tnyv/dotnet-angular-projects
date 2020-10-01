@@ -5,7 +5,6 @@ import { PosSalesUIComponent } from "./pos/components/sales-ui/sales-ui.componen
 import { PosAdminUIComponent } from "./pos/components/admin-ui/admin-ui.component";
 import { LmsHomeComponent } from "./lms/screens/lms-home/lms-home.component";
 import { LoginComponent } from "./lms/screens/login/login.component";
-import { ProfileComponent } from "./lms/screens/profile/profile.component";
 import { RegisterUserComponent } from "./lms/screens/register-user/register-user.component";
 import { CoursesComponent } from "./lms/screens/courses/courses.component";
 import { SessionComponent } from "./lms/screens/session/session.component";
@@ -19,7 +18,6 @@ const routes: Routes = [
   { path: "lms", component: LmsHomeComponent },
   { path: "lms/login", component: LoginComponent },
   { path: "lms/register", component: RegisterUserComponent },
-  { path: "lms/profile", component: ProfileComponent },
   { path: "lms/courses", component: CoursesComponent },
   { path: "lms/session", component: SessionComponent },
 ];
