@@ -33,7 +33,7 @@ namespace Lms.Services.RegistrationService
             return serviceResponse;
         }
 
-        // This is only used in methods where we want to return the data associated with the specific token/user like GetAllRegistered(). 
+        // GetUserId() is only used in methods where we want to return the data associated with the specific token/user like GetAllRegistered(). 
         public int GetUserId() => int.Parse(_httpContextAccessor.HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier));
         public async Task<ServiceResponse<List<GetRegistrationDTO>>> GetAllRegistered()
         {
