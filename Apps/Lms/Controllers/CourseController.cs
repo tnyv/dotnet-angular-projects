@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using Api.Apps;
 using Lms.DTOs.CourseDTOs;
+using Lms.DTOs.QuestionDTOs;
 using Lms.Services.CourseService;
 using Microsoft.AspNetCore.Mvc;
 
@@ -56,6 +57,18 @@ namespace Lms.Controllers
                 return NotFound(response);
             }
             return Ok(response);
+        }
+
+        [HttpGet("GetQuestions")]
+        public async Task<IActionResult> GetQuestions()
+        {
+            return Ok(await _courseService.GetAllQuestions());
+        }
+
+        [HttpPost("Question")]
+        public async Task<IActionResult> AddQuestion(AddTQuestionDTO newQuestion)
+        {
+            return Ok(await _courseService.AddQuestion(newQuestion));
         }
     }
 }

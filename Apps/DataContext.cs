@@ -18,5 +18,6 @@ namespace Api.Apps
         public DbSet<User> Users { get; set; }
         public DbSet<Course> Courses { get; set; }
         public DbSet<Registration> Registrations { get; set; }
+        public DbSet<TestQuestion> TestQuestions { get; set; }
     }
 }

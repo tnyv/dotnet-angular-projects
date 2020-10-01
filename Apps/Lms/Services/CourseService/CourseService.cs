@@ -7,6 +7,7 @@ using System.Linq;
 using Api.Apps;
 using Lms.DTOs.CourseDTOs;
 using Lms.Models.Courses;
+using Lms.DTOs.QuestionDTOs;
 
 namespace Lms.Services.CourseService
 {
@@ -40,12 +41,12 @@ namespace Lms.Services.CourseService
         public async Task<ServiceResponse<List<GetCourseDTO>>> AddCourse(AddCourseDTO newCourse)
         {
             ServiceResponse<List<GetCourseDTO>> serviceResponse = new ServiceResponse<List<GetCourseDTO>>();
-            
+
             Course course = _mapper.Map<Course>(newCourse);
 
             await _context.Courses.AddAsync(course);
             await _context.SaveChangesAsync();
-            
+
             serviceResponse.Data = (_context.Courses.Select(c => _mapper.Map<GetCourseDTO>(c))).ToList();
             serviceResponse.Message = "New course successfully added";
             return serviceResponse;
@@ -93,6 +94,28 @@ namespace Lms.Services.CourseService
                 serviceResponse.Success = false;
                 serviceResponse.Message = ex.Message;
             }
+            return serviceResponse;
+        }
+
+        public async Task<ServiceResponse<List<GetTQuestionDTO>>> GetAllQuestions()
+        {
+            ServiceResponse<List<GetTQuestionDTO>> serviceResponse = new ServiceResponse<List<GetTQuestionDTO>>();
+            List<TestQuestion> dbQuestions = await _context.TestQuestions.ToListAsync();
+            serviceResponse.Data = (dbQuestions.Select(q => _mapper.Map<GetTQuestionDTO>(q))).ToList();
+            return serviceResponse;
+        }
+
+        public async Task<ServiceResponse<List<GetTQuestionDTO>>> AddQuestion(AddTQuestionDTO newQuestion)
+        {
+            ServiceResponse<List<GetTQuestionDTO>> serviceResponse = new ServiceResponse<List<GetTQuestionDTO>>();
+
+            TestQuestion question = _mapper.Map<TestQuestion>(newQuestion);
+
+            await _context.TestQuestions.AddAsync(question);
+            await _context.SaveChangesAsync();
+
+            serviceResponse.Data = (_context.TestQuestions.Select(c => _mapper.Map<GetTQuestionDTO>(c))).ToList();
+            serviceResponse.Message = "New question successfully added";
             return serviceResponse;
         }
     }

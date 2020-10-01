@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using Api.Apps;
 using Lms.DTOs.CourseDTOs;
+using Lms.DTOs.QuestionDTOs;
 
 namespace Lms.Services.CourseService
 {
@@ -16,5 +17,9 @@ namespace Lms.Services.CourseService
         Task<ServiceResponse<GetCourseDTO>> UpdateCourse(UpdateCourseDTO updatedCourse);
 
         Task<ServiceResponse<List<GetCourseDTO>>> DeleteCourse(int id);
+
+        Task<ServiceResponse<List<GetTQuestionDTO>>> GetAllQuestions();
+
+        Task<ServiceResponse<List<GetTQuestionDTO>>> AddQuestion(AddTQuestionDTO newQuestion);
     }
 }

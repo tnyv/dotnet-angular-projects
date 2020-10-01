@@ -1,5 +1,6 @@
 using AutoMapper;
 using Lms.DTOs.CourseDTOs;
+using Lms.DTOs.QuestionDTOs;
 using Lms.DTOs.RegistrationDTOs;
 using Lms.DTOs.UserDTOs;
 using Lms.Models.Courses;
@@ -21,6 +22,9 @@ namespace Lms
 
             CreateMap<Registration, GetRegistrationDTO>();
             CreateMap<AddRegistrationDTO, Registration>();
+
+            CreateMap<TestQuestion, GetTQuestionDTO>();
+            CreateMap<AddTQuestionDTO, TestQuestion>();
         }
     }
 }

@@ -48,6 +48,7 @@ namespace Lms.Services.RegistrationService
             ServiceResponse<List<GetRegistrationDTO>> serviceResponse = new ServiceResponse<List<GetRegistrationDTO>>();
             
             Registration registration = _mapper.Map<Registration>(newRegistration);
+            // Associating new registration with user's JWT claim "u => u.Id == GetUserId()"
             registration.User = await _context.Users.FirstOrDefaultAsync(u => u.Id == GetUserId());
 
             await _context.Registrations.AddAsync(registration);
