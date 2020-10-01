@@ -56,9 +56,9 @@ export class CourseService {
   // registrations associated with the current user (via their jwt) and stores
   // all courseIds (ints) in the registrations [] array. This will be used to
   // display user's enrolled courses and for taking a course on the activecourse screen.
-  async getUserCourses(jwt: string) {
+  async getUserCourses() {
     await this.getAllCourses();
-    await this.getUserRegistrations()
+    await this.getUserRegistrations();
 
     const headers = {
       "Content-Type": "application/json",
@@ -86,25 +86,25 @@ export class CourseService {
         // to registeredCourses if there's a match.
         for (var j = 0; j < this.allCourses.length; j++) {
           if (this.registrations.includes(this.allCourses[j].id)) {
-            // console.log(this.registrations.includes(this.allCourses[j].id));
             this.registeredCourses.push(this.allCourses[j]);
           }
         }
       });
   }
 
-  registerCourse(courseId: number, jwt: string) {
+  async registerCourse(courseId: number, jwt: string) {
     const headers = {
       "Content-Type": "application/json",
       Authorization: "Bearer " + localStorage.getItem("jwt"),
     };
     const body = { courseId: courseId };
 
-    return this.http
-      .post<any>(this.baseUrl + "registration", body, { headers })
-      .subscribe((res: Response) => {
+    return await this.http
+      .post(this.baseUrl + "registration", body, { headers })
+      .subscribe(async (res: Response) => {
         var response = JSON.parse(JSON.stringify(res));
         console.log(response);
+        await this.getUserCourses();
       });
   }
 
@@ -115,7 +115,7 @@ export class CourseService {
     };
 
     return this.http
-      .delete<any>(this.baseUrl + "registration/" + registrationId, { headers })
+      .delete(this.baseUrl + "registration/" + registrationId, { headers })
       .subscribe((res: Response) => {
         var response = JSON.parse(JSON.stringify(res));
         console.log(response);

@@ -15,8 +15,8 @@ export class RegistrationsComponent implements OnInit {
 
   constructor(public httpCourse: CourseService, private router: Router) {}
 
-  ngOnInit() {
-    this.httpCourse.getUserCourses(localStorage.getItem("jwt"));
+  async ngOnInit() {
+    await this.httpCourse.getUserCourses();
   }
 
   navigateToSession(courseId: string) {
@@ -39,6 +39,7 @@ export class RegistrationsComponent implements OnInit {
       for (var i = 0; i < this.httpCourse.registrations.length; i++) {
         if (this.httpCourse.userRegistrations[i].courseId == this.unenrollId) {
           await this.httpCourse.unenroll(this.httpCourse.userRegistrations[i].id);
+          await this.httpCourse.getUserCourses();
           location.reload();
           break;
         }

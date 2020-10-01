@@ -17,7 +17,7 @@ export class CoursesComponent implements OnInit {
 
   ngOnInit() {
     if (localStorage.getItem("isLogged")) {
-      this.httpCourse.getUserCourses(localStorage.getItem("jwt"));
+      this.httpCourse.getUserCourses();
     } else {
       this.httpCourse.getAllCourses();
     }
@@ -30,7 +30,6 @@ export class CoursesComponent implements OnInit {
         alert("You're already registered for this course.");
       } else {
         await this.httpCourse.registerCourse(courseId, localStorage.getItem("jwt"));
-
         alert("Course has been successfully registered.");
         location.reload();
       }
