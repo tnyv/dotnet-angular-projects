@@ -1,6 +1,7 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { Course } from "../../models/course";
+import { Registration } from "../../models/registration";
 import { environment } from "src/environments/environment";
 
 @Injectable({
@@ -13,10 +14,11 @@ export class CourseService {
     ? "https://vutony.com/api/lms/"
     : "http://localhost:58471/api/lms/";
 
-  // registrations array only stores courseId's
+  // registrations array only stores courseId's of user's registered courses
   // registeredCourses stores entire courses based on what is inside of registrations array
   registrations: number[] = [];
   registeredCourses: Course[] = [];
+  userRegistrations: Registration[] = [];
 
   allCourses: Course[];
 
@@ -35,12 +37,28 @@ export class CourseService {
       });
   }
 
+  getUserRegistrations() {
+    const headers = {
+      "Content-Type": "application/json",
+      Authorization: "Bearer " + localStorage.getItem("jwt"),
+    };
+
+    return this.http
+      .get(this.baseUrl + "registration/getall", { headers })
+      .toPromise()
+      .then((res) => {
+        var response = JSON.parse(JSON.stringify(res));
+        this.userRegistrations = response.data as Registration[];
+      });
+  }
+
   // Get all current logged user's course registrations. This method retrieves the
   // registrations associated with the current user (via their jwt) and stores
   // all courseIds (ints) in the registrations [] array. This will be used to
   // display user's enrolled courses and for taking a course on the activecourse screen.
   async getUserCourses(jwt: string) {
     await this.getAllCourses();
+    await this.getUserRegistrations()
 
     const headers = {
       "Content-Type": "application/json",
@@ -86,6 +104,21 @@ export class CourseService {
       .post<any>(this.baseUrl + "registration", body, { headers })
       .subscribe((res: Response) => {
         var response = JSON.parse(JSON.stringify(res));
+        console.log(response);
+      });
+  }
+
+  async unenroll(registrationId: number) {
+    const headers = {
+      "Content-Type": "application/json",
+      Authorization: "Bearer " + localStorage.getItem("jwt"),
+    };
+
+    return this.http
+      .delete<any>(this.baseUrl + "registration/" + registrationId, { headers })
+      .subscribe((res: Response) => {
+        var response = JSON.parse(JSON.stringify(res));
+        console.log(response);
       });
   }
 }
