@@ -44,12 +44,6 @@ namespace Api
                 options.EnableForHttps = true;
             });
 
-            services.AddHttpsRedirection(options =>
-            {
-                options.RedirectStatusCode = StatusCodes.Status308PermanentRedirect;
-                options.HttpsPort = 443;
-            });
-
             services.AddDbContext<DataContext>(context => context.UseNpgsql(Configuration["dbString"]));
             services.AddControllersWithViews();
             services.AddControllers();
@@ -101,7 +95,6 @@ namespace Api
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-                app.UseCors(MyAllowSpecificOrigins);
             }
             else
             {
@@ -124,12 +117,14 @@ namespace Api
             app.UseDefaultFiles();
             app.UseStaticFiles();
 
-            if (!env.IsDevelopment())
-            {
-                app.UseHttpsRedirection();
-            }
+            app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            if (env.IsDevelopment())
+            {
+                app.UseCors(MyAllowSpecificOrigins);
+            }
 
             app.UseAuthentication();
 
