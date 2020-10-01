@@ -41,12 +41,6 @@ export class UserService {
     });
   }
 
-  signOut() {
-    localStorage.clear();
-    location.reload();
-    this.router.navigate(["/lms"]);
-  }
-
   // Get and store user data upon successful login
   getUserData(email: string) {
     const headers = {

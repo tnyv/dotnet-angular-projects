@@ -17,4 +17,10 @@ export class LmsNavComponent implements OnInit {
 
   isLogged: boolean;
   role: string;
+
+  signOut() {
+    console.log("signed out")
+    localStorage.clear();
+    this.router.navigate(["/lms/login"]);
+  }
 }

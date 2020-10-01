@@ -21,13 +21,13 @@
         <ng-template [ngIf]="isLogged && role == 'Admin'">
           <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
             <a class="dropdown-item" routerLink="/lms/admin">Admin Panel</a>
-            <a class="dropdown-item" (click)="httpUser.signOut()">Sign out</a>
+            <a class="dropdown-item" (click)="signOut()">Sign out</a>
           </div>
         </ng-template>
 
         <ng-template [ngIf]="isLogged && role == 'User'">
           <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <a class="dropdown-item" (click)="httpUser.signOut()">Sign out</a>
+            <a class="dropdown-item" (click)="signOut()">Sign out</a>
           </div>
         </ng-template>
 
