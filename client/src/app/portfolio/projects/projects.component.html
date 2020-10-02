@@ -1,11 +1,5 @@
-<div
-  class="projects-container"
->
-  <h1
-    class="display-3 header"
-  >
-    PROJECTS
-  </h1>
+<div class="projects-container">
+  <h1 class="display-3 header">PROJECTS</h1>
   <hr class="my-4" />
 
   <div class="row justify-content-center justify-content-around">
@@ -17,14 +11,15 @@
       </p>
       <hr class="my-4" />
       <p>
-        This is my most current programming project and it is also the most
-        complex project I have created. It is a light-weight learning management
-        system. Users will be able to create an account, login, register to
-        courses, view lectures, take tests, and earn points with a certificate
-        each time they complete a course. In addition, role based JWT
-        authorization will be utilized so that Admin roles can delete/edit users
-        and add/edit courses on the system. User roles will only be able to
-        perform bare minimum actions on the system.
+        This is a lite-weight learning management system I built with .NET and
+        Angular. It's essentially a mock Moodle or D2L website, but with much
+        less features. Some key lessons I've learned from developing this site
+        are implementing JWTs, JWT claims to associate data with specific users,
+        role-based authorized HTTP routes, and general C#/.NET practices like
+        using Data Transfer Objects, Automappers, and generics. In addition,
+        this project gave me a chance to develop the backend with .NET best
+        practices in mind, such as separation of concerns for controller, model,
+        data, service, and
       </p>
       <button
         mat-raised-button
@@ -47,10 +42,12 @@
       </p>
       <hr class="my-4" />
       <p>
-        This is a full stack online POS system for a fictional icecream shop.
-        The backend is built on .NET Core 3.1 and deployed via Docker image.
-        Sales records are posted and retrieved from a PostgreSQL database. The
-        front end is built with Angular 8 and Bootstrap.
+        This is a full stack online POS system for a fictional icecream shop
+        built with .NET and Angular. Some key lessons I learned from developing
+        this site was general Angular practices like utilizing dependency
+        injection for services, components vs modules, and utilizing ng methods
+        within html. In addition, I learned how to make basic HTTP calls from
+        the frontend to backend and how these processes behave (asynchronously).
       </p>
       <button
         mat-raised-button
@@ -63,6 +60,31 @@
         CODE
       </button>
       <button mat-raised-button color="accent" routerLink="/pos">DEMO</button>
+    </div>
+
+    <div class="jumbotron col-md-5 shadow">
+      <h1 class="display-4 project-header">Video Chat Website</h1>
+      <p class="lead">
+        Technologies: JavaScript &#8226; Express.js &#8226; MongoDB &#8226;
+        Bootstrap &#8226; EJS Templating
+      </p>
+      <hr class="my-4" />
+      <p>
+        This is an online video/chat website I made with ExpressJS, EJS
+        templating system, and Bootstrap 4. Some key lessons I learned from
+        developing this website were socket programming, Bootstrap fundamentals,
+        and Express/node basics.
+      </p>
+      <button
+        mat-raised-button
+        color="primary"
+        onClick="window.open('//github.com/tonyvu1/meetingspace')"
+        [ngStyle]="{
+          marginRight: '10px'
+        }"
+      >
+        CODE
+      </button>
     </div>
 
     <div class="jumbotron col-md-5 shadow">
@@ -95,33 +117,6 @@
         onClick="window.open('//old-portfolio.000webhostapp.com')"
       >
         DEMO
-      </button>
-    </div>
-
-    <div class="jumbotron col-md-5 shadow">
-      <h1 class="display-4 project-header">Video Chat Website</h1>
-      <p class="lead">
-        Technologies: JavaScript &#8226; Express.js &#8226; MongoDB &#8226;
-        Bootstrap &#8226; EJS Templating
-      </p>
-      <hr class="my-4" />
-      <p>
-        This is an online video/chat website I made with ExpressJS, EJS
-        templating system, and Bootstrap 4. I used MongoDB for my backend
-        database to store user account information, PassportJS middleware for
-        login authentication and protected routes, and Heruoku CLI for
-        deployment. Due to the cost of utilizing web socket services, this
-        project is not deployed for public testing.
-      </p>
-      <button
-        mat-raised-button
-        color="primary"
-        onClick="window.open('//github.com/tonyvu1/meetingspace')"
-        [ngStyle]="{
-          marginRight: '10px'
-        }"
-      >
-        CODE
       </button>
     </div>
   </div>
