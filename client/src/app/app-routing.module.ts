@@ -8,20 +8,23 @@ import { LoginComponent } from "./lms/screens/login/login.component";
 import { RegisterUserComponent } from "./lms/screens/register-user/register-user.component";
 import { CoursesComponent } from "./lms/screens/courses/courses.component";
 import { SessionComponent } from "./lms/screens/session/session.component";
-import { ProjectsComponent } from "./portfolio/projects/projects.component";
 
 const routes: Routes = [
   { path: "", component: HomeComponent },
-  { path: "projects", component: ProjectsComponent },
+  
   // Pos
   { path: "pos", component: PosSalesUIComponent },
   { path: "pos-admin", component: PosAdminUIComponent },
+
   // LMS
   { path: "lms", component: LmsHomeComponent },
   { path: "lms/login", component: LoginComponent },
   { path: "lms/register", component: RegisterUserComponent },
   { path: "lms/courses", component: CoursesComponent },
   { path: "lms/session", component: SessionComponent },
+
+  // Tetris (lazy loading)
+  { path: 'tetris', loadChildren: () => import('./tetris/tetris.module').then(m => m.TetrisModule) },
 ];
 
 @NgModule({
