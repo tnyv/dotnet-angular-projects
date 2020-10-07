@@ -38,7 +38,7 @@ ___
 #### Summary 
 This is my most current programming project and it is also the most complex project I have created. It is a light-weight learning management system. Users will be able to create an account, login, register courses, view lectures, take tests, and earn points with a certificate each time they complete a course. In addition, role based JWT authorization will be utilized so that Admin roles can delete/edit users and add/edit courses on the system. User roles will only be able to perform bare minimum actions on the system. 
 
-I originally initialized this project on a separate Github repo before I merged it here. If you'd like to view the commits from the beginning, you can view them here: https://github.com/tonyvu1/LMS
+I originally initialized this project on a separate Github repo before I merged it here. If you'd like to view the commits from the beginning, you can view them here: https://github.com/tnyv/LMS
 
 The demo can be viewed here: https://tonyvu.dev/lms
 
@@ -71,7 +71,7 @@ ___
 #### Summary 
 This is one of my first personal programming projects that was built with an Angular + .NET stack. It is a simple POS system for an ice cream shop. 
 
-I originally initialized this project on a separate Github repo before I merged it here. If you'd like to view the commits from the beginning, you can view them here: https://github.com/tonyvu1/pos
+I originally initialized this project on a separate Github repo before I merged it here. If you'd like to view the commits from the beginning, you can view them here: https://github.com/tnyv/pos
 
 The demo can be viewed here: https://tonyvu.dev/pos
 
