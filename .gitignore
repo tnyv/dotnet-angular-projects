@@ -40,5 +40,4 @@ msbuild.wrn
 # Uncategorized
 deploy
 Client/node_modules
-run
 .vs
