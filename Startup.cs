@@ -98,7 +98,7 @@ namespace Api
                 options.AddPolicy(name: MyAllowSpecificOrigins,
                                   builder =>
                                   {
-                                      builder.WithOrigins("http://localhost:4200")
+                                      builder.WithOrigins("http://www.tonyvu.dev")
                                       .AllowAnyHeader()
                                       .AllowAnyMethod()
                                       .AllowAnyOrigin();
@@ -144,10 +144,7 @@ namespace Api
 
             app.UseRouting();
 
-            if (env.IsDevelopment())
-            {
-                app.UseCors(MyAllowSpecificOrigins);
-            }
+            app.UseCors(MyAllowSpecificOrigins);
 
             app.UseAuthentication();
 
