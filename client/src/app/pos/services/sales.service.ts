@@ -11,7 +11,7 @@ export class SalesService {
   salesList: Sales[];
 
   private baseUrl = environment.production
-    ? "https://vutony.com/api/pos/Sales"
+    ? "https://tonyvu.dev/api/pos/Sales"
     : "http://localhost:58471/api/Sales";
 
   constructor(private http: HttpClient) {}
