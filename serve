@@ -1,2 +1,2 @@
-cd client
+cd Frontend
 ng serve -o
