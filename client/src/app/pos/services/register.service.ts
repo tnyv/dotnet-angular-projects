@@ -3,7 +3,7 @@ import { Item } from "../models/item.model";
 import { v4 as uuid } from "uuid";
 
 @Injectable({
-  providedIn: "root"
+  providedIn: "root",
 })
 export class RegisterService {
   constructor() {}
@@ -122,7 +122,6 @@ export class RegisterService {
     // Refresh total
     this.total = this.subtotal + this.tax;
     this.totalStr = (Math.round(this.total * 100) / 100).toFixed(2);
-    console.log(this.total + this.totalStr);
   }
 
   // Reset all values including array
@@ -136,9 +135,6 @@ export class RegisterService {
     this.inputStr = "";
     for (let i = this.itemList.length - 1; i >= 0; i--) {
       this.itemList.pop();
-    }
-    for (let i = 0; i < this.itemList.length; i++) {
-      console.log(this.itemList[i]);
     }
     this.refreshValues();
     this.inProgress = true;

@@ -58,7 +58,6 @@ export class RegistrationsComponent implements OnInit {
   }
 
   unenrollSuccess() {
-    console.log("what the");
     this.isUnenroll = false;
     this.loading = false;
     this.ngOnInit();

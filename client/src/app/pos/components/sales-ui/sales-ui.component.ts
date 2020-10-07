@@ -10,7 +10,6 @@ import { HttpsService } from "../../../https.service";
 export class PosSalesUIComponent implements OnInit {
   constructor(globals: PosGlobals, private https: HttpsService) {
     globals.page = "sales";
-    console.log(globals.page);
   }
 
   ngOnInit() {

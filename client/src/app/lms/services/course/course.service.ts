@@ -115,7 +115,6 @@ export class CourseService {
         .post(this.baseUrl + "registration", body, { headers })
         .subscribe(async (res: Response) => {
           var response = JSON.parse(JSON.stringify(res));
-          console.log(response);
           await this.getUserCourses();
           resolve();
         });
@@ -123,7 +122,6 @@ export class CourseService {
   }
 
   async unenroll(registrationId: number) {
-    console.log("being unenrolled ID: " + registrationId);
     const headers = {
       "Content-Type": "application/json",
       Authorization: "Bearer " + localStorage.getItem("jwt"),
@@ -134,7 +132,6 @@ export class CourseService {
         .delete(this.baseUrl + "registration/" + registrationId, { headers })
         .subscribe(async (res: Response) => {
           var response = JSON.parse(JSON.stringify(res));
-          console.log(response);
           await this.getUserCourses();
           resolve();
         });

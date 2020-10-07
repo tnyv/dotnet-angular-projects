@@ -65,10 +65,7 @@ export class SalesService {
     this.refreshSalesList();
 
     for (let i = 0; i < this.salesList.length; i++) {
-      this.deleteSale(this.salesList[i].id).subscribe(
-        (data) => console.log(data),
-        (error) => console.log(error)
-      );
+      this.deleteSale(this.salesList[i].id).subscribe();
     }
     this.refresh();
   }

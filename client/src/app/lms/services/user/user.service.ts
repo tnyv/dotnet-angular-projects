@@ -110,8 +110,6 @@ export class UserService {
     return new Promise((resolve, reject) => {
       this.http.get(this.baseUrl + "/getall", { headers: headers }).subscribe(
         (res: Response) => {
-          console.log(res);
-
           // Converting returned JSON into parsable object
           var response = JSON.parse(JSON.stringify(res));
           this.users = response.data;

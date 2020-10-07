@@ -6,7 +6,7 @@ import { ToastrService } from "ngx-toastr";
 @Component({
   selector: "app-register",
   templateUrl: "./register.component.html",
-  styleUrls: ["./register.component.scss"]
+  styleUrls: ["./register.component.scss"],
 })
 export class RegisterComponent implements OnInit {
   constructor(
@@ -39,10 +39,7 @@ export class RegisterComponent implements OnInit {
             this.registerService.inputNum,
             this.registerService.change
           )
-          .subscribe(
-            data => console.log(data),
-            error => console.log(error)
-          );
+          .subscribe();
         this.registerService.inProgress = false;
         this.toastr.success("Purchase completed.", "SUCCESS");
       }
@@ -64,10 +61,7 @@ export class RegisterComponent implements OnInit {
           this.registerService.inputNum,
           this.registerService.change
         )
-        .subscribe(
-          data => console.log(data),
-          error => console.log(error)
-        );
+        .subscribe();
       this.registerService.inProgress = false;
       this.toastr.success("Purchase completed.", "SUCCESS");
     }
