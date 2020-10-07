@@ -1,11 +1,11 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <div class="collapse navbar-collapse row">
-    <a class="nav-link back" routerLink="/">HOME</a>
-    <ul class="navbar-nav nav-group">
-      <li class="nav-item pos text-center">
-        <a class="nav-link" routerLink="/pos" [ngClass]="setSales()">POS</a>
+  <a class="nav-link brand back" routerLink="/">TONY VU</a>
+  <div class="collapse navbar-collapse">
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/pos" [ngClass]="setSales()">Sales</a>
       </li>
-      <li class="nav-item admin-li text-center">
+      <li class="nav-item">
         <a class="nav-link" routerLink="/pos-admin" [ngClass]="setAdmin()"
           >Admin</a
         >
