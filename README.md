@@ -8,7 +8,7 @@
 ___
 # 1. Portfolio
 #### Summary
-This is my website portfolio, which utilizes Material UI styling components. The website can be viewed here: https://vutony.com/
+This is my website portfolio, which utilizes Material UI styling components. The website can be viewed here: https://tonyvu.dev
 
 #### Directory
 Backend: /Apps/Portfolio <br />
@@ -40,7 +40,7 @@ This is my most current programming project and it is also the most complex proj
 
 I originally initialized this project on a separate Github repo before I merged it here. If you'd like to view the commits from the beginning, you can view them here: https://github.com/tonyvu1/LMS
 
-The demo can be viewed here: https://vutony.com/lms
+The demo can be viewed here: https://tonyvu.dev/lms
 
 #### Directory
 Backend: /Apps/Lms <br />
@@ -73,7 +73,7 @@ This is one of my first personal programming projects that was built with an Ang
 
 I originally initialized this project on a separate Github repo before I merged it here. If you'd like to view the commits from the beginning, you can view them here: https://github.com/tonyvu1/pos
 
-The demo can be viewed here: https://vutony.com/pos
+The demo can be viewed here: https://tonyvu.dev/pos
 
 #### Directory
 Backend: /Apps/Pos <br />
