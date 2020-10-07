@@ -12,7 +12,7 @@ export class SalesService {
 
   private baseUrl = environment.production
     ? "https://tonyvu.dev/api/pos/Sales"
-    : "http://localhost:58471/api/Sales";
+    : "http://localhost:58471/api/pos/Sales";
 
   constructor(private http: HttpClient) {}
 
