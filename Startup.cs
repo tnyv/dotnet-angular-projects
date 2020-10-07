@@ -63,8 +63,6 @@ namespace Api
             string connectionString = builder.ToString();
             connectionString = connectionString + ";SSL Mode=Require;Trust Server Certificate=true;";
 
-            Console.WriteLine("THE CONNECTION STRING IS " + connectionString);
-
             services.AddDbContext<DataContext>(context => context.UseNpgsql(connectionString));
 
             services.AddControllersWithViews();
@@ -139,7 +137,10 @@ namespace Api
             app.UseDefaultFiles();
             app.UseStaticFiles();
 
-            app.UseHttpsRedirection();
+            if (!env.IsDevelopment())
+            {
+                app.UseHttpsRedirection();
+            }
 
             app.UseRouting();
 
