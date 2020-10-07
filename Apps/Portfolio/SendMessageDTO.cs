@@ -1,7 +1,5 @@
-namespace Api.Apps.Portfolio
-{
-    public class SendMessageDTO
-    {
+namespace Api.Apps.Portfolio {
+    public class SendMessageDTO {
         public string Name { get; set; }
         public string Email { get; set; }
         public string Subject { get; set; }

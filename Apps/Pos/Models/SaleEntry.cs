@@ -1,7 +1,5 @@
-﻿namespace Api.Apps.Pos.Models
-{
-    public class SaleEntry
-    {
+﻿namespace Api.Apps.Pos.Models {
+    public class SaleEntry {
         public int Id { get; set; }
         public string Date { get; set; }
         public double Total { get; set; }

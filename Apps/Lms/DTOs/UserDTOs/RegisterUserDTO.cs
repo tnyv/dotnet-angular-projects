@@ -2,10 +2,8 @@ using System.Collections.Generic;
 using Lms.Models.Courses;
 using Lms.Models.Users;
 
-namespace Lms.DTOs.UserDTOs
-{
-    public class RegisterUserDTO
-    {
+namespace Lms.DTOs.UserDTOs {
+    public class RegisterUserDTO {
         public string Email { get; set; }
         public string Password { get; set; }
         public string FirstName { get; set; }

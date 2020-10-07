@@ -20,28 +20,22 @@ using System.IO.Compression;
 using System;
 using Npgsql;
 
-namespace Api
-{
-    public class Startup
-    {
+namespace Api {
+    public class Startup {
         readonly string MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
-        public Startup(IConfiguration configuration)
-        {
+        public Startup(IConfiguration configuration) {
             Configuration = configuration;
         }
 
-        public IConfiguration Configuration
-        {
+        public IConfiguration Configuration {
             get;
         }
 
         // This method gets called by the runtime. Use this method to add services to the container.
-        public void ConfigureServices(IServiceCollection services)
-        {
+        public void ConfigureServices(IServiceCollection services) {
             // Enable text compression
             services.Configure<GzipCompressionProviderOptions>(options => options.Level = CompressionLevel.Fastest);
-            services.AddResponseCompression(options =>
-            {
+            services.AddResponseCompression(options => {
                 options.Providers.Add<GzipCompressionProvider>();
                 options.EnableForHttps = true;
             });
@@ -51,8 +45,7 @@ namespace Api
             var databaseUri = new Uri(databaseUrl);
             var userInfo = databaseUri.UserInfo.Split(':');
 
-            var builder = new NpgsqlConnectionStringBuilder
-            {
+            var builder = new NpgsqlConnectionStringBuilder {
                 Host = databaseUri.Host,
                 Port = databaseUri.Port,
                 Username = userInfo[0],
@@ -73,10 +66,8 @@ namespace Api
             services.AddScoped<ICourseService, CourseService>();
             services.AddScoped<IRegistrationService, RegistrationService>();
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-            .AddJwtBearer(options =>
-            {
-                options.TokenValidationParameters = new Microsoft.IdentityModel.Tokens.TokenValidationParameters
-                {
+            .AddJwtBearer(options => {
+                options.TokenValidationParameters = new Microsoft.IdentityModel.Tokens.TokenValidationParameters {
                     ValidateIssuerSigningKey = true,
                     IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(Configuration["signingKey"])),
                     ValidateIssuer = false,
@@ -93,11 +84,9 @@ namespace Api
             services.AddControllersWithViews().AddNewtonsoftJson(options =>
                 options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
 
-            services.AddCors(options =>
-            {
+            services.AddCors(options => {
                 options.AddPolicy(name: MyAllowSpecificOrigins,
-                                  builder =>
-                                  {
+                                  builder => {
                                       builder.WithOrigins(Configuration["CORS"])
                                       .AllowAnyHeader()
                                       .AllowAnyMethod()
@@ -108,27 +97,21 @@ namespace Api
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
-        {
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env) {
             app.UseResponseCompression();
 
-            if (env.IsDevelopment())
-            {
+            if (env.IsDevelopment()) {
                 app.UseDeveloperExceptionPage();
-            }
-            else
-            {
+            } else {
                 app.UseExceptionHandler("/Error");
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
 
-            app.Use(async (context, next) =>
-            {
+            app.Use(async (context, next) => {
                 await next();
 
-                if (context.Response.StatusCode == 404 && !Path.HasExtension(context.Request.Path.Value))
-                {
+                if (context.Response.StatusCode == 404 && !Path.HasExtension(context.Request.Path.Value)) {
                     context.Request.Path = "/index.html";
                     await next();
                 }
@@ -137,8 +120,7 @@ namespace Api
             app.UseDefaultFiles();
             app.UseStaticFiles();
 
-            if (!env.IsDevelopment())
-            {
+            if (!env.IsDevelopment()) {
                 app.UseHttpsRedirection();
             }
 
@@ -150,8 +132,7 @@ namespace Api
 
             app.UseAuthorization();
 
-            app.UseEndpoints(endpoints =>
-            {
+            app.UseEndpoints(endpoints => {
                 endpoints.MapControllers();
             });
         }

@@ -2,10 +2,8 @@ using System.Collections.Generic;
 using Lms.Models.Courses;
 using Lms.Models.Users;
 
-namespace Lms.DTOs.UserDTOs
-{
-    public class UpdateUserDTO
-    {
+namespace Lms.DTOs.UserDTOs {
+    public class UpdateUserDTO {
         public int Id { get; set; }
         public string Email { get; set; }
         public byte[] PasswordHash { get; set; }

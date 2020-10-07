@@ -2,10 +2,8 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Lms.Models.Courses
-{
-    public class TestQuestion
-    {
+namespace Lms.Models.Courses {
+    public class TestQuestion {
         [Key]
         public int Id { get; set; }
         public string Question { get; set; }

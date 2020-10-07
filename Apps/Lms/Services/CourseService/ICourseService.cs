@@ -4,10 +4,8 @@ using Api.Apps;
 using Lms.DTOs.CourseDTOs;
 using Lms.DTOs.QuestionDTOs;
 
-namespace Lms.Services.CourseService
-{
-    public interface ICourseService
-    {
+namespace Lms.Services.CourseService {
+    public interface ICourseService {
         Task<ServiceResponse<List<GetCourseDTO>>> GetAllCourses();
 
         Task<ServiceResponse<GetCourseDTO>> GetCourseById(int id);

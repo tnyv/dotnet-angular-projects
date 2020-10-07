@@ -1,9 +1,7 @@
 using Lms.Models.Courses;
 
-namespace Lms.DTOs.QuestionDTOs
-{
-    public class AddTQuestionDTO
-    {
+namespace Lms.DTOs.QuestionDTOs {
+    public class AddTQuestionDTO {
         public string Question { get; set; }
         public string Answer { get; set; }
         public string Option1 { get; set; }

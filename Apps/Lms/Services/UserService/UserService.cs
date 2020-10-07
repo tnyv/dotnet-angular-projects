@@ -13,60 +13,49 @@ using Api.Apps;
 using Lms.DTOs.UserDTOs;
 using Lms.Models.Users;
 
-namespace Lms.Services.UserService
-{
-    public class UserService : IUserService
-    {
+namespace Lms.Services.UserService {
+    public class UserService : IUserService {
         private readonly IMapper _mapper;
         private readonly DataContext _context;
         private readonly IConfiguration _configuration;
 
-        public UserService(IMapper mapper, DataContext context, IConfiguration configuration)
-        {
+        public UserService(IMapper mapper, DataContext context, IConfiguration configuration) {
             _context = context;
             _mapper = mapper;
             _configuration = configuration;
         }
 
-        public async Task<ServiceResponse<List<GetUserDTO>>> DeleteUser(int id)
-        {
+        public async Task<ServiceResponse<List<GetUserDTO>>> DeleteUser(int id) {
             ServiceResponse<List<GetUserDTO>> serviceResponse = new ServiceResponse<List<GetUserDTO>>();
-            try
-            {
+            try {
                 User user = await _context.Users.FirstAsync(f => f.Id == id);
                 _context.Users.Remove(user);
                 await _context.SaveChangesAsync();
                 serviceResponse.Data = (_context.Users.Select(f => _mapper.Map<GetUserDTO>(f))).ToList();
-            }
-            catch (Exception ex)
-            {
+            } catch (Exception ex) {
                 serviceResponse.Success = false;
                 serviceResponse.Message = ex.Message;
             }
             return serviceResponse;
         }
 
-        public async Task<ServiceResponse<List<GetUserDTO>>> GetAllUsers()
-        {
+        public async Task<ServiceResponse<List<GetUserDTO>>> GetAllUsers() {
             ServiceResponse<List<GetUserDTO>> serviceResponse = new ServiceResponse<List<GetUserDTO>>();
             List<User> dbUsers = await _context.Users.ToListAsync();
             serviceResponse.Data = (dbUsers.Select(f => _mapper.Map<GetUserDTO>(f))).ToList();
             return serviceResponse;
         }
 
-        public async Task<ServiceResponse<GetUserDTO>> GetUserByEmail(string email)
-        {
+        public async Task<ServiceResponse<GetUserDTO>> GetUserByEmail(string email) {
             ServiceResponse<GetUserDTO> serviceResponse = new ServiceResponse<GetUserDTO>();
             User dbUser = await _context.Users.FirstOrDefaultAsync(f => f.Email == email);
             serviceResponse.Data = _mapper.Map<GetUserDTO>(dbUser);
             return serviceResponse;
         }
 
-        public async Task<ServiceResponse<GetUserDTO>> UpdateUser(UpdateUserDTO updatedUser)
-        {
+        public async Task<ServiceResponse<GetUserDTO>> UpdateUser(UpdateUserDTO updatedUser) {
             ServiceResponse<GetUserDTO> serviceResponse = new ServiceResponse<GetUserDTO>();
-            try
-            {
+            try {
                 // Grab the specific User from the database asynchronously.
                 User user = await _context.Users.FirstOrDefaultAsync(f => f.Id == updatedUser.Id);
                 user.Email = updatedUser.Email;
@@ -84,9 +73,7 @@ namespace Lms.Services.UserService
 
                 serviceResponse.Message = "User update successful.";
                 serviceResponse.Data = _mapper.Map<GetUserDTO>(user);
-            }
-            catch (Exception ex)
-            {
+            } catch (Exception ex) {
                 serviceResponse.Success = false;
                 serviceResponse.Message = ex.Message;
             }
@@ -95,34 +82,26 @@ namespace Lms.Services.UserService
         }
 
         // ServiceResponse type is <string> because it will create JWT token
-        public async Task<ServiceResponse<string>> Login(string email, string password)
-        {
+        public async Task<ServiceResponse<string>> Login(string email, string password) {
             ServiceResponse<string> response = new ServiceResponse<string>();
             User user = await _context.Users.FirstOrDefaultAsync(x => x.Email.ToLower().Equals(email.ToLower()));
-            if (user == null)
-            {
+            if (user == null) {
                 response.Success = false;
                 response.Message = "Invalid";
-            }
-            else if (!VerifyPasswordHash(password, user.PasswordHash, user.PasswordSalt))
-            {
+            } else if (!VerifyPasswordHash(password, user.PasswordHash, user.PasswordSalt)) {
                 response.Success = false;
                 response.Message = "Invalid";
-            }
-            else
-            {
+            } else {
                 response.Data = CreateToken(user);
             }
 
             return response;
         }
 
-        public async Task<ServiceResponse<int>> Register(User user, string password)
-        {
+        public async Task<ServiceResponse<int>> Register(User user, string password) {
             ServiceResponse<int> response = new ServiceResponse<int>();
 
-            if (await UserExists(user.Email))
-            {
+            if (await UserExists(user.Email)) {
                 response.Success = false;
                 response.Message = "User already exists.";
                 return response;
@@ -138,33 +117,25 @@ namespace Lms.Services.UserService
             return response;
         }
 
-        public async Task<bool> UserExists(string email)
-        {
-            if (await _context.Users.AnyAsync(x => x.Email.ToLower() == email.ToLower()))
-            {
+        public async Task<bool> UserExists(string email) {
+            if (await _context.Users.AnyAsync(x => x.Email.ToLower() == email.ToLower())) {
                 return true;
             }
             return false;
         }
 
-        private void CreatePasswordHash(string password, out byte[] passwordHash, out byte[] passwordSalt)
-        {
-            using (var hmac = new System.Security.Cryptography.HMACSHA512())
-            {
+        private void CreatePasswordHash(string password, out byte[] passwordHash, out byte[] passwordSalt) {
+            using (var hmac = new System.Security.Cryptography.HMACSHA512()) {
                 passwordSalt = hmac.Key;
                 passwordHash = hmac.ComputeHash(System.Text.Encoding.UTF8.GetBytes(password));
             }
         }
 
-        private bool VerifyPasswordHash(string password, byte[] passwordHash, byte[] passwordSalt)
-        {
-            using (var hmac = new System.Security.Cryptography.HMACSHA512(passwordSalt))
-            {
+        private bool VerifyPasswordHash(string password, byte[] passwordHash, byte[] passwordSalt) {
+            using (var hmac = new System.Security.Cryptography.HMACSHA512(passwordSalt)) {
                 var computedHash = hmac.ComputeHash(System.Text.Encoding.UTF8.GetBytes(password));
-                for (int i = 0; i < computedHash.Length; i++)
-                {
-                    if (computedHash[i] != passwordHash[i])
-                    {
+                for (int i = 0; i < computedHash.Length; i++) {
+                    if (computedHash[i] != passwordHash[i]) {
                         return false;
                     }
                 }
@@ -172,8 +143,7 @@ namespace Lms.Services.UserService
             }
         }
 
-        private string CreateToken(User user)
-        {
+        private string CreateToken(User user) {
             List<Claim> claims = new List<Claim>
             {
                 new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
@@ -186,8 +156,7 @@ namespace Lms.Services.UserService
 
             SigningCredentials creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha512Signature);
 
-            SecurityTokenDescriptor tokenDescriptor = new SecurityTokenDescriptor
-            {
+            SecurityTokenDescriptor tokenDescriptor = new SecurityTokenDescriptor {
                 Subject = new ClaimsIdentity(claims),
                 Expires = DateTime.Now.AddDays(1),
                 SigningCredentials = creds

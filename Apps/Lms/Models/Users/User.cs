@@ -2,10 +2,8 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using Lms.Models.Courses;
 
-namespace Lms.Models.Users
-{
-    public class User
-    {
+namespace Lms.Models.Users {
+    public class User {
         [Key]
         public int Id { get; set; }
         public string Email { get; set; }

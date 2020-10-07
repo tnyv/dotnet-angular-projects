@@ -4,21 +4,17 @@ using System.Net.Mail;
 using System.Net;
 using Microsoft.Extensions.Configuration;
 
-namespace Api.Apps.Portfolio.Services
-{
-    public class MessageService : IMessageService
-    {
+namespace Api.Apps.Portfolio.Services {
+    public class MessageService : IMessageService {
         private readonly IMapper _mapper;
         private readonly IConfiguration Configuration;
 
-        public MessageService(IMapper mapper, IConfiguration configuration)
-        {
+        public MessageService(IMapper mapper, IConfiguration configuration) {
             _mapper = mapper;
             Configuration = configuration;
         }
 
-        public Task<ServiceResponse<SendMessageDTO>> SendMessage(SendMessageDTO newMessage)
-        {
+        public Task<ServiceResponse<SendMessageDTO>> SendMessage(SendMessageDTO newMessage) {
             ServiceResponse<SendMessageDTO> serviceResponse = new ServiceResponse<SendMessageDTO>();
 
             serviceResponse.Data = newMessage;
@@ -30,8 +26,7 @@ namespace Api.Apps.Portfolio.Services
             string subject = newMessage.Subject + " " + newMessage.Email;
             string body = newMessage.MessageBody;
 
-            var smtp = new SmtpClient
-            {
+            var smtp = new SmtpClient {
                 Host = "smtp.gmail.com",
                 Port = 587,
                 EnableSsl = true,
@@ -39,12 +34,10 @@ namespace Api.Apps.Portfolio.Services
                 Credentials = new NetworkCredential(fromAddress.Address, fromPassword),
                 Timeout = 20000
             };
-            using (var message = new MailMessage(fromAddress, toAddress)
-            {
+            using (var message = new MailMessage(fromAddress, toAddress) {
                 Subject = subject,
                 Body = body
-            })
-            {
+            }) {
                 smtp.Send(message);
             }
 
