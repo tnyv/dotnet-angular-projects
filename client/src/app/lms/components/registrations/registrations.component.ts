@@ -1,7 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { CourseService } from "../../services/course/course.service";
 import { Router } from "@angular/router";
-import { StylesCompileDependency } from "@angular/compiler";
 
 @Component({
   selector: "app-registrations",

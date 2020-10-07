@@ -1,14 +1,15 @@
 import { Injectable } from "@angular/core";
-import { HttpClient } from "@angular/common/http";
+import { HttpClient, HttpErrorResponse } from "@angular/common/http";
 import { Course } from "../../models/course";
 import { Registration } from "../../models/registration";
 import { environment } from "src/environments/environment";
+import { Router } from "@angular/router";
 
 @Injectable({
   providedIn: "root",
 })
 export class CourseService {
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private router: Router) {}
 
   private baseUrl = environment.production
     ? "https://tonyvu.dev/api/lms/"
@@ -49,6 +50,11 @@ export class CourseService {
       .then((res) => {
         var response = JSON.parse(JSON.stringify(res));
         this.userRegistrations = response.data as Registration[];
+      })
+      .catch((err: HttpErrorResponse) => {
+        // JWT expired, clear browser location and redirect to sign in page
+        localStorage.clear();
+        this.router.navigate(["/lms/login"]);
       });
   }
 
@@ -89,6 +95,11 @@ export class CourseService {
             this.registeredCourses.push(this.allCourses[j]);
           }
         }
+      })
+      .catch((err: HttpErrorResponse) => {
+        // JWT expired, clear browser location and redirect to sign in page
+        localStorage.clear();
+        this.router.navigate(["/lms/login"]);
       });
   }
 
