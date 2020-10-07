@@ -1,22 +1,35 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <a class="navbar-brand" routerLink="/lms">LMS Lite</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+  <a class="navbar-brand" routerLink="/">TONY VU</a>
+  <button
+    class="navbar-toggler"
+    type="button"
+    data-toggle="collapse"
+    data-target="#navbarNavDropdown"
+    aria-controls="navbarNavDropdown"
+    aria-expanded="false"
+    aria-label="Toggle navigation"
+  >
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarNavDropdown">
     <ul class="navbar-nav">
       <li class="nav-item">
-        <a class="nav-link" routerLink="/lms">Home</a>
+        <a class="nav-link" routerLink="/lms">LMS Home</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" routerLink="/lms/courses">Courses</a>
       </li>
       <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <a
+          class="nav-link dropdown-toggle"
+          href="#"
+          id="navbarDropdownMenuLink"
+          data-toggle="dropdown"
+          aria-haspopup="true"
+          aria-expanded="false"
+        >
           Account
         </a>
-
-
 
         <ng-template [ngIf]="isLogged && role == 'Admin'">
           <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
@@ -31,22 +44,15 @@
           </div>
         </ng-template>
 
-
         <ng-template [ngIf]="isLogged == false">
           <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
             <a class="dropdown-item" routerLink="/lms/login">Sign in</a>
-            <a class="dropdown-item" routerLink="/lms/register">Create an account</a>
+            <a class="dropdown-item" routerLink="/lms/register"
+              >Create an account</a
+            >
           </div>
-
         </ng-template>
-        
-
-        
-
-
-
       </li>
     </ul>
   </div>
 </nav>
-
