@@ -4,10 +4,13 @@ using Api.Apps;
 using Lms.DTOs.CourseDTOs;
 using Lms.DTOs.QuestionDTOs;
 using Lms.Services.CourseService;
+using LMS.Models.Users.Role;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Lms.Controllers
 {
+    [Authorize]
     [ApiController]
     [Route("api/lms/[controller]")]
     public class CourseController : ControllerBase
@@ -19,7 +22,8 @@ namespace Lms.Controllers
             _courseService = CourseService;
         }
 
-       [HttpGet("GetAll")]
+        [AllowAnonymous]
+        [HttpGet("GetAll")]
         public async Task<IActionResult> Get()
         {
             return Ok(await _courseService.GetAllCourses());
@@ -31,12 +35,14 @@ namespace Lms.Controllers
             return Ok(await _courseService.GetCourseById(id));
         }
 
+        [Authorize(Roles = Role.Admin)]
         [HttpPost]
         public async Task<IActionResult> AddCourse(AddCourseDTO newCourse)
         {
             return Ok(await _courseService.AddCourse(newCourse));
         }
 
+        [Authorize(Roles = Role.Admin)]
         [HttpPut]
         public async Task<IActionResult> UpdateCourse(UpdateCourseDTO updatedCourse)
         {
@@ -48,6 +54,7 @@ namespace Lms.Controllers
             return Ok(response);
         }
 
+        [Authorize(Roles = Role.Admin)]
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(int id)
         {
@@ -65,6 +72,7 @@ namespace Lms.Controllers
             return Ok(await _courseService.GetAllQuestions());
         }
 
+        [Authorize(Roles = Role.Admin)]
         [HttpPost("Question")]
         public async Task<IActionResult> AddQuestion(AddTQuestionDTO newQuestion)
         {

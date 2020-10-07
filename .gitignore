@@ -39,5 +39,6 @@ msbuild.wrn
 
 # Uncategorized
 deploy
-Client/node_modules
+node_modules
 .vs
+wwwroot
