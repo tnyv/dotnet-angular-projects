@@ -17,6 +17,8 @@ using System.Text;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.ResponseCompression;
 using System.IO.Compression;
+using System;
+using Npgsql;
 
 namespace Api
 {
@@ -44,7 +46,27 @@ namespace Api
                 options.EnableForHttps = true;
             });
 
-            services.AddDbContext<DataContext>(context => context.UseNpgsql(Configuration["dbString"]));
+            // Configured Heroku postgres DB connection
+            var databaseUrl = Configuration["DATABASE_URL"];
+            var databaseUri = new Uri(databaseUrl);
+            var userInfo = databaseUri.UserInfo.Split(':');
+
+            var builder = new NpgsqlConnectionStringBuilder
+            {
+                Host = databaseUri.Host,
+                Port = databaseUri.Port,
+                Username = userInfo[0],
+                Password = userInfo[1],
+                Database = databaseUri.LocalPath.TrimStart('/'),
+            };
+
+            string connectionString = builder.ToString();
+            connectionString = connectionString + ";SSL Mode=Require;Trust Server Certificate=true;";
+
+            Console.WriteLine("THE CONNECTION STRING IS " + connectionString);
+
+            services.AddDbContext<DataContext>(context => context.UseNpgsql(connectionString));
+
             services.AddControllersWithViews();
             services.AddControllers();
             services.AddAutoMapper(typeof(Startup));
@@ -121,7 +143,10 @@ namespace Api
 
             app.UseRouting();
 
-            app.UseCors(MyAllowSpecificOrigins);
+            if (env.IsDevelopment())
+            {
+                app.UseCors(MyAllowSpecificOrigins);
+            }
 
             app.UseAuthentication();
 
