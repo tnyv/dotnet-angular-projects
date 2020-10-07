@@ -11,7 +11,7 @@ export class CourseService {
   constructor(private http: HttpClient) {}
 
   private baseUrl = environment.production
-    ? "https://vutony.com/api/lms/"
+    ? "https://tonyvu.dev/api/lms/"
     : "http://localhost:58471/api/lms/";
 
   // registrations array only stores courseId's of user's registered courses

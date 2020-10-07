@@ -11,7 +11,7 @@ export class UserService {
   constructor(private http: HttpClient, private router: Router) {}
 
   private baseUrl = environment.production
-    ? "https://vutony.com/api/lms/user"
+    ? "https://tonyvu.dev/api/lms/user"
     : "http://localhost:58471/api/lms/user";
 
   users: User[];

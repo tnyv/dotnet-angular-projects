@@ -7,7 +7,7 @@ import { environment } from "src/environments/environment";
 })
 export class EmailService {
   private baseUrl = environment.production
-    ? "https://vutony.com/message"
+    ? "https://tonyvu.dev/message"
     : "http://localhost:58471/message";
 
   constructor(private http: HttpClient) {}
