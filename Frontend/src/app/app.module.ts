@@ -39,6 +39,7 @@ import { CoursesComponent } from "./lms/screens/courses/courses.component";
 import { AdminPanelComponent } from "./lms/components/admin-panel/admin-panel.component";
 import { RegistrationsComponent } from "./lms/components/registrations/registrations.component";
 import { SessionComponent } from "./lms/screens/session/session.component";
+import { LmsAdminComponent } from './lms/screens/lms-admin/lms-admin.component';
 
 @NgModule({
   declarations: [
@@ -66,6 +67,7 @@ import { SessionComponent } from "./lms/screens/session/session.component";
     AdminPanelComponent,
     RegistrationsComponent,
     SessionComponent,
+    LmsAdminComponent,
   ],
   imports: [
     BrowserModule,
