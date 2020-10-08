@@ -1,6 +1,9 @@
 nav {
   background-color: rgb(30, 30, 30);
   width: 100%;
+  position: fixed;
+  top: 0;
+  z-index: 1;
 }
 
 ul {

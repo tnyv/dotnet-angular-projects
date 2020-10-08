@@ -8,6 +8,7 @@
   justify-content: center;
   display: flex;
   overflow: hidden;
+  margin-top: 90px;
 }
 
 .box {
@@ -37,4 +38,8 @@
 h3 {
   color: #000;
   text-align: left;
+}
+
+button {
+  z-index: 0;
 }
