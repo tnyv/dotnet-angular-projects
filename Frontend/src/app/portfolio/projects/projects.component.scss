@@ -31,8 +31,10 @@
 }
 
 .grid .text {
+  position: relative;
   padding: 10px 20px 20px 30px;
   margin-bottom: 20px;
+  min-height: 450px;
 }
 
 h3 {
@@ -40,6 +42,7 @@ h3 {
   text-align: left;
 }
 
-button {
-  z-index: 0;
+.buttons {
+  position: absolute;
+  bottom: 0;
 }
