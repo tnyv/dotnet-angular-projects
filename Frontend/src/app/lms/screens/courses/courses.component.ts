@@ -3,6 +3,7 @@ import { CourseService } from "../../services/course/course.service";
 import { UserService } from "../../services/user/user.service";
 import { Router } from "@angular/router";
 import { HttpsService } from "../../../https.service";
+import { ToastrService } from "ngx-toastr";
 
 @Component({
   selector: "app-courses",
@@ -16,7 +17,8 @@ export class CoursesComponent implements OnInit {
     private router: Router,
     public httpCourse: CourseService,
     public httpUser: UserService,
-    private https: HttpsService
+    private https: HttpsService,
+    private toastr: ToastrService
   ) {}
 
   ngOnInit() {
@@ -57,6 +59,6 @@ export class CoursesComponent implements OnInit {
   enrollSuccess() {
     this.loading = false;
     this.ngOnInit();
-    alert("You have successfully enrolled in this course.")
+    this.toastr.success("You have successfully enrolled.", "SUCCESS");
   }
 }

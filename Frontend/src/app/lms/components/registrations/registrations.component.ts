@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { CourseService } from "../../services/course/course.service";
 import { Router } from "@angular/router";
+import { ToastrService } from "ngx-toastr";
 
 @Component({
   selector: "app-registrations",
@@ -13,7 +14,11 @@ export class RegistrationsComponent implements OnInit {
   unenrollId: number;
   loading: boolean = false;
 
-  constructor(public httpCourse: CourseService, private router: Router) {}
+  constructor(
+    public httpCourse: CourseService,
+    private router: Router,
+    public toastr: ToastrService
+  ) {}
 
   async ngOnInit() {
     await this.httpCourse.getUserCourses();
@@ -61,6 +66,7 @@ export class RegistrationsComponent implements OnInit {
     this.isUnenroll = false;
     this.loading = false;
     this.ngOnInit();
+    this.toastr.success("You have successfully unenrolled.", "SUCCESS");
   }
 
   unenrollStyle() {
