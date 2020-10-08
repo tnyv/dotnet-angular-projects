@@ -9,11 +9,9 @@ import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { HomeComponent } from "./portfolio/home/home.component";
-import { PortfolioNavComponent } from "./portfolio/portfolio-nav/portfolio-nav.component";
 import { MatToolbarModule } from "@angular/material/toolbar";
 import { MatIconModule } from "@angular/material/icon";
 import { MatListModule } from "@angular/material/list";
-import { HeaderComponent } from "./portfolio/header/header.component";
 import { ProjectsComponent } from "./portfolio/projects/projects.component";
 import { ContactComponent } from "./portfolio/contact/contact.component";
 import { ResumeComponent } from "./portfolio/resume/resume.component";
@@ -40,14 +38,13 @@ import { AdminPanelComponent } from "./lms/components/admin-panel/admin-panel.co
 import { RegistrationsComponent } from "./lms/components/registrations/registrations.component";
 import { SessionComponent } from "./lms/screens/session/session.component";
 import { LmsAdminComponent } from './lms/screens/lms-admin/lms-admin.component';
+import { NavComponent } from './portfolio/nav/nav.component';
 
 @NgModule({
   declarations: [
     // Home / Portfolio
     AppComponent,
     HomeComponent,
-    PortfolioNavComponent,
-    HeaderComponent,
     ProjectsComponent,
     ContactComponent,
     ResumeComponent,
@@ -68,6 +65,7 @@ import { LmsAdminComponent } from './lms/screens/lms-admin/lms-admin.component';
     RegistrationsComponent,
     SessionComponent,
     LmsAdminComponent,
+    NavComponent,
   ],
   imports: [
     BrowserModule,

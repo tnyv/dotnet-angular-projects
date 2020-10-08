@@ -2,14 +2,18 @@
   width: 100%;
   margin: auto;
   padding: 50px;
-  margin-top: 80px;
+  background-color: rgb(30, 30, 30);
 }
 
 .header {
-  font-size: 50px;
-  text-align: center;
+  text-align: left;
+  color: white;
 }
 
 .project-header {
   font-size: 35px;
+}
+
+.project-box{
+  border-radius: 15px;
 }
