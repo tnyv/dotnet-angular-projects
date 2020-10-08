@@ -8,7 +8,7 @@ nav {
 
 ul {
   margin: 0 auto;
-  padding: 0;
+  padding: 15px 0;
   list-style: none;
   display: table;
   width: 600px;
@@ -54,4 +54,16 @@ a:hover:after {
   background: #fff;
   width: 100%;
   left: 0;
+}
+
+@media only screen and (max-width: 1000px) {
+  ul {
+    width: 100%;
+  }
+  li {
+    padding: 0;
+  }
+}
+
+@media only screen and (max-width: 1000px) {
 }
