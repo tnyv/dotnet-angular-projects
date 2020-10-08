@@ -1,123 +1,139 @@
+<app-nav></app-nav>
+
 <div class="projects-container">
-  <h1 class="display-3 header">PROJECTS</h1>
-  <hr class="my-4" />
+  <div class="box">
+    <main class="grid">
+      <article>
+        <div class="text">
+          <h3>Learning Management System</h3>
 
-  <div class="row justify-content-center justify-content-around">
-    <div class="jumbotron col-md-5 col-sm-12 project-box">
-      <h1 class="display-4 project-header">Learning Management System</h1>
-      <p class="lead">
-        Technologies: C# (.NET Core 3.1) &#8226; TypeScript (Angular) &#8226;
-        PostgreSQL &#8226; Bootstrap
-      </p>
-      <hr class="my-4" />
-      <p>
-        This is a lite-weight learning management system I built with .NET and
-        Angular. It's essentially a mock Moodle or D2L website, but with much
-        less features. Some key lessons I've learned from developing this site
-        are implementing JWTs, JWT claims to associate data with specific users,
-        role-based authorized HTTP routes, and general C#/.NET practices like
-        using Data Transfer Objects, Automappers, and generics. In addition,
-        this project gave me a chance to develop the backend with .NET best
-        practices in mind, such as separation of concerns for controller, model,
-        data, service, and
-      </p>
-      <button
-        mat-raised-button
-        color="primary"
-        onClick="window.open('//github.com/tnyv/dotnet-angular-projects')"
-        [ngStyle]="{
-          marginRight: '10px'
-        }"
-      >
-        CODE
-      </button>
-      <button mat-raised-button color="accent" routerLink="/lms">DEMO</button>
-    </div>
+          <p class="lead">
+            Technologies: C# (.NET Core 3.1) &#8226; TypeScript (Angular)
+            &#8226; PostgreSQL
+          </p>
+          <hr class="my-3" />
+          <p>
+            This is a lite-weight learning management system I built with .NET
+            and Angular. It's essentially a mock Moodle or D2L website, but with
+            much less features. Some key lessons I've learned from developing
+            this site are implementing JWTs, JWT claims to associate data with
+            specific users, role-based authorized HTTP routes, and general
+            C#/.NET practices like using Data Transfer Objects, Automappers, and
+            generics. In addition, this project gave me a chance to develop the
+            backend with .NET best practices in mind, such as separation of
+            concerns for controller, model, data, and servcies.
+          </p>
+          <button
+            mat-raised-button
+            color="primary"
+            onClick="window.open('//github.com/tnyv/dotnet-angular-projects')"
+            [ngStyle]="{
+              marginRight: '10px'
+            }"
+          >
+            CODE
+          </button>
+          <button mat-raised-button color="accent" routerLink="/lms">
+            DEMO
+          </button>
+        </div>
+      </article>
 
-    <div class="jumbotron col-md-5 project-box">
-      <h1 class="display-4 project-header">POS System</h1>
-      <p class="lead">
-        Technologies: C# (.NET Core 3.1) &#8226; TypeScript (Angular) &#8226;
-        PostgreSQL
-      </p>
-      <hr class="my-4" />
-      <p>
-        This is a full stack online POS system for a fictional icecream shop
-        built with .NET and Angular. Some key lessons I learned from developing
-        this site was general Angular practices like utilizing dependency
-        injection for services, components vs modules, and utilizing ng methods
-        within html. In addition, I learned how to make basic HTTP calls from
-        the frontend to backend and how these processes behave (asynchronously).
-      </p>
-      <button
-        mat-raised-button
-        color="primary"
-        onClick="window.open('//github.com/tnyv/dotnet-angular-projects')"
-        [ngStyle]="{
-          marginRight: '10px'
-        }"
-      >
-        CODE
-      </button>
-      <button mat-raised-button color="accent" routerLink="/pos">DEMO</button>
-    </div>
+      <article>
+        <div class="text">
+          <h3>POS System</h3>
+          <p class="lead">
+            Technologies: C# (.NET Core 3.1) &#8226; TypeScript (Angular)
+            &#8226; PostgreSQL
+          </p>
+          <hr class="my-3" />
+          <p>
+            This is a full stack online POS system for a fictional icecream shop
+            built with .NET and Angular. Some key lessons I learned from
+            developing this site was general Angular practices like utilizing
+            dependency injection for services, components vs modules, and
+            utilizing ng methods within html. In addition, I learned how to make
+            basic HTTP calls from the frontend to backend and how these
+            processes behave (asynchronously).
+          </p>
+          <button
+            mat-raised-button
+            color="primary"
+            onClick="window.open('//github.com/tnyv/dotnet-angular-projects')"
+            [ngStyle]="{
+              marginRight: '10px'
+            }"
+          >
+            CODE
+          </button>
+          <button mat-raised-button color="accent" routerLink="/pos">
+            DEMO
+          </button>
+        </div>
+      </article>
 
-    <div class="jumbotron col-md-5 project-box">
-      <h1 class="display-4 project-header">Video Chat Website</h1>
-      <p class="lead">
-        Technologies: JavaScript &#8226; Express.js &#8226; MongoDB &#8226;
-        Bootstrap &#8226; EJS Templating
-      </p>
-      <hr class="my-4" />
-      <p>
-        This is an online video/chat website I made with ExpressJS, EJS
-        templating system, and Bootstrap 4. Some key lessons I learned from
-        developing this website were socket programming, Bootstrap fundamentals,
-        and Express/node basics.
-      </p>
-      <button
-        mat-raised-button
-        color="primary"
-        onClick="window.open('//github.com/tnyv/meetingspace')"
-        [ngStyle]="{
-          marginRight: '10px'
-        }"
-      >
-        CODE
-      </button>
-    </div>
+      <article>
+        <div class="text">
+          <h3>Video Chat Website</h3>
+          <p class="lead">
+            Technologies: JavaScript &#8226; Express.js &#8226; MongoDB &#8226;
+            Bootstrap &#8226; EJS Templating
+          </p>
+          <hr class="my-3" />
+          <p>
+            This is an online video/chat website I made with ExpressJS, EJS
+            templating system, and Bootstrap 4. Some key lessons I learned from
+            developing this website were socket programming, Bootstrap
+            fundamentals, and Express/node basics.
+          </p>
+          <button
+            mat-raised-button
+            color="primary"
+            onClick="window.open('//github.com/tnyv/meetingspace')"
+            [ngStyle]="{
+              marginRight: '10px'
+            }"
+          >
+            CODE
+          </button>
+        </div>
+      </article>
 
-    <div class="jumbotron col-md-5 project-box">
-      <h1 class="display-4 project-header">First Portfolio Website</h1>
-      <p class="lead">
-        Technologies: JavaScript &#8226; HTML &#8226; SASS &#8226; PHP
-      </p>
-      <hr class="my-4" />
-      <p>
-        This was my first portfolio website that I developed with vanilla
-        JavaScript, HTML, SASS, and a hint of PHP. I included it in my list of
-        projects because it taught me a lot of fundamental lessons about web
-        development, such as why it's a good idea to use styling frameworks such
-        as Bootstrap to save time on responsive UI implementations, basic JS DOM
-        element manipulation for UX, and handling form submissions with PHP.
-      </p>
-      <button
-        mat-raised-button
-        color="primary"
-        onClick="window.open('//github.com/tnyv/old-portfolio')"
-        [ngStyle]="{
-          marginRight: '10px'
-        }"
-      >
-        CODE
-      </button>
-      <button
-        mat-raised-button
-        color="accent"
-        onClick="window.open('//old-portfolio.000webhostapp.com')"
-      >
-        DEMO
-      </button>
-    </div>
+      <article>
+        <div class="text">
+          <h3>First Portfolio Website</h3>
+          <p class="lead">
+            Technologies: JavaScript &#8226; HTML &#8226; SASS &#8226; PHP
+          </p>
+          <hr class="my-3" />
+          <p>
+            This was my first portfolio website that I developed with vanilla
+            JavaScript, HTML, SASS, and a hint of PHP. I included it in my list
+            of projects because it taught me a lot of fundamental lessons about
+            web development, such as why it's a good idea to use styling
+            frameworks such as Bootstrap to save time on responsive UI
+            implementations, basic JS DOM element manipulation for UX, and
+            handling form submissions with PHP.
+          </p>
+          <button
+            mat-raised-button
+            color="primary"
+            onClick="window.open('//github.com/tnyv/old-portfolio')"
+            [ngStyle]="{
+              marginRight: '10px'
+            }"
+          >
+            CODE
+          </button>
+          <button
+            mat-raised-button
+            color="accent"
+            onClick="window.open('//old-portfolio.000webhostapp.com')"
+          >
+            DEMO
+          </button>
+        </div>
+      </article>
+    </main>
   </div>
 </div>

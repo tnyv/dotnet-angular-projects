@@ -9,8 +9,11 @@ import { RegisterUserComponent } from "./lms/screens/register-user/register-user
 import { CoursesComponent } from "./lms/screens/courses/courses.component";
 import { SessionComponent } from "./lms/screens/session/session.component";
 import { LmsAdminComponent } from "./lms/screens/lms-admin/lms-admin.component";
+import { ProjectsComponent} from "./portfolio/projects/projects.component";
+
 const routes: Routes = [
   { path: "", component: HomeComponent },
+  { path: "projects", component: ProjectsComponent },
 
   // Pos
   { path: "pos", component: PosSalesUIComponent },
