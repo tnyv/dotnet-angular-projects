@@ -10,6 +10,7 @@ import { HomeComponent } from "./portfolio/home/home.component";
 import { ProjectsComponent } from "./portfolio/projects/projects.component";
 import { ContactComponent } from "./portfolio/contact/contact.component";
 import { ResumeComponent } from "./portfolio/resume/resume.component";
+import { PortfolioState } from "./portfolio/portfolio-state";
 
 // POS
 import { ToastrModule } from "ngx-toastr";
@@ -73,7 +74,7 @@ import { NavComponent } from './portfolio/nav/nav.component';
     }),
 
   ],
-  providers: [PosGlobals, RegisterService],
+  providers: [PosGlobals, RegisterService, PortfolioState],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

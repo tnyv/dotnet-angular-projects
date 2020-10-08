@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PortfolioState } from "../portfolio-state";
 
 @Component({
   selector: 'app-nav',
@@ -7,9 +8,31 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavComponent implements OnInit {
 
-  constructor() { }
+  constructor(public state: PortfolioState) { }
 
   ngOnInit() {
   }
+
+    // Method returns style class based on navbar Global's state
+    setNavAbout() {
+      let activeClass = {
+        aboutActive: this.state.page === "about",
+      };
+      return activeClass;
+    }
+  
+    setNavProjects() {
+      let activeClass = {
+        projectsActive: this.state.page === "projects",
+      };
+      return activeClass;
+    }
+
+    setNavContact() {
+      let activeClass = {
+        contactActive: this.state.page === "contact",
+      };
+      return activeClass;
+    }
 
 }
