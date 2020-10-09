@@ -1,6 +1,3 @@
-
-
-
 .projects-container {
   background-color: rgb(30, 30, 30);
   width: 100%;
@@ -28,6 +25,15 @@
   box-shadow: 3px 3px 6px 0px rgba(187, 163, 206, 1);
   background-color: #fff;
   padding: 5% 0;
+}
+
+@media only screen and (max-width: 420px) {
+  .grid > article {
+    box-shadow: 3px 3px 6px 0px rgb(0, 0, 0);
+    background-color: #fff;
+    padding: 5% 0;
+    margin: 30px;
+  }
 }
 
 .grid .text {

@@ -40,3 +40,9 @@
 .resume:hover {
   cursor: pointer;
 }
+
+@media only screen and (max-width: 420px) {
+  .centered-box {
+    top: 45%;
+  }
+}
