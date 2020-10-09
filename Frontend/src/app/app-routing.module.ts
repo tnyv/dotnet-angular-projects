@@ -1,8 +1,6 @@
 import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
 import { HomeComponent } from "./portfolio/home/home.component";
-import { ProjectsComponent} from "./portfolio/projects/projects.component";
-import { ContactComponent} from "./portfolio/contact/contact.component";
 import { PosSalesUIComponent } from "./pos/components/sales-ui/sales-ui.component";
 import { PosAdminUIComponent } from "./pos/components/admin-ui/admin-ui.component";
 import { LmsHomeComponent } from "./lms/screens/lms-home/lms-home.component";
@@ -11,12 +9,8 @@ import { RegisterUserComponent } from "./lms/screens/register-user/register-user
 import { CoursesComponent } from "./lms/screens/courses/courses.component";
 import { SessionComponent } from "./lms/screens/session/session.component";
 import { LmsAdminComponent } from "./lms/screens/lms-admin/lms-admin.component";
-
-
 const routes: Routes = [
   { path: "", component: HomeComponent },
-  { path: "projects", component: ProjectsComponent },
-  { path: "contact", component: ContactComponent },
 
   // Pos
   { path: "pos", component: PosSalesUIComponent },

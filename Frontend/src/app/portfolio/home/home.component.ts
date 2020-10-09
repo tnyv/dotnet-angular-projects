@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { PortfolioState } from "../portfolio-state";
+import { HttpsService } from "../../https.service";
 
 @Component({
   selector: "app-home",
@@ -7,9 +7,9 @@ import { PortfolioState } from "../portfolio-state";
   styleUrls: ["./home.component.scss"],
 })
 export class HomeComponent implements OnInit {
-  constructor(public state: PortfolioState) {
-    state.page = "about"
-  }
+  constructor(private https: HttpsService) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.https.enforce();
+  }
 }

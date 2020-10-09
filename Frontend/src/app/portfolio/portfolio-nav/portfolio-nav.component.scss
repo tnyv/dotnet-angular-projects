@@ -1,0 +1,53 @@
+.sidenav-container {
+  height: 100%;
+}
+
+.sidenav {
+  background: #1e1e1e;
+  width: 200px;
+}
+
+.sidenav .mat-toolbar {
+  background: #1e1e1e;
+}
+
+.mat-toolbar.mat-primary {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.nav-list {
+  background: #1e1e1e;
+}
+
+.header-image {
+  background-image: url("/assets/portfolio/images/mypic.jpg");
+  background-size: cover;
+  padding: 70px;
+  border-radius: 50%;
+  justify-content: center;
+}
+
+.toolBar1 {
+  background-color: transparent;
+  position: sticky;
+  position: -webkit-sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.burger {
+  background-color: #fdfdfd;
+}
+
+.nav-text {
+  color: white;
+  text-align: center;
+  margin: auto;
+  width: 100%;
+}
+
+.nav-text:hover {
+  background:#2581DC;
+}

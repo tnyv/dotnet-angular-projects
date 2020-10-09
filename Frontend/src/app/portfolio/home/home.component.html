@@ -1,25 +1,8 @@
-<app-nav></app-nav>
-<div class="home-container">
-  <div class="centered-box">
-    <div>Hi, my name is Tony.</div>
-    <div>I'm a c# and angular developer.</div>
-    <div>
-      You can view my resume
-      <span onClick="window.open('/assets/resume.pdf')" class="resume">here</span
-      >.
-    </div>
-    <br />
-    <div>
-      <i
-        onClick="window.open('//github.com/tnyv')"
-        class="fab fa-github github"
-      ></i>
-    </div>
-    <div>
-      <i
-        onClick="window.open('//linkedin.com/in/tnyv/')"
-        class="fab fa-linkedin-in linkedin"
-      ></i>
-    </div>
+<app-portfolio-nav>
+  <div>
+    <app-header></app-header>
+    <app-projects id="projects"></app-projects>
+    <app-resume id="resume"></app-resume>
+    <app-contact id="contact"></app-contact>
   </div>
-</div>
+</app-portfolio-nav>

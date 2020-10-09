@@ -1,6 +1,5 @@
 import { Component, OnInit } from "@angular/core";
 import { EmailService } from "../services/email.service";
-import { PortfolioState } from "../portfolio-state";
 
 @Component({
   selector: "app-contact",
@@ -8,12 +7,7 @@ import { PortfolioState } from "../portfolio-state";
   styleUrls: ["./contact.component.scss"],
 })
 export class ContactComponent implements OnInit {
-  constructor(
-    public emailService: EmailService,
-    public state: PortfolioState
-  ) {
-    state.page = "contact"
-  }
+  constructor(public emailService: EmailService) {}
 
   name: string = "";
   email: string = "";

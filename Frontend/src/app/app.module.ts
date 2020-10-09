@@ -3,14 +3,21 @@ import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
 import { FormsModule } from "@angular/forms";
 import { HttpClientModule } from "@angular/common/http";
+import { MatButtonModule } from "@angular/material/button";
+import { MatSidenavModule } from "@angular/material/sidenav";
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { HomeComponent } from "./portfolio/home/home.component";
+import { PortfolioNavComponent } from "./portfolio/portfolio-nav/portfolio-nav.component";
+import { MatToolbarModule } from "@angular/material/toolbar";
+import { MatIconModule } from "@angular/material/icon";
+import { MatListModule } from "@angular/material/list";
+import { HeaderComponent } from "./portfolio/header/header.component";
 import { ProjectsComponent } from "./portfolio/projects/projects.component";
 import { ContactComponent } from "./portfolio/contact/contact.component";
 import { ResumeComponent } from "./portfolio/resume/resume.component";
-import { PortfolioState } from "./portfolio/portfolio-state";
+import { ParticlesModule } from "angular-particle";
 
 // POS
 import { ToastrModule } from "ngx-toastr";
@@ -33,13 +40,14 @@ import { AdminPanelComponent } from "./lms/components/admin-panel/admin-panel.co
 import { RegistrationsComponent } from "./lms/components/registrations/registrations.component";
 import { SessionComponent } from "./lms/screens/session/session.component";
 import { LmsAdminComponent } from './lms/screens/lms-admin/lms-admin.component';
-import { NavComponent } from './portfolio/nav/nav.component';
 
 @NgModule({
   declarations: [
     // Home / Portfolio
     AppComponent,
     HomeComponent,
+    PortfolioNavComponent,
+    HeaderComponent,
     ProjectsComponent,
     ContactComponent,
     ResumeComponent,
@@ -60,21 +68,25 @@ import { NavComponent } from './portfolio/nav/nav.component';
     RegistrationsComponent,
     SessionComponent,
     LmsAdminComponent,
-    NavComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     BrowserAnimationsModule,
+    MatButtonModule,
+    MatSidenavModule,
+    MatToolbarModule,
+    MatIconModule,
+    MatListModule,
     HttpClientModule,
     ToastrModule.forRoot({
       timeOut: 3000,
       preventDuplicates: true,
     }),
-
+    ParticlesModule,
   ],
-  providers: [PosGlobals, RegisterService, PortfolioState],
+  providers: [PosGlobals, RegisterService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

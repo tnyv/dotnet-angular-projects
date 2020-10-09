@@ -1,5 +1,4 @@
 import { Component, OnInit } from "@angular/core";
-import { PortfolioState } from "../portfolio-state";
 
 @Component({
   selector: "app-projects",
@@ -7,9 +6,7 @@ import { PortfolioState } from "../portfolio-state";
   styleUrls: ["./projects.component.scss"],
 })
 export class ProjectsComponent implements OnInit {
-  constructor(public state: PortfolioState) {
-    state.page = "projects"
-  }
+  constructor() {}
 
   ngOnInit() {}
 }

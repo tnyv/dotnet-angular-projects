@@ -1,91 +1,16 @@
 .projects-container {
-  background-color: rgb(30, 30, 30);
   width: 100%;
-  min-height: 100%;
-  justify-content: center;
-  display: flex;
-  overflow: hidden;
-  margin-top: 100px;
-}
-
-.spacer {
-  position: absolute;
-  top: 0;
-  width: 100%;
-  height: 200px;
-  background-color: rgb(30, 30, 30);
-  z-index: -1;
-}
-
-.box {
-  border-radius: 10px;
-  padding: 30px;
-  max-width: 1500px;
+  margin: auto;
+  padding: 50px;
   background-color: rgb(30, 30, 30);
 }
 
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
-  grid-gap: 30px;
+.header {
+  font-size: 50px;
+  text-align: center;
+  color: white;
 }
 
-.grid > article {
-  box-shadow: 3px 3px 6px 0px rgba(187, 163, 206, 1);
-  background-color: #fff;
-  padding: 5% 0;
-}
-
-@media only screen and (max-width: 420px) {
-  .grid > article {
-    box-shadow: 3px 3px 6px 0px rgb(0, 0, 0);
-    background-color: #fff;
-    padding: 5% 0;
-    margin: 30px;
-  }
-}
-
-.grid .text {
-  position: relative;
-  padding: 10px 20px 20px 30px;
-  margin-bottom: 20px;
-  min-height: 450px;
-}
-
-h3 {
-  color: #000;
-  text-align: left;
-}
-
-.buttons {
-  position: absolute;
-  bottom: 0;
-}
-
-button {
-  color: rgb(0, 0, 0);
-  text-transform: uppercase;
-  text-decoration: none;
-  letter-spacing: 0.15em;
-  border: none;
-  display: inline-block;
-  padding: 15px 20px;
-  position: relative;
-  background-color: #fff;
-}
-button:after {
-  background: none repeat scroll 0 0 transparent;
-  bottom: 0;
-  content: "";
-  display: block;
-  height: 2px;
-  left: 50%;
-  position: absolute;
-  background: rgb(0, 0, 0);
-  transition: width 0.3s ease 0s, left 0.3s ease 0s;
-  width: 0;
-}
-button:hover:after {
-  width: 100%;
-  left: 0;
+.project-header {
+  font-size: 35px;
 }
