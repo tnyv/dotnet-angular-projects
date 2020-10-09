@@ -8,6 +8,16 @@
     [opened]="(isHandset$ | async) === false"
   >
     <mat-nav-list class="nav-list">
+      <a href="">
+        <mat-toolbar
+          [ngStyle]="{
+            justifyContent: 'center',
+            height: '160px',
+            marginTop: '16px'
+          }"
+          ><img class="header-image"
+        /></mat-toolbar>
+      </a>
       <a
         mat-list-item
         href="#"
