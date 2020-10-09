@@ -5,7 +5,6 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using AutoMapper;
 using System.IO;
-using Api.Apps.Portfolio.Services;
 using Api.Apps;
 using Microsoft.EntityFrameworkCore;
 using Lms.Services.UserService;
@@ -40,28 +39,11 @@ namespace Api {
                 options.EnableForHttps = true;
             });
 
-            // Configured Heroku postgres DB connection
-            var databaseUrl = Configuration["DATABASE_URL"];
-            var databaseUri = new Uri(databaseUrl);
-            var userInfo = databaseUri.UserInfo.Split(':');
-
-            var builder = new NpgsqlConnectionStringBuilder {
-                Host = databaseUri.Host,
-                Port = databaseUri.Port,
-                Username = userInfo[0],
-                Password = userInfo[1],
-                Database = databaseUri.LocalPath.TrimStart('/'),
-            };
-
-            string connectionString = builder.ToString();
-            connectionString = connectionString + ";SSL Mode=Require;Trust Server Certificate=true;";
-
-            services.AddDbContext<DataContext>(context => context.UseNpgsql(connectionString));
+            services.AddDbContext<DataContext>(context => context.UseNpgsql(Configuration["dbString"]));
 
             services.AddControllersWithViews();
             services.AddControllers();
             services.AddAutoMapper(typeof(Startup));
-            services.AddScoped<IMessageService, MessageService>();
             services.AddScoped<IUserService, UserService>();
             services.AddScoped<ICourseService, CourseService>();
             services.AddScoped<IRegistrationService, RegistrationService>();

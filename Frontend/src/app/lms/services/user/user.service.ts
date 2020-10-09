@@ -10,9 +10,7 @@ import { environment } from "src/environments/environment";
 export class UserService {
   constructor(private http: HttpClient, private router: Router) {}
 
-  private baseUrl = environment.production
-    ? "https://tonyvu.dev/api/lms/user"
-    : "http://localhost:58471/api/lms/user";
+  private baseUrl =  "http://localhost:58471/api/lms/user";
 
   users: User[];
 

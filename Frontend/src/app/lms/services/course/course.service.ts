@@ -11,9 +11,7 @@ import { Router } from "@angular/router";
 export class CourseService {
   constructor(private http: HttpClient, private router: Router) {}
 
-  private baseUrl = environment.production
-    ? "https://tonyvu.dev/api/lms/"
-    : "http://localhost:58471/api/lms/";
+  private baseUrl = "http://localhost:58471/api/lms/";
 
   // registrations array only stores courseId's of user's registered courses
   // registeredCourses stores entire courses based on what is inside of registrations array
